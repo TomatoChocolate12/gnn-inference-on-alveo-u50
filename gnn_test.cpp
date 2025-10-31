@@ -22,7 +22,7 @@
 
 // Include the HLS kernel. The path is relative from the top-level
 // directory where 'vitis-run' will be executed.
-#include "../kernel/gcn_hls.cpp" 
+#include "/kernel/gnn_hls.cpp" 
 
 // --- Golden CPU computation (Reference) ---
 // This logic MUST match the HLS kernel's logic.
