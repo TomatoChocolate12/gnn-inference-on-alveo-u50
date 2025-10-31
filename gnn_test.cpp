@@ -6,7 +6,7 @@
  * This file is used ONLY for C-Simulation and C/RTL Co-simulation
  * inside the Vitis HLS tool. It follows the 'vadd_tb.cpp' pattern.
  *
- * 1. Declares the kernel function 'gcn_layer_hls'.
+ * 1. Includes the kernel *header* file 'gcn_hls.h'.
  * 2. Allocates memory for inputs and outputs.
  * 3. Populates inputs with placeholder data.
  * 4. Computes a "golden" CPU-based result for comparison.
@@ -20,9 +20,9 @@
 #include <cmath> // For std::abs
 #include <cstdlib> // for rand()
 
-// Include the HLS kernel. The path is relative from the top-level
-// directory where 'vitis-run' will be executed.
-#include "/kernel/gnn_hls.cpp" 
+// Include the HLS kernel *header* file, NOT the .cpp file
+// This line is the fix for the duplicate symbol error.
+#include "../kernel/gnn_hls.h" 
 
 // --- Golden CPU computation (Reference) ---
 // This logic MUST match the HLS kernel's logic.

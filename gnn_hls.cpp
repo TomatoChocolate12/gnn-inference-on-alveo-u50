@@ -11,16 +11,10 @@
  * - store_result: Reads output stream and writes to global memory.
  */
 
-#include <hls_stream.h>
-#include <ap_fixed.h> // Using floats, but this is good to know
+// Include the new header file
+#include "gnn_hls.h" 
 
-// --- Define Kernel Constants ---
-// These MUST match the host code and testbench
-const int NUM_NODES = 2708;
-const int NUM_EDGES_NNZ = 10556; // Non-zero entries in adj matrix
-const int IN_FEATURES = 1433;
-const int OUT_FEATURES = 16;
-typedef float hls_dtype;
+// --- Constants are now defined in gcn_hls.h ---
 
 
 //------------------------------------------------------------------
@@ -93,11 +87,12 @@ static void compute_gcn(
 ) {
     // --- Buffer inputs on-chip ---
     // These buffers are essential for HLS to build an efficient datapath.
-    hls_dtype h_in_buf[NUM_NODES][IN_FEATURES];
-    hls_dtype w_buf[IN_FEATURES][OUT_FEATURES];
-    hls_dtype adj_val_buf[NUM_EDGES_NNZ];
-    int adj_col_buf[NUM_EDGES_NNZ];
-    int adj_row_buf[NUM_NODES + 1];
+    // **NOTE: 'static' is critical here to infer BRAM/URAM instead of stack.**
+    static hls_dtype h_in_buf[NUM_NODES][IN_FEATURES];
+    static hls_dtype w_buf[IN_FEATURES][OUT_FEATURES];
+    static hls_dtype adj_val_buf[NUM_EDGES_NNZ];
+    static int adj_col_buf[NUM_EDGES_NNZ];
+    static int adj_row_buf[NUM_NODES + 1];
 
     // Partition arrays for parallel access
     #pragma HLS ARRAY_PARTITION variable=h_in_buf complete dim=2
@@ -139,7 +134,7 @@ static void compute_gcn(
 
     // 1. SpMM (Aggregation: H_agg = A * H)
     // We create an intermediate buffer for the aggregated features.
-    hls_dtype aggregated_features[NUM_NODES][IN_FEATURES];
+    static hls_dtype aggregated_features[NUM_NODES][IN_FEATURES];
     #pragma HLS ARRAY_PARTITION variable=aggregated_features complete dim=2
 
     // Initialize aggregate buffer to zeros
