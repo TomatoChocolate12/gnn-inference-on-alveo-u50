@@ -1,90 +1,31 @@
 /**
- * @file gcn_host.cpp
- * @brief Host application for the GCN HLS kernel.
+ * @file gcn_hls_tb.cpp
+ * @brief HLS C-Simulation Testbench for the GCN kernel.
+ * (Placed in tb/ directory)
  *
- * This C++ application runs on the host CPU (x86 or ARM).
- * It uses the OpenCL C++ bindings (managed by XRT) to:
- * 1. Load the graph data (from a "database" or files).
- * 2. Find and program the FPGA with the .xclbin file.
- * 3. Allocate buffers on the FPGA's global memory.
- * 4. Transfer graph data to the FPGA.
- * 5. Set the arguments for the 'gcn_layer_hls' kernel.
- * 6. Run the kernel and measure its performance.
- * 7. Read back the results and verify them.
+ * This file is used ONLY for C-Simulation and C/RTL Co-simulation
+ * inside the Vitis HLS tool. It follows the 'vadd_tb.cpp' pattern.
+ *
+ * 1. Declares the kernel function 'gcn_layer_hls'.
+ * 2. Allocates memory for inputs and outputs.
+ * 3. Populates inputs with placeholder data.
+ * 4. Computes a "golden" CPU-based result for comparison.
+ * 5. Calls the HLS kernel function (Design Under Test).
+ * 6. Compares the HLS kernel's output to the golden result.
+ * 7. Returns 0 on success (match) or 1 on failure (mismatch).
  */
 
-// XRT/OpenCL headers
-// Make sure to include the XRT and OpenCL include paths during compilation
-#define CL_HPP_CL_1_2_DEFAULT_BUILD
-#define CL_HPP_TARGET_OPENCL_VERSION 120
-#define CL_HPP_MINIMUM_OPENCL_VERSION 120
-#define CL_HPP_ENABLE_PROGRAM_CONSTRUCTION_FAILURE_ERRORS 1
-#include <CL/cl2.hpp>
 #include <iostream>
 #include <vector>
-#include <fstream
-#include <chrono>
+#include <cmath> // For std::abs
+#include <cstdlib> // for rand()
 
-// --- Use the same constants as the HLS kernel ---
-// This ensures host and kernel memory allocations match.
-const int NUM_NODES = 2708;
-const int NUM_EDGES_NNZ = 10556;
-const int IN_FEATURES = 1433;
-const int OUT_FEATURES = 16;
-typedef float hls_dtype;
+// Include the HLS kernel. The path is relative from the top-level
+// directory where 'vitis-run' will be executed.
+#include "../kernel/gcn_hls.cpp" 
 
-// --- Helper function to load the .xclbin file ---
-std::vector<unsigned char> read_xclbin(const std::string& xclbin_path) {
-    std::ifstream bin_file(xclbin_path, std::ifstream::binary);
-    if (!bin_file.is_open()) {
-        throw std::runtime_error("Could not open xclbin file: " + xclbin_path);
-    }
-    bin_file.seekg(0, bin_file.end);
-    auto nb = bin_file.tellg();
-    bin_file.seekg(0, bin_file.beg);
-    std::vector<unsigned char> buf(nb);
-    bin_file.read(reinterpret_cast<char*>(buf.data()), nb);
-    return buf;
-}
-
-// --- Placeholder for your data loading logic ---
-void load_graph_data_from_database(
-    std::vector<hls_dtype>& h_in,
-    std::vector<hls_dtype>& w,
-    std::vector<hls_dtype>& adj_values,
-    std::vector<int>& adj_col_indices,
-    std::vector<int>& adj_row_ptr
-) {
-    std::cout << "Info: Loading graph data from 'database' (using placeholders)..." << std::endl;
-    // ---
-    // In a real application, you would load your data from files
-    // (e.g., .csv, .npy, or a graph database) here and populate
-    // the host-side vectors.
-    // ---
-    // Using dummy data for demonstration:
-    h_in.assign(NUM_NODES * IN_FEATURES, 1.0f); // Dummy features
-    w.assign(IN_FEATURES * OUT_FEATURES, 0.5f); // Dummy weights
-    adj_values.assign(NUM_EDGES_NNZ, 1.0f);      // Dummy adj values
-    adj_col_indices.assign(NUM_EDGES_NNZ, 0);    // Dummy adj cols
-    adj_row_ptr.assign(NUM_NODES + 1, 0);        // Dummy adj rows
-    
-    // Create a simple identity matrix in CSR for adj_row_ptr and adj_col_indices
-    // This is just to have valid data.
-    for(int i = 0; i < NUM_NODES; ++i) {
-        adj_row_ptr[i] = i;
-        adj_col_indices[i] = i; // Self-loop
-        adj_values[i] = 1.0;
-    }
-    adj_row_ptr[NUM_NODES] = NUM_NODES;
-    // Fill remaining dummy values
-    for(int i = NUM_NODES; i < NUM_EDGES_NNZ; ++i) {
-         adj_col_indices[i] = 0;
-         adj_values[i] = 0.0;
-    }
-    std::cout << "Info: Dummy graph data loaded." << std::endl;
-}
-
-// --- Placeholder for CPU-based verification ---
+// --- Golden CPU computation (Reference) ---
+// This logic MUST match the HLS kernel's logic.
 void compute_golden_result_on_cpu(
     const std::vector<hls_dtype>& h_in,
     const std::vector<hls_dtype>& w,
@@ -93,8 +34,7 @@ void compute_golden_result_on_cpu(
     const std::vector<int>& adj_row_ptr,
     std::vector<hls_dtype>& h_out_golden
 ) {
-    std::cout << "Info: Computing golden result on CPU for verification..." << std::endl;
-    // This logic should exactly match your HLS kernel's logic.
+    std::cout << "Info: TB computing golden result..." << std::endl;
     std::vector<hls_dtype> aggregated_features(NUM_NODES * IN_FEATURES, 0.0f);
 
     // 1. Aggregation (SpMM)
@@ -121,132 +61,89 @@ void compute_golden_result_on_cpu(
             h_out_golden[i * OUT_FEATURES + f_out] = (sum > 0.0) ? sum : 0.0;
         }
     }
-     std::cout << "Info: CPU golden result computed." << std::endl;
+    std::cout << "Info: TB golden result computed." << std::endl;
 }
 
-// --- Main Host Function ---
-int main(int argc, char* argv[]) {
-    if (argc != 2) {
-        std::cout << "Usage: " << argv[0] << " <path_to_xclbin>" << std::endl;
-        return EXIT_FAILURE;
+// --- HLS Testbench Main Function ---
+int main() {
+    std::cout << "Info: Starting HLS C-Simulation Testbench..." << std::endl;
+
+    // --- 1. Allocate and Populate Host-side Memory ---
+    // Use std::vector for easy memory management, just like vadd_tb.cpp
+    std::vector<hls_dtype> h_in_vec(NUM_NODES * IN_FEATURES);
+    std::vector<hls_dtype> w_vec(IN_FEATURES * OUT_FEATURES);
+    std::vector<hls_dtype> adj_values_vec(NUM_EDGES_NNZ);
+    std::vector<int> adj_col_indices_vec(NUM_EDGES_NNZ);
+    std::vector<int> adj_row_ptr_vec(NUM_NODES + 1);
+    
+    // Output from HLS kernel
+    std::vector<hls_dtype> h_out_hls_vec(NUM_NODES * OUT_FEATURES);
+    // Output from golden reference
+    std::vector<hls_dtype> h_out_golden_vec(NUM_NODES * OUT_FEATURES);
+
+    // --- 2. Populate with Dummy Data ---
+    std::cout << "Info: TB loading dummy data..." << std::endl;
+    // Use simple, predictable data for easy debugging
+    srand(42); // Seed for reproducibility
+    for(size_t i = 0; i < h_in_vec.size(); ++i) h_in_vec[i] = (rand() % 10) * 0.1f + 0.1f;
+    for(size_t i = 0; i < w_vec.size(); ++i) w_vec[i] = (rand() % 5) * 0.01f;
+    
+    // Create a simple adjacency matrix (e.g., self-loops)
+    for(int i = 0; i < NUM_NODES; ++i) {
+        adj_row_ptr_vec[i] = i;
+        adj_col_indices_vec[i] = i; // Self-loop
+        adj_values_vec[i] = 1.0;    // Normalized self-loop
     }
-    std::string xclbin_path = argv[1];
+    adj_row_ptr_vec[NUM_NODES] = NUM_NODES;
+    // Fill remaining edges (if any) to avoid uninitialized data
+    for(int i = NUM_NODES; i < NUM_EDGES_NNZ; ++i) {
+         adj_col_indices_vec[i] = 0;
+         adj_values_vec[i] = 0.0;
+    }
+    std::cout << "Info: TB dummy data loaded." << std::endl;
 
-    // --- 1. Load Data from "Database" ---
-    // Host-side memory containers
-    std::vector<hls_dtype> h_in(NUM_NODES * IN_FEATURES);
-    std::vector<hls_dtype> w(IN_FEATURES * OUT_FEATURES);
-    std::vector<hls_dtype> adj_values(NUM_EDGES_NNZ);
-    std::vector<int> adj_col_indices(NUM_EDGES_NNZ);
-    std::vector<int> adj_row_ptr(NUM_NODES + 1);
-    std::vector<hls_dtype> h_out(NUM_NODES * OUT_FEATURES);
-    
-    // Populate these vectors with your graph data
-    load_graph_data_from_database(h_in, w, adj_values, adj_col_indices, adj_row_ptr);
+    // --- 3. Run Golden CPU Model ---
+    compute_golden_result_on_cpu(
+        h_in_vec, w_vec, adj_values_vec, adj_col_indices_vec, adj_row_ptr_vec,
+        h_out_golden_vec
+    );
 
-    // --- 2. OpenCL/XRT Setup ---
-    std::cout << "Info: Setting up OpenCL/XRT environment." << std::endl;
-    cl_int err;
-    std::vector<cl::Platform> platforms;
-    cl::Platform::get(&platforms);
-    cl::Platform platform = platforms[0]; // Assuming first platform is Xilinx
-    
-    std::vector<cl::Device> devices;
-    platform.getDevices(CL_DEVICE_TYPE_ACCELERATOR, &devices);
-    cl::Device device = devices[0]; // Assuming one device
-    
-    cl::Context context(device, NULL, NULL, NULL, &err);
-    cl::CommandQueue q(context, device, CL_QUEUE_PROFILING_ENABLE, &err);
-    
-    // Load the .xclbin
-    std::vector<unsigned char> xclbin = read_xclbin(xclbin_path);
-    cl::Program::Binaries bins{{xclbin.data(), xclbin.size()}};
-    cl::Program program(context, {device}, bins, NULL, &err);
-    cl::Kernel kernel(program, "gcn_layer_hls", &err);
-    
-    std::cout << "Info: FPGA programmed with " << xclbin_path << std::endl;
+    // --- 4. Run HLS Kernel Function (The "DUT" - Design Under Test) ---
+    // We pass raw pointers (using .data()) to the HLS function,
+    // matching the 'vadd' testbench pattern.
+    std::cout << "Info: Calling HLS kernel function 'gcn_layer_hls'..." << std::endl;
+    gcn_layer_hls(
+        h_in_vec.data(),
+        w_vec.data(),
+        adj_values_vec.data(),
+        adj_col_indices_vec.data(),
+        adj_row_ptr_vec.data(),
+        h_out_hls_vec.data()
+    );
+    std::cout << "Info: HLS kernel function finished." << std::endl;
 
-    // --- 3. Allocate Buffers on FPGA Device Memory ---
-    std::cout << "Info: Allocating buffers on FPGA." << std::endl;
-    cl::Buffer d_h_in(context, CL_MEM_READ_ONLY, sizeof(hls_dtype) * h_in.size(), NULL, &err);
-    cl::Buffer d_w(context, CL_MEM_READ_ONLY, sizeof(hls_dtype) * w.size(), NULL, &err);
-    cl::Buffer d_adj_values(context, CL_MEM_READ_ONLY, sizeof(hls_dtype) * adj_values.size(), NULL, &err);
-    cl::Buffer d_adj_col_indices(context, CL_MEM_READ_ONLY, sizeof(int) * adj_col_indices.size(), NULL, &err);
-    cl::Buffer d_adj_row_ptr(context, CL_MEM_READ_ONLY, sizeof(int) * adj_row_ptr.size(), NULL, &err);
-    cl::Buffer d_h_out(context, CL_MEM_WRITE_ONLY, sizeof(hls_dtype) * h_out.size(), NULL, &err);
-
-    // --- 4. Transfer Data from Host RAM to FPGA Buffers ---
-    std::cout << "Info: Transferring data from Host to FPGA..." << std::endl;
-    auto start_transfer_host_to_dev = std::chrono::high_resolution_clock::now();
-    q.enqueueWriteBuffer(d_h_in, CL_TRUE, 0, sizeof(hls_dtype) * h_in.size(), h_in.data());
-    q.enqueueWriteBuffer(d_w, CL_TRUE, 0, sizeof(hls_dtype) * w.size(), w.data());
-    q.enqueueWriteBuffer(d_adj_values, CL_TRUE, 0, sizeof(hls_dtype) * adj_values.size(), adj_values.data());
-    q.enqueueWriteBuffer(d_adj_col_indices, CL_TRUE, 0, sizeof(int) * adj_col_indices.size(), adj_col_indices.data());
-    q.enqueueWriteBuffer(d_adj_row_ptr, CL_TRUE, 0, sizeof(int) * adj_row_ptr.size(), adj_row_ptr.data());
-    q.finish();
-    auto end_transfer_host_to_dev = std::chrono::high_resolution_clock::now();
-    
-    // --- 5. Set Kernel Arguments ---
-    kernel.setArg(0, d_h_in);
-    kernel.setArg(1, d_w);
-    kernel.setArg(2, d_adj_values);
-    kernel.setArg(3, d_adj_col_indices);
-    kernel.setArg(4, d_adj_row_ptr);
-    kernel.setArg(5, d_h_out);
-
-    // --- 6. Execute Kernel and Measure Performance ---
-    std::cout << "Info: Executing GCN kernel on FPGA..." << std::endl;
-    auto start_kernel = std::chrono::high_resolution_clock::now();
-    
-    // Launch the kernel
-    q.enqueueTask(kernel);
-    
-    // Wait for kernel to finish
-    q.finish(); 
-    
-    auto end_kernel = std::chrono::high_resolution_clock::now();
-    std::cout << "Info: Kernel execution finished." << std::endl;
-
-    // --- 7. Transfer Results from FPGA back to Host ---
-    std::cout << "Info: Transferring results from FPGA to Host..." << std::endl;
-    auto start_transfer_dev_to_host = std::chrono::high_resolution_clock::now();
-    q.enqueueReadBuffer(d_h_out, CL_TRUE, 0, sizeof(hls_dtype) * h_out.size(), h_out.data());
-    q.finish();
-    auto end_transfer_dev_to_host = std::chrono::high_resolution_clock::now();
-
-    // --- 8. Report Performance ---
-    std::chrono::duration<double, std::milli> transfer_in_ms = end_transfer_host_to_dev - start_transfer_host_to_dev;
-    std::chrono::duration<double, std::milli> kernel_ms = end_kernel - start_kernel;
-    std::chrono::duration<double, std::milli> transfer_out_ms = end_transfer_dev_to_host - start_transfer_dev_to_host;
-    
-    std::cout << "\n--- Performance Results ---" << std::endl;
-    std::cout << "Host -> FPGA Transfer Time: " << transfer_in_ms.count() << " ms" << std::endl;
-    std::cout << "FPGA Kernel Execution Time: " << kernel_ms.count() << " ms" << std::endl;
-    std::cout << "FPGA -> Host Transfer Time: " << transfer_out_ms.count() << " ms" << std::endl;
-    std::cout << "---------------------------\n" << std::endl;
-
-    // --- 9. Verify Results ---
-    std::vector<hls_dtype> h_out_golden(NUM_NODES * OUT_FEATURES);
-    compute_golden_result_on_cpu(h_in, w, adj_values, adj_col_indices, adj_row_ptr, h_out_golden);
-    
-    bool match = true;
-    for (int i = 0; i < h_out.size(); ++i) {
-        // Use an approximate comparison for floating-point numbers
-        if (std::abs(h_out[i] - h_out_golden[i]) > 1e-5) {
-            std::cout << "Error: Mismatch found at index " << i << std::endl;
-            std::cout << "  FPGA Result: " << h_out[i] << std::endl;
-            std::cout << "  CPU Result:  " << h_out_golden[i] << std::endl;
-            match = false;
-            break;
+    // --- 5. Verify HLS Result vs. Golden Result ---
+    int fail_count = 0;
+    float max_error = 1e-5; // Max acceptable floating point error
+    for (size_t i = 0; i < h_out_hls_vec.size(); ++i) {
+        if (std::abs(h_out_hls_vec[i] - h_out_golden_vec[i]) > max_error) {
+            fail_count++;
+            if(fail_count < 10) { // Print first few errors
+                std::cout << "Error: Mismatch at index " << i << std::endl;
+                std::cout << "  HLS Result:   " << h_out_hls_vec[i] << std::endl;
+                std::cout << "  Golden Result: " << h_out_golden_vec[i] << std::endl;
+            }
         }
     }
-    
-    if (match) {
-        std::cout << "Success: FPGA result matches CPU golden result!" << std::endl;
-    } else {
-        std::cout << "Failure: FPGA result does not match CPU golden result." << std::endl;
-    }
 
-    return match ? EXIT_SUCCESS : EXIT_FAILURE;
+    // --- 6. Return Result ---
+    if (fail_count == 0) {
+        std::cout << "TEST PASSED" << std::endl;
+        return 0; // Success
+    } else {
+        std::cout << "TEST FAILED with " << fail_count << " mismatches." << std::endl;
+        return 1; // Failure
+    }
 }
+
 
