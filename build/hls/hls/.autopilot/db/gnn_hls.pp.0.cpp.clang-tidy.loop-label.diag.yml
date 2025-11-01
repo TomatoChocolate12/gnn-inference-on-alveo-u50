@@ -1,0 +1,85 @@
+---
+MainSourceFile:  /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp
+Diagnostics:     
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_676_1:  '
+    FileOffset:      676
+    FilePath:        /home/Xilinx/2025.1/Vitis/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp
+        Offset:          283872
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_676_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_690_1:  '
+    FileOffset:      690
+    FilePath:        /home/Xilinx/2025.1/Vitis/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp
+        Offset:          284338
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_690_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_704_1:  '
+    FileOffset:      704
+    FilePath:        /home/Xilinx/2025.1/Vitis/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp
+        Offset:          284805
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_704_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1248_1:  '
+    FileOffset:      1248
+    FilePath:        /home/Xilinx/2025.1/Vitis/common/technology/autopilot/etc/ap_fixed_base.h
+    Replacements:    
+      - FilePath:        /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp
+        Offset:          578961
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1248_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_104_1:  '
+    FileOffset:      104
+    FilePath:        /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp
+    Replacements:    
+      - FilePath:        /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp
+        Offset:          957293
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_104_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_113_2:  '
+    FileOffset:      113
+    FilePath:        /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp
+    Replacements:    
+      - FilePath:        /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp
+        Offset:          957533
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_113_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_127_3:  '
+    FileOffset:      127
+    FilePath:        /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp
+    Replacements:    
+      - FilePath:        /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp
+        Offset:          957932
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_127_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_143_4:  '
+    FileOffset:      143
+    FilePath:        /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp
+    Replacements:    
+      - FilePath:        /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp
+        Offset:          958302
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_143_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_205_1:  '
+    FileOffset:      205
+    FilePath:        /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp
+    Replacements:    
+      - FilePath:        /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp
+        Offset:          959689
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_205_1: '
+...

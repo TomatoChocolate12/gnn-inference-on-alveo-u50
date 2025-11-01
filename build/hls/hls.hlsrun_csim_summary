@@ -1,0 +1,156 @@
+<ENTRY>
+{
+ "thisFile": "/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls.hlsrun_csim_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Sat Nov  1 00:27:02 2025",
+ "timestampMillis": "1761956822947",
+ "buildStep": {
+  "cmdId": "f30f4fbc-1090-4df0-90a9-90e212c54a70",
+  "name": "vitis-run",
+  "logFile": "/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/logs/hls.steps.log",
+  "commandLine": "/home/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run  --mode hls --csim --config hls_csim.cfg --work_dir build/hls ",
+  "args": [
+   "--mode",
+   "hls",
+   "--csim",
+   "--config",
+   "hls_csim.cfg",
+   "--work_dir",
+   "build/hls"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/yashas.b/gnn-inference-on-alveo-u50"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Nov  1 00:27:02 2025",
+ "timestampMillis": "1761956822947",
+ "status": {
+  "cmdId": "f30f4fbc-1090-4df0-90a9-90e212c54a70",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Sat Nov  1 00:27:08 2025",
+ "timestampMillis": "1761956828977",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_RUN",
+  "target": "TT_HLS_C_SIM",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "gnn",
+     "file": "",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2025.1"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sat Nov  1 00:27:08 2025",
+ "timestampMillis": "1761956828978",
+ "buildStep": {
+  "cmdId": "ff314317-3d3d-4f92-888e-b960df93bd69",
+  "name": "",
+  "logFile": "/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/hls.log",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/yashas.b/gnn-inference-on-alveo-u50/build"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Nov  1 00:27:08 2025",
+ "timestampMillis": "1761956828979",
+ "status": {
+  "cmdId": "ff314317-3d3d-4f92-888e-b960df93bd69",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Nov  1 00:27:16 2025",
+ "timestampMillis": "1761956836785",
+ "status": {
+  "cmdId": "ff314317-3d3d-4f92-888e-b960df93bd69",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Nov  1 00:27:16 2025",
+ "timestampMillis": "1761956836966",
+ "status": {
+  "cmdId": "f30f4fbc-1090-4df0-90a9-90e212c54a70",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Nov  1 00:27:16 2025",
+ "timestampMillis": "1761956836967",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Nov  1 00:27:16 2025",
+ "timestampMillis": "1761956836967",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

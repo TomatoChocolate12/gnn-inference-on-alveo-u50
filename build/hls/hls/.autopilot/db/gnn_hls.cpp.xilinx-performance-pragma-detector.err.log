@@ -1,0 +1,48 @@
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.cpp:15:
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.h:4:
+In file included from /home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream.h:12:
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:127:9: error: use of undeclared identifier '__fpga_fifo_push'
+        __fpga_fifo_push(&V, &din);
+        ^
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:82:9: note: in instantiation of member function 'hls::stream<float, 0>::write' requested here
+        write(wdata);
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.cpp:44:21: note: in instantiation of member function 'hls::stream<float, 0>::operator<<' requested here
+        h_in_stream << h_in[i];
+                    ^
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.cpp:15:
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.h:4:
+In file included from /home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream.h:12:
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:127:9: error: use of undeclared identifier '__fpga_fifo_push'
+        __fpga_fifo_push(&V, &din);
+        ^
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:82:9: note: in instantiation of member function 'hls::stream<int, 0>::write' requested here
+        write(wdata);
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.cpp:61:24: note: in instantiation of member function 'hls::stream<int, 0>::operator<<' requested here
+        adj_col_stream << adj_col_indices[i];
+                       ^
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.cpp:15:
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.h:4:
+In file included from /home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream.h:12:
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:98:9: error: use of undeclared identifier '__fpga_fifo_pop'
+        __fpga_fifo_pop(&V, &dout);
+        ^
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:109:9: note: in instantiation of member function 'hls::stream<float, 0>::read' requested here
+        read(tmp);
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.cpp:107:42: note: in instantiation of member function 'hls::stream<float, 0>::read' requested here
+            h_in_buf[i][j] = h_in_stream.read();
+                                         ^
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.cpp:15:
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.h:4:
+In file included from /home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream.h:12:
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:98:9: error: use of undeclared identifier '__fpga_fifo_pop'
+        __fpga_fifo_pop(&V, &dout);
+        ^
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:109:9: note: in instantiation of member function 'hls::stream<int, 0>::read' requested here
+        read(tmp);
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.cpp:125:41: note: in instantiation of member function 'hls::stream<int, 0>::read' requested here
+        adj_col_buf[i] = adj_col_stream.read();
+                                        ^

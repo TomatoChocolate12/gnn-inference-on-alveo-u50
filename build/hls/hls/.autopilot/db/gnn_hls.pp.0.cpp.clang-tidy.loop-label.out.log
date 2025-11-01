@@ -1,0 +1,45 @@
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:2400:5: warning: Added loop label VITIS_LOOP_676_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^~~
+    VITIS_LOOP_676_1: 
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:2400:5: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:2414:5: warning: Added loop label VITIS_LOOP_690_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^~~
+    VITIS_LOOP_690_1: 
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:2414:5: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:2428:5: warning: Added loop label VITIS_LOOP_704_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^~~
+    VITIS_LOOP_704_1: 
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:2428:5: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:4384:7: warning: Added loop label VITIS_LOOP_1248_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1248_1: 
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:4384:7: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6431:9: warning: Added loop label VITIS_LOOP_104_1:   [xilinx-label-all-loops]
+        for (int j = 0; j < IN_FEATURES; ++j) {
+        ^~~
+        VITIS_LOOP_104_1: 
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6431:9: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6440:9: warning: Added loop label VITIS_LOOP_113_2:   [xilinx-label-all-loops]
+        for (int j = 0; j < OUT_FEATURES; ++j) {
+        ^~~
+        VITIS_LOOP_113_2: 
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6440:9: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6454:5: warning: Added loop label VITIS_LOOP_127_3:   [xilinx-label-all-loops]
+    for (int i = 0; i < NUM_NODES + 1; ++i) {
+    ^~~
+    VITIS_LOOP_127_3: 
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6454:5: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6470:9: warning: Added loop label VITIS_LOOP_143_4:   [xilinx-label-all-loops]
+        for (int j = 0; j < IN_FEATURES; ++j) {
+        ^~~
+        VITIS_LOOP_143_4: 
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6470:9: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6532:9: warning: Added loop label VITIS_LOOP_205_1:   [xilinx-label-all-loops]
+        for (int j = 0; j < OUT_FEATURES; ++j) {
+        ^~~
+        VITIS_LOOP_205_1: 
+/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6532:9: note: FIX-IT applied suggested code changes

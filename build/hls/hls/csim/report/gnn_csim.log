@@ -1,0 +1,18 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
+make[1]: Entering directory '/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/csim/build'
+   Compiling ../../../../../tb/gnn_test.cpp in release mode
+   Compiling ../../../../../kernel/gnn_hls.cpp in release mode
+   Generating csim.exe
+make[1]: Leaving directory '/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/csim/build'
+Info: Starting HLS C-Simulation Testbench...
+Info: TB loading dummy data...
+Info: TB dummy data loaded.
+Info: TB computing golden result...
+Info: TB golden result computed.
+Info: Calling HLS kernel function 'gcn_layer_hls'...
+Info: HLS kernel function finished.
+TEST PASSED
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 3880564
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

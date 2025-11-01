@@ -1,0 +1,271 @@
+Execute       source -notrace -encoding utf-8 /home/Xilinx/2025.1/Vitis/tps/tcl/tcl8.6/clock.tcl 
+Execute         source -encoding utf-8 /home/Xilinx/2025.1/tps/tcl/tcl8/8.5/msgcat-1.6.1.tm 
+INFO-FLOW: Workspace /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls opened at Sat Nov 01 00:26:49 UTC 2025
+Execute       send_msg_by_id INFO @200-1505@%s%s default  vivado 
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Execute       send_msg_by_id INFO @200-2174@%s%s component /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg 
+INFO: [HLS 200-2174] Applying component config ini file /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg
+Execute       apply_ini /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg 
+Execute         send_msg_by_id WARNING @200-1921@%s [hls] entry 'csim.profile=true' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(16) 
+WARNING: [HLS 200-1921] Skipping unknown config ini [hls] entry 'csim.profile=true' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(16)
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=kernel/gnn_hls.cpp' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(8) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=kernel/gnn_hls.cpp' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(8)
+Execute         add_files /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp 
+INFO: [HLS 200-10] Adding design file '/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'tb.file=tb/gnn_test.cpp' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(12) 
+INFO: [HLS 200-1465] Applying config ini 'tb.file=tb/gnn_test.cpp' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(12)
+Execute         add_files -tb /home/yashas.b/gnn-inference-on-alveo-u50/tb/gnn_test.cpp 
+INFO: [HLS 200-10] Adding test bench file '/home/yashas.b/gnn-inference-on-alveo-u50/tb/gnn_test.cpp' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.top=gnn' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(9) 
+INFO: [HLS 200-1465] Applying config ini 'syn.top=gnn' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(9)
+Execute         set_top gnn 
+Execute         send_msg_by_id INFO @200-1465@%s 'flow_target=vitis' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(4) 
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vitis' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(4)
+Execute         send_msg_by_id INFO @200-1505@%s%s  vitis 
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+Execute         send_msg_by_id INFO @200-435@%s%s 'open_solution -flow_target vitis' config_interface -m_axi_latency=64 
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_latency=64
+Execute         config_interface -m_axi_latency=64 
+Execute         send_msg_by_id INFO @200-435@%s%s 'open_solution -flow_target vitis' config_interface -m_axi_alignment_byte_size=64 
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_alignment_byte_size=64
+Execute         config_interface -m_axi_alignment_byte_size=64 
+Execute         send_msg_by_id INFO @200-435@%s%s 'open_solution -flow_target vitis' config_interface -m_axi_max_widen_bitwidth=512 
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_max_widen_bitwidth=512
+Execute         config_interface -m_axi_max_widen_bitwidth=512 
+INFO-FLOW: Setting macro_cmd open_solution -flow_target vitis configuration: config_interface -default_interface=kernel
+Execute         config_interface -default_interface=kernel 
+Execute         send_msg_by_id INFO @200-435@%s%s 'open_solution -flow_target vitis' config_rtl -register_reset_num=3 
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_rtl -register_reset_num=3
+Execute         config_rtl -register_reset_num=3 
+Execute         send_msg_by_id INFO @200-1465@%s 'part=xcvu35p-fsvh2104-2L-e' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(1) 
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu35p-fsvh2104-2L-e' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(1)
+Execute         set_part xcvu35p-fsvh2104-2L-e 
+Execute           create_platform xcvu35p-fsvh2104-2L-e -board  
+DBG:HLSDevice: Trying to load device library: /home/Xilinx/2025.1/Vitis/lib/lnx64.o/libxv_hlsvwrap.so
+DBG:HLSDevice: first parts/arch.xml in RDI_DATADIR: /home/Xilinx/2025.1/Vivado/data/parts/arch.xml
+DBG:HLSDevice: init success
+INFO: [HLS 200-1611] Setting target device to 'xcvu35p-fsvh2104-2L-e'
+Command           create_platform done; 1.31 sec.
+Execute           source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/common/xilinx.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/plb46.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/axi4.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/saxilite.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/ip/xfir.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/ip/xfft.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/ip/util.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/DSP48/dsp48.gen 
+Execute           ap_part_info -name xcvu35p-fsvh2104-2L-e -data info 
+Execute           config_compile -quiet -complex-mul-dsp=0 
+Command         set_part done; 1.41 sec.
+Execute         send_msg_by_id INFO @200-1465@%s 'clock=5' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(5) 
+INFO: [HLS 200-1465] Applying config ini 'clock=5' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(5)
+Execute         create_clock -period 5ns 
+Execute           ap_set_clock -name default -period 5 -unit ns -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+Execute         send_msg_by_id INFO @200-1465@%s 'csim.O=true' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(14) 
+INFO: [HLS 200-1465] Applying config ini 'csim.O=true' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(14)
+Execute         config_csim -O=true 
+INFO: [HLS 200-1907] Replacing 'config_csim -O=1' with 'config_sim -O=1' in current solution file
+Execute         send_msg_by_id INFO @200-1465@%s 'csim.clean=true' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(15) 
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=true' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(15)
+Execute         config_csim -clean=true 
+INFO: [HLS 200-1907] Replacing 'config_csim -O=1' with 'config_sim -O=1' in current solution file
+Command       apply_ini done; 1.46 sec.
+Execute       write_component -config /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg 
+Execute         send_msg_by_id INFO @200-2176@%s /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/vitis-comp.json 
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/vitis-comp.json
+Command     open_solution done; 1.51 sec.
+Command   open_component done; 1.51 sec.
+Execute   apply_ini /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/config.cmdline -iscmdline 
+Execute   ::AP::init_summary_file csynth-ip 
+Execute     AP::app_get_file_relativeroot [AP::app_get_root] {}
+Execute     AP::get_vpp_package_output_file
+Execute   csynth_design 
+Execute     ap_part_info -name xcvu35p-fsvh2104-2L-e -data info 
+INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/xilinx-performance-pragma-detector ../kernel/gnn_hls.cpp -- -fhls -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /home/Xilinx/2025.1/Vitis/common/technology/autopilot -I /home/Xilinx/2025.1/Vitis/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -I /usr/include/x86_64-linux-gnu > /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.cpp.xilinx-performance-pragma-detector.out.log 2> /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.cpp.xilinx-performance-pragma-detector.err.log
+INFO-FLOW: Running SLX 'csynth' proc: ::SLX::run_csynth
+Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -from_csynth_design=1 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 3.19 seconds. CPU system time: 0.87 seconds. Elapsed time: 4.51 seconds; current allocated memory: 457.082 MB.
+Execute       set_directive_top gnn -name=gnn 
+INFO: [HLS 200-10] Analyzing design file '../kernel/gnn_hls.cpp' ... 
+INFO-FLOW: Compiling one TU...
+INFO-FLOW: Handling ../kernel/gnn_hls.cpp as C++
+Execute       ap_part_info -name xcvu35p-fsvh2104-2L-e -data info 
+INFO-FLOW: Running: GCC PP 39
+INFO-FLOW: Source preprocessing
+INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/clang ../kernel/gnn_hls.cpp -foptimization-record-file=/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.cpp.clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll|inline -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info --gcc-toolchain=/home/Xilinx/2025.1/Vitis/tps/lnx64/gcc-8.3.0 -fhls -fno-exceptions -insert-hls-directive=/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/all.directive.json -E -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -Wdump-hls-pragmas -Wno-error=dump-hls-pragmas -hls-clock-period=5 -fno-threadsafe-statics -fno-use-cxa-atexit -target fpga64-xilinx-linux-gnu -fno-threadsafe-statics -fno-use-cxa-atexit -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /home/Xilinx/2025.1/Vitis/common/technology/autopilot -I /home/Xilinx/2025.1/Vitis/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -I /usr/include/x86_64-linux-gnu -o /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp -hls-platform-db-name=/home/Xilinx/2025.1/Vitis/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_2688.000000_DSP_5952.000000_FF_1743360.000000_LUT_871680.000000_SLICE_108960.000000_SLR_2.000000_URAM_640.000000 -device-name-info=xcvu35p-fsvh2104-2L-e > /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.cpp.clang.out.log 2> /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.cpp.clang.err.log
+INFO-FLOW: Done: GCC PP 39 time: 0.2 seconds per iteration
+INFO-FLOW: Source syntax check for synthesis
+INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll|inline -mllvm -pass-remarks=reflow|pasta|unroll|inline -fsyntax-only -fhls -target fpga64-xilinx-linux-gnu /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp -hls-platform-db-name=/home/Xilinx/2025.1/Vitis/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_2688.000000_DSP_5952.000000_FF_1743360.000000_LUT_871680.000000_SLICE_108960.000000_SLR_2.000000_URAM_640.000000 -device-name-info=xcvu35p-fsvh2104-2L-e > /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/clang.out.log 2> /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/clang.err.log
+Execute       clang_tidy xilinx-systemc-detector -desc systemc-detector /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp  -target fpga  -directive=/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/.systemc_flag -fix-errors /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp -- - -target fpga -fhls -ferror-limit=0
+Command       clang_tidy done; 0.48 sec.
+INFO-FLOW: Running: clang-tidy CDT preprocess 39
+Execute       clang_tidy xilinx-directive2pragma -desc directive2pragma /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp  -target fpga  -directive=/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/all.directive.json -fix-errors /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp -- - -target fpga -fhls -ferror-limit=0
+Command       clang_tidy done; 0.45 sec.
+INFO-FLOW: Done: clang-tidy CDT preprocess 39 time: 0.4 seconds per iteration
+INFO-FLOW: Calling xilinx-label-all-loops ... 
+INFO-FLOW: Calling xilinx-aggregate-on-hls-vector ... 
+Execute       clang_tidy -errorcheck -desc loop-label xilinx-label-all-loops,xilinx-aggregate-on-hls-vector,,xilinx-warn-mayneed-no-ctor-attribute /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp  -target fpga  
+INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -export-fixes=/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.clang-tidy.loop-label.diag.yml -header-filter=.* --checks=-*,xilinx-label-all-loops,xilinx-aggregate-on-hls-vector,,xilinx-warn-mayneed-no-ctor-attribute -fix-errors /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp -- - -target fpga -fhls -ferror-limit=0 > /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.clang-tidy.loop-label.out.log 2> /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.clang-tidy.loop-label.err.log
+Execute         source /home/Xilinx/2025.1/Vitis/tps/tcl/tcllib2.0/yaml/yaml.tcl 
+Command       clang_tidy done; 0.85 sec.
+INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.xilinx-dataflow-lawyer.diag.yml /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp -- - -target fpga -fhls -ferror-limit=0 -fstrict-dataflow > /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.xilinx-dataflow-lawyer.out.log 2> /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.xilinx-dataflow-lawyer.err.log
+Execute       ap_part_info -name xcvu35p-fsvh2104-2L-e -data info 
+INFO-FLOW: compiling source code to llvm bc
+INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll|inline -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info -fhls -flto -fno-exceptions -Wno-error=c++11-narrowing -hls-emit-hint-scope /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -Wdump-hls-pragmas -Wno-error=dump-hls-pragmas -hls-clock-period=5 -fno-threadsafe-statics -fno-use-cxa-atexit -target fpga64-xilinx-linux-gnu -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /home/Xilinx/2025.1/Vitis/common/technology/autopilot -I /home/Xilinx/2025.1/Vitis/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.bc -hls-platform-db-name=/home/Xilinx/2025.1/Vitis/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_2688.000000_DSP_5952.000000_FF_1743360.000000_LUT_871680.000000_SLICE_108960.000000_SLR_2.000000_URAM_640.000000 -device-name-info=xcvu35p-fsvh2104-2L-e > /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.clang.out.log 2> /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.clang.err.log
+Execute       send_msg_by_id WARNING @200-1986@%s%s TOP :0 
+WARNING: [HLS 200-1986] Could not apply TOP directive, invalid function, label, or variable (:0)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.09 seconds. CPU system time: 0.52 seconds. Elapsed time: 3.69 seconds; current allocated memory: 460.141 MB.
+INFO-FLOW: Linking Debug ...
+INFO-FLOW: Linking dut bc code.
+Execute       run_link_or_opt -out /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.0.bc -args  "/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.g.bc"  
+INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/llvm-link /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.g.bc -o /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.0.bc > /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.0.bc.llvm-link.out.log 2> /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.0.bc.llvm-link.err.log
+Execute       run_link_or_opt -opt -out /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.1.lower.bc -args /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.0.bc -reflow-lower-math-intrinsics 
+INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll|inline -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.1.lower.bc.opt.diag.yml /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.0.bc -reflow-lower-math-intrinsics -o /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.1.lower.bc > /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.1.lower.bc.opt.out.log 2> /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.1.lower.bc.opt.err.log
+INFO-FLOW: Running: gen_design_size_report post-opt
+INFO-FLOW: Done: gen_design_size_report post-opt time: 0 seconds per iteration
+INFO-FLOW: Linking math bc lib
+Execute       run_link_or_opt -out /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.2.m1.bc -args /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.1.lower.bc -only-needed /home/Xilinx/2025.1/Vitis/lnx64/lib/libhlsm_39.bc /home/Xilinx/2025.1/Vitis/lnx64/lib/libhlsmc++_39.bc 
+INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/llvm-link /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.1.lower.bc -only-needed /home/Xilinx/2025.1/Vitis/lnx64/lib/libhlsm_39.bc /home/Xilinx/2025.1/Vitis/lnx64/lib/libhlsmc++_39.bc -o /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.2.m1.bc > /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.2.m1.bc.llvm-link.out.log 2> /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.2.m1.bc.llvm-link.err.log
+Command       run_link_or_opt done; 1.67 sec.
+Execute       run_link_or_opt -opt -out /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.3.fpc.bc -args /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=gnn -reflow-float-conversion 
+INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll|inline -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.3.fpc.bc.opt.diag.yml /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=gnn -reflow-float-conversion -o /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.3.fpc.bc > /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.3.fpc.bc.opt.out.log 2> /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.3.fpc.bc.opt.err.log
+ERROR: [HLS 214-157] Top function not found: there is no function named 'gnn'
+INFO-FLOW: Running: gen_design_size_report post-opt
+INFO-FLOW: Done: gen_design_size_report post-opt time: 0 seconds per iteration
+INFO-FLOW: Caught error in run_link_or_opt: Error in opt
+    while executing
+"ap_internal_run_link_or_opt "
+Command       run_link_or_opt done; error code: 2; 0.62 sec.
+INFO-FLOW: Caught error in elaborate: Error in opt
+    while executing
+"::AP::ap_link_math_libs $link39 $output_name"
+    (procedure "AP::ap_link_39" line 37)
+    invoked from within
+"AP::ap_link_39 [::AP::get_bc_list  $dbgInfo] $skip_transform $LLVMFlags $dbgInfo"
+    (procedure "AP::compile_dut_files_39" line 60)
+    invoked from within
+"AP::compile_dut_files_39 $dut_files $dbgInfo $skip_cdt $skip_transform"
+    (procedure "AP::compile" line 112)
+    invoked from within
+"AP::compile 1 $skip_cdt $skip_transform"
+    (procedure "ap_internal_elaborate" line 81)
+    invoked from within
+"ap_internal_elaborate "
+Command     elaborate done; error code: 2; 6.06 sec.
+INFO-FLOW: Caught error in csynth_design: Error in opt
+    while executing
+"ap_internal_csynth_design "
+Command   csynth_design done; error code: 2; 6.7 sec.
+Execute   close_project 
+Execute     close_solution 
+Execute       cleanup_all 
+Execute       cleanup_all 
+Execute       source -notrace -encoding utf-8 /home/Xilinx/2025.1/Vitis/tps/tcl/tcl8.6/clock.tcl 
+Execute         source -encoding utf-8 /home/Xilinx/2025.1/tps/tcl/tcl8/8.5/msgcat-1.6.1.tm 
+INFO-FLOW: Workspace /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls opened at Sat Nov 01 00:27:07 UTC 2025
+Execute       send_msg_by_id INFO @200-1505@%s%s default  vivado 
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Execute       send_msg_by_id INFO @200-2174@%s%s component /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg 
+INFO: [HLS 200-2174] Applying component config ini file /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg
+Execute       apply_ini /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg 
+Execute         send_msg_by_id WARNING @200-1921@%s [hls] entry 'csim.profile=true' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(16) 
+WARNING: [HLS 200-1921] Skipping unknown config ini [hls] entry 'csim.profile=true' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(16)
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=kernel/gnn_hls.cpp' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(8) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=kernel/gnn_hls.cpp' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(8)
+Execute         add_files /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp 
+INFO: [HLS 200-10] Adding design file '/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'tb.file=tb/gnn_test.cpp' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(12) 
+INFO: [HLS 200-1465] Applying config ini 'tb.file=tb/gnn_test.cpp' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(12)
+Execute         add_files -tb /home/yashas.b/gnn-inference-on-alveo-u50/tb/gnn_test.cpp 
+INFO: [HLS 200-10] Adding test bench file '/home/yashas.b/gnn-inference-on-alveo-u50/tb/gnn_test.cpp' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.top=gnn' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(9) 
+INFO: [HLS 200-1465] Applying config ini 'syn.top=gnn' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(9)
+Execute         set_top gnn 
+Execute         send_msg_by_id INFO @200-1465@%s 'flow_target=vitis' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(4) 
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vitis' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(4)
+Execute         send_msg_by_id INFO @200-1505@%s%s  vitis 
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+Execute         send_msg_by_id INFO @200-435@%s%s 'open_solution -flow_target vitis' config_interface -m_axi_latency=64 
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_latency=64
+Execute         config_interface -m_axi_latency=64 
+Execute         send_msg_by_id INFO @200-435@%s%s 'open_solution -flow_target vitis' config_interface -m_axi_alignment_byte_size=64 
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_alignment_byte_size=64
+Execute         config_interface -m_axi_alignment_byte_size=64 
+Execute         send_msg_by_id INFO @200-435@%s%s 'open_solution -flow_target vitis' config_interface -m_axi_max_widen_bitwidth=512 
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_max_widen_bitwidth=512
+Execute         config_interface -m_axi_max_widen_bitwidth=512 
+INFO-FLOW: Setting macro_cmd open_solution -flow_target vitis configuration: config_interface -default_interface=kernel
+Execute         config_interface -default_interface=kernel 
+Execute         send_msg_by_id INFO @200-435@%s%s 'open_solution -flow_target vitis' config_rtl -register_reset_num=3 
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_rtl -register_reset_num=3
+Execute         config_rtl -register_reset_num=3 
+Execute         send_msg_by_id INFO @200-1465@%s 'part=xcvu35p-fsvh2104-2L-e' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(1) 
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu35p-fsvh2104-2L-e' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(1)
+Execute         set_part xcvu35p-fsvh2104-2L-e 
+Execute           create_platform xcvu35p-fsvh2104-2L-e -board  
+DBG:HLSDevice: Trying to load device library: /home/Xilinx/2025.1/Vitis/lib/lnx64.o/libxv_hlsvwrap.so
+DBG:HLSDevice: first parts/arch.xml in RDI_DATADIR: /home/Xilinx/2025.1/Vivado/data/parts/arch.xml
+DBG:HLSDevice: init success
+INFO: [HLS 200-1611] Setting target device to 'xcvu35p-fsvh2104-2L-e'
+Command           create_platform done; 1.29 sec.
+Execute           source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/common/xilinx.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/plb46.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/axi4.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/saxilite.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/ip/xfir.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/ip/xfft.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/ip/util.gen 
+Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/DSP48/dsp48.gen 
+Execute           ap_part_info -name xcvu35p-fsvh2104-2L-e -data info 
+Execute           config_compile -quiet -complex-mul-dsp=0 
+Command         set_part done; 1.41 sec.
+Execute         send_msg_by_id INFO @200-1465@%s 'clock=5' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(5) 
+INFO: [HLS 200-1465] Applying config ini 'clock=5' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(5)
+Execute         create_clock -period 5ns 
+Execute           ap_set_clock -name default -period 5 -unit ns -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+Execute         send_msg_by_id INFO @200-1465@%s 'csim.O=true' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(14) 
+INFO: [HLS 200-1465] Applying config ini 'csim.O=true' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(14)
+Execute         config_csim -O=true 
+INFO: [HLS 200-1907] Replacing 'config_csim -O=1' with 'config_sim -O=1' in current solution file
+Execute         send_msg_by_id INFO @200-1465@%s 'csim.clean=true' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(15) 
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=true' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(15)
+Execute         config_csim -clean=true 
+INFO: [HLS 200-1907] Replacing 'config_csim -O=1' with 'config_sim -O=1' in current solution file
+Command       apply_ini done; 1.45 sec.
+Execute       write_component -config /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg 
+Execute         send_msg_by_id INFO @200-2176@%s /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/vitis-comp.json 
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/vitis-comp.json
+Command     open_solution done; 1.5 sec.
+Command   open_component done; 1.51 sec.
+Execute   apply_ini /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/config.cmdline -iscmdline 
+Execute   ::AP::init_summary_file csim 
+Execute     AP::app_get_file_relativeroot [AP::app_get_root] {}
+Execute   csim_design 
+INFO-FLOW: Running SLX 'csim' proc: ::SLX::run_csim
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+Execute     source csim/.lst_opt.tcl 
+Execute     send_msg_by_id INFO @200-2036@%s optimized 
+INFO: [HLS 200-2036] Building optimized C Simulation binaries
+Execute     ap_part_info -name xcvu35p-fsvh2104-2L-e -data info 
+Execute     source run_sim.tcl 
+Command     ap_source done; 2.24 sec.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+Command   csim_design done; 7.8 sec.
+Execute   close_project 
+Execute     close_solution 
+Execute       cleanup_all 
+Execute       cleanup_all 

@@ -1,0 +1,102 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:42:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_inputs" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=3879364 max=3879364" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:43:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_inputs" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:50:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_inputs" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=22928 max=22928" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:51:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_inputs" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:58:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_inputs" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=10556 max=10556" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:59:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_inputs" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:65:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_inputs" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=2709 max=2709" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:66:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_inputs" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:98:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=h_in_buf complete dim=2" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:99:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=w_buf complete dim=2" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:105:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=3879364 max=3879364" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:106:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:114:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=22928 max=22928" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:115:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:122:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=10556 max=10556" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:123:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:128:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=2709 max=2709" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:129:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:138:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=aggregated_features complete dim=2" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:144:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:157:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:163:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:176:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:206:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="store_result" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=43328 max=43328" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:207:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="store_result" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:229:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gcn_layer_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = h_in offset = slave bundle = gmem0 depth=3879364" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:230:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gcn_layer_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = w offset = slave bundle = gmem1 depth=22928" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:231:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gcn_layer_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = adj_values offset = slave bundle = gmem2 depth=10556" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:232:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gcn_layer_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = adj_col_indices offset = slave bundle = gmem3 depth=10556" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:233:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gcn_layer_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = adj_row_ptr offset = slave bundle = gmem3 depth=2709" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:234:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gcn_layer_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = h_out offset = slave bundle = gmem0 depth=43328" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:236:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gcn_layer_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = return bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../kernel/gnn_hls.cpp:249:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gcn_layer_hls" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+
