@@ -112,7 +112,7 @@ int main() {
     // We pass raw pointers (using .data()) to the HLS function,
     // matching the 'vadd' testbench pattern.
     std::cout << "Info: Calling HLS kernel function 'gcn_layer_hls'..." << std::endl;
-    gcn_layer_hls(
+    gnn(
         h_in_vec.data(),
         w_vec.data(),
         adj_values_vec.data(),

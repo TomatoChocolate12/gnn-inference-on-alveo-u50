@@ -14,7 +14,7 @@ typedef float hls_dtype;
 
 // --- Top-Level Kernel Function DECLARATION ---
 extern "C" {
-void gcn_layer_hls(
+void gnn(
     // Global Memory Interfaces (Pointers)
     const hls_dtype* h_in,           // Input features
     const hls_dtype* w,              // Weights
