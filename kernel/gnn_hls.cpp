@@ -67,18 +67,22 @@ static void compute_gcn(
     #pragma HLS ARRAY_PARTITION variable=h_in_buf complete dim=2
     #pragma HLS ARRAY_PARTITION variable=w_buf complete dim=2
 
+    // Read h_in: stored as [node][feature]
     for (int i = 0; i < NUM_NODES; ++i) {
         for (int j = 0; j < IN_FEATURES; ++j) {
             #pragma HLS PIPELINE II=1
             h_in_buf[i][j] = h_in_stream.read();
         }
     }
+    
+    // Read w: stored as [in_feature][out_feature]
     for (int i = 0; i < IN_FEATURES; ++i) {
         for (int j = 0; j < OUT_FEATURES; ++j) {
             #pragma HLS PIPELINE II=1
             w_buf[i][j] = w_stream.read();
         }
     }
+    
     for (int i = 0; i < NUM_EDGES_NNZ; ++i) {
         #pragma HLS PIPELINE II=1
         adj_val_buf[i] = adj_val_stream.read();
@@ -92,6 +96,7 @@ static void compute_gcn(
     static hls_dtype aggregated_features[NUM_NODES][IN_FEATURES];
     #pragma HLS ARRAY_PARTITION variable=aggregated_features complete dim=2
 
+    // Initialize aggregated features
     for (int i = 0; i < NUM_NODES; ++i) {
         for (int j = 0; j < IN_FEATURES; ++j) {
             #pragma HLS PIPELINE II=1
@@ -99,6 +104,7 @@ static void compute_gcn(
         }
     }
 
+    // SpMM: Aggregate neighbor features
     for (int i = 0; i < NUM_NODES; ++i) {
         int start_idx = adj_row_buf[i];
         int end_idx = adj_row_buf[i + 1];
@@ -114,13 +120,16 @@ static void compute_gcn(
         }
     }
 
+    // GEMM + ReLU: Transform aggregated features
     for (int i = 0; i < NUM_NODES; ++i) {
         for (int f_out = 0; f_out < OUT_FEATURES; ++f_out) {
             #pragma HLS PIPELINE
             hls_dtype sum = 0.0;
             for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
+                #pragma HLS UNROLL factor=8
                 sum += aggregated_features[i][f_in] * w_buf[f_in][f_out];
             }
+            // Apply ReLU and write to stream
             h_out_stream << (sum > 0.0 ? sum : 0.0);
         }
     }
