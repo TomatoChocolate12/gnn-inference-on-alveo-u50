@@ -1,21 +1,6 @@
-/**
- * @file gnn_hls.cpp
- * @brief HLS kernel for a GCN layer, based on the 'vadd' dataflow example.
- * (Placed in kernel/ directory)
- *
- * Implements H_out = ReLU( (A_norm * H_in) * W )
- *
- * This kernel uses a simple load-compute-store dataflow pattern.
- * - load_inputs: Reads all graph data from global memory into streams.
- * - compute_gcn: Reads streams, performs SpMM and GEMM, writes to output stream.
- * - store_result: Reads output stream and writes to global memory.
- */
-
 #include "gnn_hls.h"
 
-//------------------------------------------------------------------
 // Stage 1: load_inputs
-//------------------------------------------------------------------
 static void load_inputs(
     const hls_dtype* h_in,
     const hls_dtype* w,
@@ -47,9 +32,7 @@ static void load_inputs(
     }
 }
 
-//------------------------------------------------------------------
 // Stage 2: compute_gcn
-//------------------------------------------------------------------
 static void compute_gcn(
     hls::stream<hls_dtype>& h_in_stream,
     hls::stream<hls_dtype>& w_stream,
@@ -135,9 +118,7 @@ static void compute_gcn(
     }
 }
 
-//------------------------------------------------------------------
 // Stage 3: store_result
-//------------------------------------------------------------------
 static void store_result(
     hls::stream<hls_dtype>& h_out_stream,
     hls_dtype* h_out
@@ -150,9 +131,6 @@ static void store_result(
     }
 }
 
-//------------------------------------------------------------------
-// Top-Level Kernel Function (for HLS synthesis)
-//------------------------------------------------------------------
 extern "C" {
 void gnn(
     const hls_dtype* h_in,
