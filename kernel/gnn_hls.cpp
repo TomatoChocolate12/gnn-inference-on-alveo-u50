@@ -47,8 +47,10 @@ static void compute_gcn(
     static int adj_col_buf[NUM_EDGES_NNZ];
     static int adj_row_buf[NUM_NODES + 1];
 
-    #pragma HLS ARRAY_PARTITION variable=h_in_buf complete dim=2
-    #pragma HLS ARRAY_PARTITION variable=w_buf complete dim=2
+    // Use cyclic partitioning with factor 16 instead of complete (1433 is too large)
+    // This creates 16 parallel banks, which is more reasonable for FPGA resources
+    #pragma HLS ARRAY_PARTITION variable=h_in_buf cyclic factor=16 dim=2
+    #pragma HLS ARRAY_PARTITION variable=w_buf cyclic factor=16 dim=2
 
     // Read h_in: stored as [node][feature]
     for (int i = 0; i < NUM_NODES; ++i) {
@@ -77,7 +79,8 @@ static void compute_gcn(
     }
 
     static hls_dtype aggregated_features[NUM_NODES][IN_FEATURES];
-    #pragma HLS ARRAY_PARTITION variable=aggregated_features complete dim=2
+    // Use cyclic partitioning with factor 16 instead of complete
+    #pragma HLS ARRAY_PARTITION variable=aggregated_features cyclic factor=16 dim=2
 
     // Initialize aggregated features
     for (int i = 0; i < NUM_NODES; ++i) {
@@ -96,7 +99,7 @@ static void compute_gcn(
             int j = adj_col_buf[k];
             hls_dtype norm_val = adj_val_buf[k];
             for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
-                #pragma HLS UNROLL
+                #pragma HLS PIPELINE II=1
                 hls_dtype feature = h_in_buf[j][f_in];
                 aggregated_features[i][f_in] += norm_val * feature;
             }
@@ -109,7 +112,7 @@ static void compute_gcn(
             #pragma HLS PIPELINE
             hls_dtype sum = 0.0;
             for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
-                #pragma HLS UNROLL factor=8
+                #pragma HLS PIPELINE II=1
                 sum += aggregated_features[i][f_in] * w_buf[f_in][f_out];
             }
             // Apply ReLU and write to stream

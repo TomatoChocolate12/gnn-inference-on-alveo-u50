@@ -17,6 +17,7 @@
 
 TARGET ?= hw  # hw_emu | hw
 PLATFORM ?= xilinx_u50_gen3x16_xdma_5_202210_1
+XCLBIN ?= kernel/build/gcn_layer_hls.$(TARGET).xclbin
 HLS_CFG ?= hls_csim.cfg
 WORK_HLS ?= build/hls
 
@@ -73,11 +74,11 @@ ifeq ($(strip $(TARGET)),hw_emu)
 	@echo "=== Starting Hardware Emulation ==="
 	emconfigutil --platform $(PLATFORM) --od build
 	export XCL_EMULATION_MODE=hw_emu; \
-	./host/build/host.exe --xclbin_file kernel/build/gcn_layer_hls.hw_emu.xclbin --device_id 0
+	./host/build/host.exe --xclbin_file $(XCLBIN) --device_id 0
 else
 	@echo "=== Starting Hardware Execution ==="
 	env -u XCL_EMULATION_MODE \
-	./host/build/host.exe --xclbin_file kernel/build/gcn_layer_hls.hw.xclbin --device_id 0
+	./host/build/host.exe --xclbin_file $(XCLBIN) --device_id 0
 endif
 
 # -------------------------

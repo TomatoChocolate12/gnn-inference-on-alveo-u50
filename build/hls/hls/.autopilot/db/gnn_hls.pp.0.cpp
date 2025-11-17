@@ -153,7 +153,6 @@ extern "C" {
 }
 # 2 "<built-in>" 2
 # 1 "../kernel/gnn_hls.cpp" 2
-# 15 "../kernel/gnn_hls.cpp"
 # 1 "../kernel/gnn_hls.h" 1
 
 
@@ -6344,7 +6343,7 @@ typedef float hls_dtype;
 
 
 extern "C" {
-void gcn_layer_hls(
+__attribute__((sdx_kernel("gnn", 0))) void gnn(
 
     const hls_dtype* h_in,
     const hls_dtype* w,
@@ -6354,141 +6353,105 @@ void gcn_layer_hls(
     hls_dtype* h_out
 );
 }
-# 16 "../kernel/gnn_hls.cpp" 2
-# 25 "../kernel/gnn_hls.cpp"
-static void load_inputs(
+# 2 "../kernel/gnn_hls.cpp" 2
 
+
+static void load_inputs(
     const hls_dtype* h_in,
     const hls_dtype* w,
     const hls_dtype* adj_values,
     const int* adj_col_indices,
     const int* adj_row_ptr,
-
     hls::stream<hls_dtype>& h_in_stream,
     hls::stream<hls_dtype>& w_stream,
     hls::stream<hls_dtype>& adj_val_stream,
     hls::stream<int>& adj_col_stream,
     hls::stream<int>& adj_row_stream
 ) {
-
-    mem_rd_h_in:
-    for (int i = 0; i < NUM_NODES * IN_FEATURES; ++i) {
-#pragma HLS LOOP_TRIPCOUNT min=3879364 max=3879364
+    VITIS_LOOP_16_1: for (int i = 0; i < NUM_NODES * IN_FEATURES; ++i) {
 #pragma HLS PIPELINE II=1
  h_in_stream << h_in[i];
     }
-
-
-    mem_rd_w:
-    for (int i = 0; i < IN_FEATURES * OUT_FEATURES; ++i) {
-#pragma HLS LOOP_TRIPCOUNT min=22928 max=22928
+    VITIS_LOOP_20_2: for (int i = 0; i < IN_FEATURES * OUT_FEATURES; ++i) {
 #pragma HLS PIPELINE II=1
  w_stream << w[i];
     }
-
-
-    mem_rd_adj_val:
-    for (int i = 0; i < NUM_EDGES_NNZ; ++i) {
-#pragma HLS LOOP_TRIPCOUNT min=10556 max=10556
+    VITIS_LOOP_24_3: for (int i = 0; i < NUM_EDGES_NNZ; ++i) {
 #pragma HLS PIPELINE II=1
  adj_val_stream << adj_values[i];
         adj_col_stream << adj_col_indices[i];
     }
-    mem_rd_adj_row:
-    for (int i = 0; i < NUM_NODES + 1; ++i) {
-#pragma HLS LOOP_TRIPCOUNT min=2709 max=2709
+    VITIS_LOOP_29_4: for (int i = 0; i < NUM_NODES + 1; ++i) {
 #pragma HLS PIPELINE II=1
  adj_row_stream << adj_row_ptr[i];
     }
 }
-# 78 "../kernel/gnn_hls.cpp"
-static void compute_gcn(
 
+
+static void compute_gcn(
     hls::stream<hls_dtype>& h_in_stream,
     hls::stream<hls_dtype>& w_stream,
     hls::stream<hls_dtype>& adj_val_stream,
     hls::stream<int>& adj_col_stream,
     hls::stream<int>& adj_row_stream,
-
     hls::stream<hls_dtype>& h_out_stream
 ) {
-
-
-
     static hls_dtype h_in_buf[NUM_NODES][IN_FEATURES];
     static hls_dtype w_buf[IN_FEATURES][OUT_FEATURES];
     static hls_dtype adj_val_buf[NUM_EDGES_NNZ];
     static int adj_col_buf[NUM_EDGES_NNZ];
     static int adj_row_buf[NUM_NODES + 1];
 
-
 #pragma HLS ARRAY_PARTITION variable=h_in_buf complete dim=2
 #pragma HLS ARRAY_PARTITION variable=w_buf complete dim=2
 
 
- read_h_in_buf:
-    for (int i = 0; i < NUM_NODES; ++i) {
-        VITIS_LOOP_104_1: for (int j = 0; j < IN_FEATURES; ++j) {
-#pragma HLS LOOP_TRIPCOUNT min=3879364 max=3879364
+ VITIS_LOOP_54_1: for (int i = 0; i < NUM_NODES; ++i) {
+        VITIS_LOOP_55_2: for (int j = 0; j < IN_FEATURES; ++j) {
 #pragma HLS PIPELINE II=1
  h_in_buf[i][j] = h_in_stream.read();
         }
     }
 
-    read_w_buf:
-    for (int i = 0; i < IN_FEATURES; ++i) {
-        VITIS_LOOP_113_2: for (int j = 0; j < OUT_FEATURES; ++j) {
-#pragma HLS LOOP_TRIPCOUNT min=22928 max=22928
+
+    VITIS_LOOP_62_3: for (int i = 0; i < IN_FEATURES; ++i) {
+        VITIS_LOOP_63_4: for (int j = 0; j < OUT_FEATURES; ++j) {
 #pragma HLS PIPELINE II=1
  w_buf[i][j] = w_stream.read();
         }
     }
 
-    read_adj_buf:
-    for (int i = 0; i < NUM_EDGES_NNZ; ++i) {
-#pragma HLS LOOP_TRIPCOUNT min=10556 max=10556
+    VITIS_LOOP_69_5: for (int i = 0; i < NUM_EDGES_NNZ; ++i) {
 #pragma HLS PIPELINE II=1
  adj_val_buf[i] = adj_val_stream.read();
         adj_col_buf[i] = adj_col_stream.read();
     }
-    VITIS_LOOP_127_3: for (int i = 0; i < NUM_NODES + 1; ++i) {
-#pragma HLS LOOP_TRIPCOUNT min=2709 max=2709
+    VITIS_LOOP_74_6: for (int i = 0; i < NUM_NODES + 1; ++i) {
 #pragma HLS PIPELINE II=1
  adj_row_buf[i] = adj_row_stream.read();
     }
-
-
-
-
 
     static hls_dtype aggregated_features[NUM_NODES][IN_FEATURES];
 #pragma HLS ARRAY_PARTITION variable=aggregated_features complete dim=2
 
 
- init_agg_buf:
-    for (int i = 0; i < NUM_NODES; ++i) {
-        VITIS_LOOP_143_4: for (int j = 0; j < IN_FEATURES; ++j) {
+ VITIS_LOOP_83_7: for (int i = 0; i < NUM_NODES; ++i) {
+        VITIS_LOOP_84_8: for (int j = 0; j < IN_FEATURES; ++j) {
 #pragma HLS PIPELINE II=1
  aggregated_features[i][j] = 0.0;
         }
     }
 
 
-    spmm_outer_loop:
-    for (int i = 0; i < NUM_NODES; ++i) {
+    VITIS_LOOP_91_9: for (int i = 0; i < NUM_NODES; ++i) {
         int start_idx = adj_row_buf[i];
         int end_idx = adj_row_buf[i + 1];
-
-        spmm_inner_loop:
-        for (int k = start_idx; k < end_idx; ++k) {
+        VITIS_LOOP_94_10: for (int k = start_idx; k < end_idx; ++k) {
 #pragma HLS PIPELINE
  int j = adj_col_buf[k];
             hls_dtype norm_val = adj_val_buf[k];
-
-            spmm_feature_loop:
-            for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
+            VITIS_LOOP_98_11: for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
 #pragma HLS UNROLL
-
  hls_dtype feature = h_in_buf[j][f_in];
                 aggregated_features[i][f_in] += norm_val * feature;
             }
@@ -6496,54 +6459,35 @@ static void compute_gcn(
     }
 
 
-    gemm_outer_loop:
-    for (int i = 0; i < NUM_NODES; ++i) {
-        gemm_inner_loop:
-        for (int f_out = 0; f_out < OUT_FEATURES; ++f_out) {
+    VITIS_LOOP_107_12: for (int i = 0; i < NUM_NODES; ++i) {
+        VITIS_LOOP_108_13: for (int f_out = 0; f_out < OUT_FEATURES; ++f_out) {
 #pragma HLS PIPELINE
  hls_dtype sum = 0.0;
-            gemm_feature_loop:
-            for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
-                sum += aggregated_features[i][f_in] * w_buf[f_in][f_out];
+            VITIS_LOOP_111_14: for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
+#pragma HLS UNROLL factor=8
+ sum += aggregated_features[i][f_in] * w_buf[f_in][f_out];
             }
 
-
-            if (sum > 0.0) {
-                h_out_stream << sum;
-            } else {
-                h_out_stream << 0.0;
-            }
+            h_out_stream << (sum > 0.0 ? sum : 0.0);
         }
     }
 }
-
-
-
-
-
 
 
 static void store_result(
     hls::stream<hls_dtype>& h_out_stream,
     hls_dtype* h_out
 ) {
-    mem_wr_h_out:
-    for (int i = 0; i < NUM_NODES; ++i) {
-        VITIS_LOOP_205_1: for (int j = 0; j < OUT_FEATURES; ++j) {
-#pragma HLS LOOP_TRIPCOUNT min=43328 max=43328
+    VITIS_LOOP_126_1: for (int i = 0; i < NUM_NODES; ++i) {
+        VITIS_LOOP_127_2: for (int j = 0; j < OUT_FEATURES; ++j) {
 #pragma HLS PIPELINE II=1
  h_out[i * OUT_FEATURES + j] = h_out_stream.read();
         }
     }
 }
 
-
-
-
-
 extern "C" {
-void gcn_layer_hls(
-
+__attribute__((sdx_kernel("gnn", 0))) void gnn(
     const hls_dtype* h_in,
     const hls_dtype* w,
     const hls_dtype* adj_values,
@@ -6551,7 +6495,9 @@ void gcn_layer_hls(
     const int* adj_row_ptr,
     hls_dtype* h_out
 ) {
-
+#line 1 "directive"
+#pragma HLSDIRECTIVE TOP name=gnn
+# 142 "../kernel/gnn_hls.cpp"
 
 #pragma HLS INTERFACE m_axi port = h_in offset = slave bundle = gmem0 depth=3879364
 #pragma HLS INTERFACE m_axi port = w offset = slave bundle = gmem1 depth=22928
@@ -6560,9 +6506,13 @@ void gcn_layer_hls(
 #pragma HLS INTERFACE m_axi port = adj_row_ptr offset = slave bundle = gmem3 depth=2709
 #pragma HLS INTERFACE m_axi port = h_out offset = slave bundle = gmem0 depth=43328
 
+#pragma HLS INTERFACE s_axilite port = h_in bundle = control
+#pragma HLS INTERFACE s_axilite port = w bundle = control
+#pragma HLS INTERFACE s_axilite port = adj_values bundle = control
+#pragma HLS INTERFACE s_axilite port = adj_col_indices bundle = control
+#pragma HLS INTERFACE s_axilite port = adj_row_ptr bundle = control
+#pragma HLS INTERFACE s_axilite port = h_out bundle = control
 #pragma HLS INTERFACE s_axilite port = return bundle = control
-
-
 
  static hls::stream<hls_dtype> h_in_stream("h_in_stream");
     static hls::stream<hls_dtype> w_stream("w_stream");
@@ -6571,21 +6521,16 @@ void gcn_layer_hls(
     static hls::stream<int> adj_row_stream("adj_row_stream");
     static hls::stream<hls_dtype> h_out_stream("h_out_stream");
 
-
-
 #pragma HLS dataflow
-
 
  load_inputs(
         h_in, w, adj_values, adj_col_indices, adj_row_ptr,
         h_in_stream, w_stream, adj_val_stream, adj_col_stream, adj_row_stream
     );
-
     compute_gcn(
         h_in_stream, w_stream, adj_val_stream, adj_col_stream, adj_row_stream,
         h_out_stream
     );
-
     store_result(
         h_out_stream, h_out
     );

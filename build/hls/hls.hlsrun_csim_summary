@@ -1,6 +1,6 @@
 <ENTRY>
 {
- "thisFile": "/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls.hlsrun_csim_summary",
+ "thisFile": "/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls.hlsrun_csim_summary",
  "connectId": "",
  "serverToken": "",
  "timestamp": "0"
@@ -9,12 +9,12 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Sat Nov  1 00:27:02 2025",
- "timestampMillis": "1761956822947",
+ "dateTimestamp": "Mon Nov 17 18:38:26 2025",
+ "timestampMillis": "1763404706116",
  "buildStep": {
-  "cmdId": "f30f4fbc-1090-4df0-90a9-90e212c54a70",
+  "cmdId": "6f3590ab-6d78-4f69-b5cd-97bd066a25da",
   "name": "vitis-run",
-  "logFile": "/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/logs/hls.steps.log",
+  "logFile": "/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/logs/hls.steps.log",
   "commandLine": "/home/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run  --mode hls --csim --config hls_csim.cfg --work_dir build/hls ",
   "args": [
    "--mode",
@@ -26,17 +26,17 @@
    "build/hls"
   ],
   "iniFiles": [],
-  "cwd": "/home/yashas.b/gnn-inference-on-alveo-u50"
+  "cwd": "/home/sumit.k/gnn-inference-on-alveo-u50"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Sat Nov  1 00:27:02 2025",
- "timestampMillis": "1761956822947",
+ "dateTimestamp": "Mon Nov 17 18:38:26 2025",
+ "timestampMillis": "1763404706117",
  "status": {
-  "cmdId": "f30f4fbc-1090-4df0-90a9-90e212c54a70",
+  "cmdId": "6f3590ab-6d78-4f69-b5cd-97bd066a25da",
   "state": "CS_RUNNING"
  }
 }
@@ -44,8 +44,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "Sat Nov  1 00:27:08 2025",
- "timestampMillis": "1761956828977",
+ "dateTimestamp": "Mon Nov 17 18:38:36 2025",
+ "timestampMillis": "1763404716290",
  "buildSummary": {
   "hardwarePlatform": "",
   "hardwareDsa": "",
@@ -64,7 +64,7 @@
      "uuid": ""
     },
     "sources": [
-     "/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp"
+     "/home/sumit.k/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp"
     ],
     "psSources": [],
     "cuNames": [],
@@ -80,26 +80,26 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Sat Nov  1 00:27:08 2025",
- "timestampMillis": "1761956828978",
+ "dateTimestamp": "Mon Nov 17 18:38:36 2025",
+ "timestampMillis": "1763404716291",
  "buildStep": {
-  "cmdId": "ff314317-3d3d-4f92-888e-b960df93bd69",
+  "cmdId": "e83e5686-a2ef-4c17-9ddd-bfea228fe00a",
   "name": "",
-  "logFile": "/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/hls.log",
+  "logFile": "/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/hls.log",
   "commandLine": "",
   "args": [],
   "iniFiles": [],
-  "cwd": "/home/yashas.b/gnn-inference-on-alveo-u50/build"
+  "cwd": "/home/sumit.k/gnn-inference-on-alveo-u50/build"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Sat Nov  1 00:27:08 2025",
- "timestampMillis": "1761956828979",
+ "dateTimestamp": "Mon Nov 17 18:38:36 2025",
+ "timestampMillis": "1763404716292",
  "status": {
-  "cmdId": "ff314317-3d3d-4f92-888e-b960df93bd69",
+  "cmdId": "e83e5686-a2ef-4c17-9ddd-bfea228fe00a",
   "state": "CS_RUNNING"
  }
 }
@@ -107,10 +107,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Sat Nov  1 00:27:16 2025",
- "timestampMillis": "1761956836785",
+ "dateTimestamp": "Mon Nov 17 18:38:44 2025",
+ "timestampMillis": "1763404724098",
  "status": {
-  "cmdId": "ff314317-3d3d-4f92-888e-b960df93bd69",
+  "cmdId": "e83e5686-a2ef-4c17-9ddd-bfea228fe00a",
   "state": "CS_PASSED"
  }
 }
@@ -118,10 +118,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Sat Nov  1 00:27:16 2025",
- "timestampMillis": "1761956836966",
+ "dateTimestamp": "Mon Nov 17 18:38:44 2025",
+ "timestampMillis": "1763404724278",
  "status": {
-  "cmdId": "f30f4fbc-1090-4df0-90a9-90e212c54a70",
+  "cmdId": "6f3590ab-6d78-4f69-b5cd-97bd066a25da",
   "state": "CS_PASSED"
  }
 }
@@ -129,8 +129,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Sat Nov  1 00:27:16 2025",
- "timestampMillis": "1761956836967",
+ "dateTimestamp": "Mon Nov 17 18:38:44 2025",
+ "timestampMillis": "1763404724279",
  "report": {
   "path": "",
   "name": "",
@@ -143,8 +143,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Sat Nov  1 00:27:16 2025",
- "timestampMillis": "1761956836967",
+ "dateTimestamp": "Mon Nov 17 18:38:44 2025",
+ "timestampMillis": "1763404724280",
  "report": {
   "path": "",
   "name": "",

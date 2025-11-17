@@ -1,38 +1,286 @@
   **** HLS Build v2025.1 6135595
-INFO: [HLS 200-2005] Using work_dir /home/yashas.b/gnn-inference-on-alveo-u50/build/hls 
-INFO: [HLS 200-2006] Changing directory to /home/yashas.b/gnn-inference-on-alveo-u50/build
-INFO: [HLS 200-2176] Writing Vitis IDE component file /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/vitis-comp.json
-INFO: [HLS 200-10] Creating and opening component '/home/yashas.b/gnn-inference-on-alveo-u50/build/hls'.
+INFO: [HLS 200-2005] Using work_dir /home/sumit.k/gnn-inference-on-alveo-u50/build/hls 
+INFO: [HLS 200-2006] Changing directory to /home/sumit.k/gnn-inference-on-alveo-u50/build
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component '/home/sumit.k/gnn-inference-on-alveo-u50/build/hls'.
 INFO: [HLS 200-1505] Using default flow_target 'vivado'
 Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
-INFO: [HLS 200-2174] Applying component config ini file /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg
-WARNING: [HLS 200-1921] Skipping unknown config ini [hls] entry 'csim.profile=true' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(16)
-INFO: [HLS 200-1465] Applying config ini 'syn.file=kernel/gnn_hls.cpp' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(8)
-INFO: [HLS 200-10] Adding design file '/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp' to the project
-INFO: [HLS 200-1465] Applying config ini 'tb.file=tb/gnn_test.cpp' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(12)
-INFO: [HLS 200-10] Adding test bench file '/home/yashas.b/gnn-inference-on-alveo-u50/tb/gnn_test.cpp' to the project
-INFO: [HLS 200-1465] Applying config ini 'syn.top=gnn' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(9)
-INFO: [HLS 200-1465] Applying config ini 'flow_target=vitis' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(4)
+INFO: [HLS 200-2174] Applying component config ini file /home/sumit.k/gnn-inference-on-alveo-u50/hls_csim.cfg
+WARNING: [HLS 200-1921] Skipping unknown config ini [hls] entry 'csim.profile=true' from /home/sumit.k/gnn-inference-on-alveo-u50/hls_csim.cfg(16)
+INFO: [HLS 200-1465] Applying config ini 'syn.file=kernel/gnn_hls.cpp' from /home/sumit.k/gnn-inference-on-alveo-u50/hls_csim.cfg(8)
+INFO: [HLS 200-10] Adding design file '/home/sumit.k/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=tb/gnn_test.cpp' from /home/sumit.k/gnn-inference-on-alveo-u50/hls_csim.cfg(12)
+INFO: [HLS 200-10] Adding test bench file '/home/sumit.k/gnn-inference-on-alveo-u50/tb/gnn_test.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=gnn' from /home/sumit.k/gnn-inference-on-alveo-u50/hls_csim.cfg(9)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vitis' from /home/sumit.k/gnn-inference-on-alveo-u50/hls_csim.cfg(4)
 INFO: [HLS 200-1505] Using flow_target 'vitis'
 Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
 INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_latency=64
 INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_alignment_byte_size=64
 INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_max_widen_bitwidth=512
 INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_rtl -register_reset_num=3
-INFO: [HLS 200-1465] Applying config ini 'part=xcvu35p-fsvh2104-2L-e' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(1)
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu35p-fsvh2104-2L-e' from /home/sumit.k/gnn-inference-on-alveo-u50/hls_csim.cfg(1)
 INFO: [HLS 200-1611] Setting target device to 'xcvu35p-fsvh2104-2L-e'
-INFO: [HLS 200-1465] Applying config ini 'clock=5' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(5)
+INFO: [HLS 200-1465] Applying config ini 'clock=5' from /home/sumit.k/gnn-inference-on-alveo-u50/hls_csim.cfg(5)
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
-INFO: [HLS 200-1465] Applying config ini 'csim.O=true' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(14)
+INFO: [HLS 200-1465] Applying config ini 'csim.O=true' from /home/sumit.k/gnn-inference-on-alveo-u50/hls_csim.cfg(14)
 INFO: [HLS 200-1907] Replacing 'config_csim -O=1' with 'config_sim -O=1' in current solution file
-INFO: [HLS 200-1465] Applying config ini 'csim.clean=true' from /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg(15)
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=true' from /home/sumit.k/gnn-inference-on-alveo-u50/hls_csim.cfg(15)
 INFO: [HLS 200-1907] Replacing 'config_csim -O=1' with 'config_sim -O=1' in current solution file
-INFO: [HLS 200-2176] Writing Vitis IDE component file /home/yashas.b/gnn-inference-on-alveo-u50/build/hls/vitis-comp.json
-INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 3.19 seconds. CPU system time: 0.87 seconds. Elapsed time: 4.51 seconds; current allocated memory: 457.082 MB.
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/vitis-comp.json
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 3.24 seconds. CPU system time: 1.62 seconds. Elapsed time: 8.21 seconds; current allocated memory: 457.086 MB.
 INFO: [HLS 200-10] Analyzing design file '../kernel/gnn_hls.cpp' ... 
-WARNING: [HLS 200-1986] Could not apply TOP directive, invalid function, label, or variable (:0)
-INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.09 seconds. CPU system time: 0.52 seconds. Elapsed time: 3.69 seconds; current allocated memory: 460.141 MB.
-ERROR: [HLS 214-157] Top function not found: there is no function named 'gnn'
-error: Top function not found: there is no function named 'gnn'
-ERROR: Error in opt
-INFO: [HLS 200-112] Total CPU user time: 8.27 seconds. Total CPU system time: 1.65 seconds. Total elapsed time: 10.58 seconds; peak allocated memory: 460.141 MB.
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.4 seconds. CPU system time: 0.53 seconds. Elapsed time: 4.07 seconds; current allocated memory: 460.168 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+INFO: [HLS 200-1995] There were 457 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 18,863 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 18,819 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 20,238 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 20,238 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 6,209,467 instructions in the design after the 'Array/Struct' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 53,299 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 53,299 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 53,299 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 54,784 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 54,785 instructions in the design after the 'Performance' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 53,351 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 63,382 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 63,380 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 63,404 instructions in the design after the 'HW Transforms' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 63,491 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_111_14' is marked as complete unroll implied by the pipeline pragma (../kernel/gnn_hls.cpp:111:32)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_98_11' is marked as complete unroll implied by the pipeline pragma (../kernel/gnn_hls.cpp:98:31)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_111_14' (../kernel/gnn_hls.cpp:111:32) in function 'compute_gcn' completely with a factor of 1433 (../kernel/gnn_hls.cpp:43:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_98_11' (../kernel/gnn_hls.cpp:98:31) in function 'compute_gcn' completely with a factor of 1433 (../kernel/gnn_hls.cpp:43:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL11compute_gcnRN3hls6streamIfLi0EEES2_S2_RNS0_IiLi0EEES4_S2_E19aggregated_features': Complete partitioning on dimension 2. (../kernel/gnn_hls.cpp:79:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL11compute_gcnRN3hls6streamIfLi0EEES2_S2_RNS0_IiLi0EEES4_S2_E5w_buf': Complete partitioning on dimension 2. (../kernel/gnn_hls.cpp:45:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL11compute_gcnRN3hls6streamIfLi0EEES2_S2_RNS0_IiLi0EEES4_S2_E8h_in_buf': Complete partitioning on dimension 2. (../kernel/gnn_hls.cpp:44:0)
+INFO: [HLS 214-115] Multiple burst reads of length 1433 and bit width 512 has been inferred on bundle 'gmem1'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../kernel/gnn_hls.cpp:20:22)
+INFO: [HLS 214-115] Multiple burst reads of length 2639 and bit width 128 has been inferred on bundle 'gmem2'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../kernel/gnn_hls.cpp:24:22)
+INFO: [HLS 214-115] Multiple burst reads of length 2639 and bit width 128 has been inferred on bundle 'gmem3'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../kernel/gnn_hls.cpp:24:22)
+INFO: [HLS 214-115] Multiple burst writes of length 2708 and bit width 512 in loop 'VITIS_LOOP_126_1'(../kernel/gnn_hls.cpp:126:23) has been inferred on bundle 'gmem0'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../kernel/gnn_hls.cpp:126:23)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 3532.21 seconds. CPU system time: 19.26 seconds. Elapsed time: 3555.26 seconds; current allocated memory: 462.945 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 462.945 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 33.77 seconds. CPU system time: 0.13 seconds. Elapsed time: 34.03 seconds; current allocated memory: 606.094 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 16.9 seconds. CPU system time: 0.07 seconds. Elapsed time: 17.06 seconds; current allocated memory: 679.172 MB.
+WARNING: [HLS 200-805] An internal stream 'w_stream' with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'h_out_stream' with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'h_in_stream' with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'adj_val_stream' with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'adj_row_stream' with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'adj_col_stream' with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+INFO: [XFORM 203-712] Applying dataflow to function 'gnn' (../kernel/gnn_hls.cpp:135:1), detected/extracted 4 process function(s): 
+	 'entry_proc'
+	 'load_inputs'
+	 'compute_gcn'
+	 'store_result'.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 154.93 seconds. CPU system time: 0.26 seconds. Elapsed time: 155.33 seconds; current allocated memory: 866.266 MB.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_126_1'(../kernel/gnn_hls.cpp:126:23) and 'VITIS_LOOP_127_2'(../kernel/gnn_hls.cpp:127:27) in function 'store_result' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_54_1'(../kernel/gnn_hls.cpp:54:19) and 'VITIS_LOOP_55_2'(../kernel/gnn_hls.cpp:55:26) in function 'compute_gcn' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_62_3'(../kernel/gnn_hls.cpp:62:22) and 'VITIS_LOOP_63_4'(../kernel/gnn_hls.cpp:63:26) in function 'compute_gcn' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_83_7'(../kernel/gnn_hls.cpp:83:19) and 'VITIS_LOOP_84_8'(../kernel/gnn_hls.cpp:84:26) in function 'compute_gcn' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_107_12'(../kernel/gnn_hls.cpp:107:24) and 'VITIS_LOOP_108_13'(../kernel/gnn_hls.cpp:108:28) in function 'compute_gcn' into perfectly nested loops.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_126_1' (../kernel/gnn_hls.cpp:126:23) in function 'store_result'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_54_1' (../kernel/gnn_hls.cpp:54:19) in function 'compute_gcn'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_62_3' (../kernel/gnn_hls.cpp:62:22) in function 'compute_gcn'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_83_7' (../kernel/gnn_hls.cpp:83:19) in function 'compute_gcn'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_91_9' (../kernel/gnn_hls.cpp:91:22) in function 'compute_gcn' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+Resolution: For help on HLS 200-960 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-960.html
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_107_12' (../kernel/gnn_hls.cpp:107:24) in function 'compute_gcn'.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 384.76 seconds. CPU system time: 0.42 seconds. Elapsed time: 385.3 seconds; current allocated memory: 1.404 GB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'gnn' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'entry_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 272.94 seconds. CPU system time: 0.53 seconds. Elapsed time: 273.54 seconds; current allocated memory: 1.497 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'load_inputs_Pipeline_VITIS_LOOP_16_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_16_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 74, loop 'VITIS_LOOP_16_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.497 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'load_inputs_Pipeline_VITIS_LOOP_20_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_20_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'VITIS_LOOP_20_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.497 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'load_inputs_Pipeline_VITIS_LOOP_24_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_24_3'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'VITIS_LOOP_24_3'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 1.497 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'load_inputs_Pipeline_VITIS_LOOP_29_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_29_4'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 74, loop 'VITIS_LOOP_29_4'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 1.497 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'load_inputs' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.497 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_54_1_VITIS_LOOP_55_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_54_1_VITIS_LOOP_55_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 36.47 seconds. CPU system time: 0.03 seconds. Elapsed time: 36.51 seconds; current allocated memory: 1.497 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1.2 seconds. CPU system time: 0.04 seconds. Elapsed time: 1.42 seconds; current allocated memory: 1.513 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_62_3_VITIS_LOOP_63_4'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_62_3_VITIS_LOOP_63_4'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1.08 seconds. CPU system time: 0.03 seconds. Elapsed time: 1.35 seconds; current allocated memory: 1.513 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.513 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_69_5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_69_5'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_69_5'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 1.513 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.513 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_74_6' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_74_6'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_74_6'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.03 seconds; current allocated memory: 1.513 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 1.513 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_83_7_VITIS_LOOP_84_8'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_83_7_VITIS_LOOP_84_8'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 36.02 seconds. CPU system time: 0.06 seconds. Elapsed time: 36.09 seconds; current allocated memory: 1.543 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1.14 seconds. CPU system time: 0.04 seconds. Elapsed time: 1.36 seconds; current allocated memory: 1.551 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_94_10' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_94_10'.
+WARNING: [HLS 200-880] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_94_10' (loop 'VITIS_LOOP_94_10'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('empty_write_ln101', ../kernel/gnn_hls.cpp:101) of variable 'add_i', ../kernel/gnn_hls.cpp:101 on local variable 'empty' and 'load' operation 32 bit ('p_load', ../kernel/gnn_hls.cpp:101) on local variable 'empty'.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_94_10' (loop 'VITIS_LOOP_94_10'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0) between 'store' operation 0 bit ('empty_write_ln101', ../kernel/gnn_hls.cpp:101) of variable 'add_i', ../kernel/gnn_hls.cpp:101 on local variable 'empty' and 'load' operation 32 bit ('p_load', ../kernel/gnn_hls.cpp:101) on local variable 'empty'.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_94_10' (loop 'VITIS_LOOP_94_10'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0) between 'store' operation 0 bit ('empty_write_ln101', ../kernel/gnn_hls.cpp:101) of variable 'add_i', ../kernel/gnn_hls.cpp:101 on local variable 'empty' and 'load' operation 32 bit ('p_load', ../kernel/gnn_hls.cpp:101) on local variable 'empty'.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 4, Depth = 16, loop 'VITIS_LOOP_94_10'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 78.99 seconds. CPU system time: 0.09 seconds. Elapsed time: 79.35 seconds; current allocated memory: 1.667 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 7.19 seconds. CPU system time: 0.06 seconds. Elapsed time: 7.78 seconds; current allocated memory: 1.680 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Outline_VITIS_LOOP_91_9' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 28.09 seconds. CPU system time: 0.13 seconds. Elapsed time: 29.07 seconds; current allocated memory: 1.747 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 2.99 seconds. CPU system time: 0.03 seconds. Elapsed time: 3.29 seconds; current allocated memory: 1.747 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_107_12_VITIS_LOOP_108_13'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 7174, loop 'VITIS_LOOP_107_12_VITIS_LOOP_108_13'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 263.93 seconds. CPU system time: 0.48 seconds. Elapsed time: 264.9 seconds; current allocated memory: 2.027 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.

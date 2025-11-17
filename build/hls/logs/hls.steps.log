@@ -12,7 +12,7 @@ SHELL=/bin/bash
 RDI_APPROOT=/home/Xilinx/2025.1/Vitis
 RDI_JAVA_PLATFORM=
 LANGUAGE=en_US:en
-MAKE_TERMOUT=/dev/pts/0
+MAKE_TERMOUT=/dev/pts/9
 XIL_SUPPRESS_OVERRIDE_WARNINGS=1
 RDI_BINROOT=/home/Xilinx/2025.1/Vitis/bin
 XILINX_VIVADO=/home/Xilinx/2025.1/Vivado
@@ -25,23 +25,23 @@ XILINX_XRT=/opt/xilinx/xrt
 XIL_NO_OVERRIDE=0
 ENV=/usr/share/modules/init/profile.sh
 RDI_LIBDIR=/home/Xilinx/2025.1/Vitis/lib/lnx64.o/Ubuntu/20:/home/Xilinx/2025.1/Vitis/lib/lnx64.o/Ubuntu:/home/Xilinx/2025.1/Vitis/lib/lnx64.o
-PWD=/home/yashas.b/gnn-inference-on-alveo-u50
-LOGNAME=yashas.b
+PWD=/home/sumit.k/gnn-inference-on-alveo-u50
+LOGNAME=sumit.k
 _RDI_DONT_SET_XILINX_AS_PATH=True
 MODULESHOME=/usr/share/modules
 MANPATH=:
 RDI_PREPEND_PATH=/home/Xilinx/2025.1/Vitis/bin
 XILINX_DSP=
 MOTD_SHOWN=pam
-HOME=/home/yashas.b
+HOME=/home/sumit.k
 SYNTH_COMMON=/home/Xilinx/2025.1/Vitis/scripts/rt/data
 LANG=en_US.UTF-8
 PLATFORM_REPO_PATHS=/opt/xilinx/platforms
 XILINX_HLS=/home/Xilinx/2025.1/Vitis
 RDI_BUILD=yes
 RDI_PROG=/home/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run
-SSH_CONNECTION=172.16.0.10 48234 172.16.0.18 22
-RDI_SESSION_INFO=/home/yashas.b/gnn-inference-on-alveo-u50:node08_1761921120_45350
+SSH_CONNECTION=172.16.0.10 39096 172.16.0.18 22
+RDI_SESSION_INFO=/home/sumit.k/gnn-inference-on-alveo-u50:node08_1763404701_2998926
 RT_TCL_PATH=/home/Xilinx/2025.1/Vitis/scripts/rt/base_tcl/tcl
 MFLAGS=
 XILINX_SDK=/home/Xilinx/2025.1/Vitis
@@ -50,16 +50,15 @@ MODULEPATH_modshare=/etc/environment-modules/modules:1:/usr/share/modules/$MODUL
 MAKEFLAGS=
 PYTHONPATH=/home/Xilinx/2025.1/Vitis/functional_suite/vfs/python:/home/Xilinx/2025.1/Vitis/functional_suite/varray/python:/home/Xilinx/2025.1/Vitis/functional_suite/lib/python:/opt/xilinx/xrt/python
 TERM=xterm-256color
-USER=yashas.b
+USER=sumit.k
 LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
-MAKE_TERMERR=/dev/pts/0
+MAKE_TERMERR=/dev/pts/9
 XILINX_PLANAHEAD=/home/Xilinx/2025.1/Vitis
 RDI_BASEROOT=/home/Xilinx/2025.1
 RDI_TPS_ROOT=/home/Xilinx/2025.1/Vivado/tps/lnx64
 RDI_JAVA_VERSION=21.0.1_12
 LOADEDMODULES=
 RDI_DATADIR=/home/Xilinx/2025.1/SharedData/data:/home/Xilinx/2025.1/Vitis/data
-DISPLAY=:1
 SHLVL=3
 BASH_ENV=/usr/share/modules/init/bash
 MAKELEVEL=1
@@ -69,17 +68,17 @@ LM_LICENSE_FILE=2100@rce.iiit.ac.in
 LD_LIBRARY_PATH=/home/Xilinx/2025.1/Vitis/tps/lnx64/java-cef-95.0.4638.69/bin/lib/linux64:/home/Xilinx/2025.1/Vitis/lib/lnx64.o/Ubuntu/20:/home/Xilinx/2025.1/Vitis/lib/lnx64.o/Ubuntu:/home/Xilinx/2025.1/Vitis/lib/lnx64.o:/home/Xilinx/2025.1/Vitis/tps/lnx64/jre21.0.1_12/lib/:/home/Xilinx/2025.1/Vitis/tps/lnx64/jre21.0.1_12/lib//server:/home/Xilinx/2025.1/Vitis/lib/lnx64.o/Ubuntu/20:/home/Xilinx/2025.1/Vitis/lib/lnx64.o/Ubuntu:/home/Xilinx/2025.1/Vitis/lib/lnx64.o:/opt/xilinx/xrt/lib:/opt/xilinx/xrt/lib:
 HDIPRELDPATH=/home/Xilinx/2025.1/Vitis/lib/lnx64.o/Ubuntu/20:/home/Xilinx/2025.1/Vitis/lib/lnx64.o/Ubuntu:/home/Xilinx/2025.1/Vitis/lib/lnx64.o:/opt/xilinx/xrt/lib:/opt/xilinx/xrt/lib:
 TCMALLOC_LARGE_ALLOC_REPORT_THRESHOLD=4294967296
-SSH_CLIENT=172.16.0.10 48234 22
+SSH_CLIENT=172.16.0.10 39096 22
 TCL_LIBRARY=/home/Xilinx/2025.1/Vitis/tps/tcl/tcl8.6
 LC_ALL=en_US.UTF-8
 XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
-PATH=/home/Xilinx/2025.1/Vivado/tps/lnx64/binutils-2.26/bin:/home/Xilinx/2025.1/Vitis/bin/../gnu/aarch64/lin/aarch64-linux/bin:/home/Xilinx/2025.1/Vitis/bin/../gnu/ppc64le/4.9.3/lnx64/bin:/home/Xilinx/2025.1/Vitis/bin/../gnu/aarch32/lin/gcc-arm-linux-gnueabi/bin:/home/Xilinx/2025.1/Vivado/tps/lnx64/gcc-8.3.0/bin:/home/Xilinx/2025.1/Vivado/gnu/microblaze/lin/bin:/home/Xilinx/2025.1/Vitis/bin:/home/Xilinx/2025.1/Vitis/tps/lnx64/jre21.0.1_12/bin:/home/Xilinx/2025.1/Model_Composer/bin:/home/Xilinx/DocNav:/home/Xilinx/2025.1/Vitis/gnu/microblaze/lin/bin:/home/Xilinx/2025.1/Vitis/gnu/microblaze/linux_toolchain/lin64_le/bin:/home/Xilinx/2025.1/Vitis/gnu/aarch32/lin/gcc-arm-linux-gnueabi/bin:/home/Xilinx/2025.1/Vitis/gnu/aarch32/lin/gcc-arm-none-eabi/bin:/home/Xilinx/2025.1/Vitis/gnu/aarch64/lin/aarch64-linux/bin:/home/Xilinx/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin:/home/Xilinx/2025.1/Vitis/gnu/armr5/lin/gcc-arm-none-eabi/bin:/home/Xilinx/2025.1/Vitis/aietools/bin:/home/Xilinx/2025.1/Vitis/gnu/riscv/lin/riscv64-unknown-elf/bin:/home/Xilinx/2025.1/Vitis/functional_suite/hil:/home/Xilinx/2025.1/Vivado/bin:/opt/xilinx/xrt/bin:/home/yashas.b/.local/bin:/home/yashas.b/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PATH=/home/Xilinx/2025.1/Vivado/tps/lnx64/binutils-2.26/bin:/home/Xilinx/2025.1/Vitis/bin/../gnu/aarch64/lin/aarch64-linux/bin:/home/Xilinx/2025.1/Vitis/bin/../gnu/ppc64le/4.9.3/lnx64/bin:/home/Xilinx/2025.1/Vitis/bin/../gnu/aarch32/lin/gcc-arm-linux-gnueabi/bin:/home/Xilinx/2025.1/Vivado/tps/lnx64/gcc-8.3.0/bin:/home/Xilinx/2025.1/Vivado/gnu/microblaze/lin/bin:/home/Xilinx/2025.1/Vitis/bin:/home/Xilinx/2025.1/Vitis/tps/lnx64/jre21.0.1_12/bin:/home/Xilinx/2025.1/Model_Composer/bin:/home/Xilinx/DocNav:/home/Xilinx/2025.1/Vitis/gnu/microblaze/lin/bin:/home/Xilinx/2025.1/Vitis/gnu/microblaze/linux_toolchain/lin64_le/bin:/home/Xilinx/2025.1/Vitis/gnu/aarch32/lin/gcc-arm-linux-gnueabi/bin:/home/Xilinx/2025.1/Vitis/gnu/aarch32/lin/gcc-arm-none-eabi/bin:/home/Xilinx/2025.1/Vitis/gnu/aarch64/lin/aarch64-linux/bin:/home/Xilinx/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin:/home/Xilinx/2025.1/Vitis/gnu/armr5/lin/gcc-arm-none-eabi/bin:/home/Xilinx/2025.1/Vitis/aietools/bin:/home/Xilinx/2025.1/Vitis/gnu/riscv/lin/riscv64-unknown-elf/bin:/home/Xilinx/2025.1/Vitis/functional_suite/hil:/home/Xilinx/2025.1/Vivado/bin:/opt/xilinx/xrt/bin:/home/sumit.k/.local/bin:/home/sumit.k/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 RT_LIBPATH=/home/Xilinx/2025.1/Vitis/scripts/rt/data
 MODULEPATH=/etc/environment-modules/modules:/usr/share/modules/versions:/usr/share/modules/$MODULE_VERSION/modulefiles:/usr/share/modules/modulefiles
 HDI_APPROOT=/home/Xilinx/2025.1/Vitis
 RDI_PLATFORM=lnx64
 MYVIVADO=
-SSH_TTY=/dev/pts/0
+SSH_TTY=/dev/pts/9
 ISL_IOSTREAMS_RSA=/home/Xilinx/2025.1/Vitis/tps/isl
 XILINX_VITIS=/home/Xilinx/2025.1/Vitis
 OLDPWD=/home/Xilinx/2025.1/SharedData/data
@@ -163,8 +162,8 @@ BASH_FUNC__module_raw%%=() {  unset _mlshdbg;
  return $_mlstatus
 }
 _=/home/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run
-XILINX_CD_CONNECT_ID=37519
-XILINX_CD_SESSION=adad6a99-1fd6-44b1-8f6e-7649f187d221
+XILINX_CD_CONNECT_ID=33013
+XILINX_CD_SESSION=cb1a703b-d810-4738-bea6-3410360e7aa2
 
 
 VITIS-RUN command line:
@@ -174,7 +173,16 @@ VITIS-RUN command line:
 FINAL PROGRAM OPTIONS
 --config hls_csim.cfg
 --csim
+--hls.clock 5
+--hls.csim.O true
+--hls.csim.clean true
+--hls.csim.profile true
+--hls.flow_target vitis
+--hls.syn.file kernel/gnn_hls.cpp
+--hls.syn.top gnn
+--hls.tb.file tb/gnn_test.cpp
 --mode hls
+--part xcvu35p-fsvh2104-2L-e
 --work_dir build/hls
 
 PARSED COMMAND LINE OPTIONS
@@ -183,94 +191,22 @@ PARSED COMMAND LINE OPTIONS
 --config hls_csim.cfg 
 --work_dir build/hls 
 
+PARSED CONFIG FILE (1) OPTIONS
+file: hls_csim.cfg
+part xcvu35p-fsvh2104-2L-e 
+hls.flow_target vitis 
+hls.clock 5 
+hls.syn.file kernel/gnn_hls.cpp 
+hls.syn.top gnn 
+hls.tb.file tb/gnn_test.cpp 
+hls.csim.O true 
+hls.csim.clean true 
+hls.csim.profile true 
+
 
 ==========================================
 new:  steps log generated by v++ for new launch 
-timestamp: 31 Oct 2025 14:32:06
-
-------------------------------------------
-VITIS-RUN command line :
-------------------------------------------
-/home/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run --mode hls --csim --config hls_csim.cfg --work_dir build/hls 
-  Options from -O    : 
-  Options from *.ini : 
-  Options from Hw Platform : 
-
-==========================================
-new:  steps log generated by v++ for new launch 
-timestamp: 31 Oct 2025 14:34:35
-
-------------------------------------------
-VITIS-RUN command line :
-------------------------------------------
-/home/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run --mode hls --csim --config hls_csim.cfg --work_dir build/hls 
-  Options from -O    : 
-  Options from *.ini : 
-  Options from Hw Platform : 
-
-==========================================
-new:  steps log generated by v++ for new launch 
-timestamp: 31 Oct 2025 14:36:17
-
-------------------------------------------
-VITIS-RUN command line :
-------------------------------------------
-/home/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run --mode hls --csim --config hls_csim.cfg --work_dir build/hls 
-  Options from -O    : 
-  Options from *.ini : 
-  Options from Hw Platform : 
-
-==========================================
-new:  steps log generated by v++ for new launch 
-timestamp: 31 Oct 2025 14:37:51
-
-------------------------------------------
-VITIS-RUN command line :
-------------------------------------------
-/home/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run --mode hls --csim --config hls_csim.cfg --work_dir build/hls 
-  Options from -O    : 
-  Options from *.ini : 
-  Options from Hw Platform : 
-
-==========================================
-new:  steps log generated by v++ for new launch 
-timestamp: 31 Oct 2025 14:38:44
-
-------------------------------------------
-VITIS-RUN command line :
-------------------------------------------
-/home/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run --mode hls --csim --config hls_csim.cfg --work_dir build/hls 
-  Options from -O    : 
-  Options from *.ini : 
-  Options from Hw Platform : 
-
-==========================================
-new:  steps log generated by v++ for new launch 
-timestamp: 31 Oct 2025 14:39:41
-
-------------------------------------------
-VITIS-RUN command line :
-------------------------------------------
-/home/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run --mode hls --csim --config hls_csim.cfg --work_dir build/hls 
-  Options from -O    : 
-  Options from *.ini : 
-  Options from Hw Platform : 
-
-==========================================
-new:  steps log generated by v++ for new launch 
-timestamp: 31 Oct 2025 14:56:27
-
-------------------------------------------
-VITIS-RUN command line :
-------------------------------------------
-/home/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run --mode hls --csim --config hls_csim.cfg --work_dir build/hls 
-  Options from -O    : 
-  Options from *.ini : 
-  Options from Hw Platform : 
-
-==========================================
-new:  steps log generated by v++ for new launch 
-timestamp: 01 Nov 2025 00:22:13
+timestamp: 17 Nov 2025 18:38:26
 
 ------------------------------------------
 V++ command line :
@@ -282,7 +218,7 @@ V++ command line :
 
 ==========================================
 new:  steps log generated by v++ for new launch 
-timestamp: 01 Nov 2025 00:22:59
+timestamp: 17 Nov 2025 18:40:07
 
 ------------------------------------------
 V++ command line :
@@ -294,28 +230,4 @@ V++ command line :
 
 ==========================================
 new:  steps log generated by v++ for new launch 
-timestamp: 01 Nov 2025 00:26:23
-
-------------------------------------------
-V++ command line :
-------------------------------------------
-/home/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/v++ -c --mode hls --config hls_csim.cfg --work_dir build/hls 
-  Options from -O    : 
-  Options from *.ini : 
-  Options from Hw Platform : 
-
-==========================================
-new:  steps log generated by v++ for new launch 
-timestamp: 01 Nov 2025 00:26:45
-
-------------------------------------------
-VITIS-RUN command line :
-------------------------------------------
-/home/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run --mode hls --csim --config hls_csim.cfg --work_dir build/hls 
-  Options from -O    : 
-  Options from *.ini : 
-  Options from Hw Platform : 
-
-==========================================
-new:  steps log generated by v++ for new launch 
-timestamp: 01 Nov 2025 00:27:03
+timestamp: 17 Nov 2025 19:09:09

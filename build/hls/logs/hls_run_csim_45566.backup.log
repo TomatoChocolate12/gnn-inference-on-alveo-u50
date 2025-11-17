@@ -1,3 +1,0 @@
-  **** HLS Build v2025.1 6135595
-ERROR: Config file not found: /home/yashas.b/gnn-inference-on-alveo-u50/hls_csim.cfg
-INFO: [HLS 200-112] Total CPU user time: 1.25 seconds. Total CPU system time: 1.33 seconds. Total elapsed time: 5.59 seconds; peak allocated memory: 137.539 MB.

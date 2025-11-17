@@ -1,6 +1,6 @@
 <dict>
   <key>main-file</key>
-  <string>/home/yashas.b/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp</string>
+  <string>/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp</string>
   <key>diagnostics</key>
   <array>
     <dict>
@@ -9,11 +9,11 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>42</integer>
+      <integer>17</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_inputs_XLX_SEP_ PragmaOptions=min=3879364 max=3879364_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_inputs_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
@@ -25,7 +25,39 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>43</integer>
+      <integer>21</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_inputs_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>../kernel/gnn_hls.cpp</string>
+      <key>line</key>
+      <integer>25</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_inputs_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>../kernel/gnn_hls.cpp</string>
+      <key>line</key>
+      <integer>30</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -45,7 +77,7 @@
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_inputs_XLX_SEP_ PragmaOptions=min=22928 max=22928_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=variable=h_in_buf complete dim=2_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
@@ -61,102 +93,6 @@
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_inputs_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>../kernel/gnn_hls.cpp</string>
-      <key>line</key>
-      <integer>58</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_inputs_XLX_SEP_ PragmaOptions=min=10556 max=10556_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>../kernel/gnn_hls.cpp</string>
-      <key>line</key>
-      <integer>59</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_inputs_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>../kernel/gnn_hls.cpp</string>
-      <key>line</key>
-      <integer>65</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_inputs_XLX_SEP_ PragmaOptions=min=2709 max=2709_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>../kernel/gnn_hls.cpp</string>
-      <key>line</key>
-      <integer>66</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_inputs_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>../kernel/gnn_hls.cpp</string>
-      <key>line</key>
-      <integer>98</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=variable=h_in_buf complete dim=2_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>../kernel/gnn_hls.cpp</string>
-      <key>line</key>
-      <integer>99</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
       <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=variable=w_buf complete dim=2_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
@@ -169,23 +105,7 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>105</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=min=3879364 max=3879364_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>../kernel/gnn_hls.cpp</string>
-      <key>line</key>
-      <integer>106</integer>
+      <integer>56</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -201,23 +121,7 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>114</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=min=22928 max=22928_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>../kernel/gnn_hls.cpp</string>
-      <key>line</key>
-      <integer>115</integer>
+      <integer>64</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -233,23 +137,7 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>122</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=min=10556 max=10556_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>../kernel/gnn_hls.cpp</string>
-      <key>line</key>
-      <integer>123</integer>
+      <integer>70</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -265,23 +153,7 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>128</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=min=2709 max=2709_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>../kernel/gnn_hls.cpp</string>
-      <key>line</key>
-      <integer>129</integer>
+      <integer>75</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -297,7 +169,7 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>138</integer>
+      <integer>80</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -313,7 +185,7 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>144</integer>
+      <integer>85</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -329,7 +201,7 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>157</integer>
+      <integer>95</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -345,7 +217,7 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>163</integer>
+      <integer>99</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -361,7 +233,7 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>176</integer>
+      <integer>109</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -377,11 +249,11 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>206</integer>
+      <integer>112</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=store_result_XLX_SEP_ PragmaOptions=min=43328 max=43328_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=factor=8_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
@@ -393,7 +265,7 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>207</integer>
+      <integer>128</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -407,13 +279,13 @@
       <key>level</key>
       <string>warning</string>
       <key>filename</key>
-      <string>../kernel/gnn_hls.cpp</string>
+      <string>directive</string>
       <key>line</key>
-      <integer>229</integer>
+      <integer>1</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gcn_layer_hls_XLX_SEP_ PragmaOptions=m_axi port = h_in offset = slave bundle = gmem0 depth=3879364_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=top_XLX_SEP_ PragmaContext=directive_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=name=gnn_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
@@ -425,11 +297,11 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>230</integer>
+      <integer>143</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gcn_layer_hls_XLX_SEP_ PragmaOptions=m_axi port = w offset = slave bundle = gmem1 depth=22928_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=m_axi port = h_in offset = slave bundle = gmem0 depth=3879364_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
@@ -441,11 +313,11 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>231</integer>
+      <integer>144</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gcn_layer_hls_XLX_SEP_ PragmaOptions=m_axi port = adj_values offset = slave bundle = gmem2 depth=10556_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=m_axi port = w offset = slave bundle = gmem1 depth=22928_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
@@ -457,11 +329,11 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>232</integer>
+      <integer>145</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gcn_layer_hls_XLX_SEP_ PragmaOptions=m_axi port = adj_col_indices offset = slave bundle = gmem3 depth=10556_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=m_axi port = adj_values offset = slave bundle = gmem2 depth=10556_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
@@ -473,11 +345,11 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>233</integer>
+      <integer>146</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gcn_layer_hls_XLX_SEP_ PragmaOptions=m_axi port = adj_row_ptr offset = slave bundle = gmem3 depth=2709_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=m_axi port = adj_col_indices offset = slave bundle = gmem3 depth=10556_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
@@ -489,11 +361,11 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>234</integer>
+      <integer>147</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gcn_layer_hls_XLX_SEP_ PragmaOptions=m_axi port = h_out offset = slave bundle = gmem0 depth=43328_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=m_axi port = adj_row_ptr offset = slave bundle = gmem3 depth=2709_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
@@ -505,11 +377,11 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>236</integer>
+      <integer>148</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gcn_layer_hls_XLX_SEP_ PragmaOptions=s_axilite port = return bundle = control_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=m_axi port = h_out offset = slave bundle = gmem0 depth=43328_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
@@ -521,11 +393,123 @@
       <key>filename</key>
       <string>../kernel/gnn_hls.cpp</string>
       <key>line</key>
-      <integer>249</integer>
+      <integer>150</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=dataflow_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gcn_layer_hls_XLX_SEP_ PragmaOptions=_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=s_axilite port = h_in bundle = control_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>../kernel/gnn_hls.cpp</string>
+      <key>line</key>
+      <integer>151</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=s_axilite port = w bundle = control_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>../kernel/gnn_hls.cpp</string>
+      <key>line</key>
+      <integer>152</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=s_axilite port = adj_values bundle = control_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>../kernel/gnn_hls.cpp</string>
+      <key>line</key>
+      <integer>153</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=s_axilite port = adj_col_indices bundle = control_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>../kernel/gnn_hls.cpp</string>
+      <key>line</key>
+      <integer>154</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=s_axilite port = adj_row_ptr bundle = control_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>../kernel/gnn_hls.cpp</string>
+      <key>line</key>
+      <integer>155</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=s_axilite port = h_out bundle = control_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>../kernel/gnn_hls.cpp</string>
+      <key>line</key>
+      <integer>156</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=s_axilite port = return bundle = control_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>../kernel/gnn_hls.cpp</string>
+      <key>line</key>
+      <integer>165</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=dataflow_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
