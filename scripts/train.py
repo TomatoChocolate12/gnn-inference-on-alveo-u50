@@ -2,7 +2,7 @@ import torch
 from torch_geometric.nn import GCNConv
 from torch_geometric.datasets import Planetoid
 
-# Define model (HLS expects single layer: 1433 -> 16)
+# Model
 class GCN(torch.nn.Module):
     def __init__(self, num_features, num_classes):
         super().__init__()

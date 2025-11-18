@@ -6402,56 +6402,59 @@ static void compute_gcn(
     static int adj_col_buf[NUM_EDGES_NNZ];
     static int adj_row_buf[NUM_NODES + 1];
 
-#pragma HLS ARRAY_PARTITION variable=h_in_buf complete dim=2
-#pragma HLS ARRAY_PARTITION variable=w_buf complete dim=2
 
 
- VITIS_LOOP_54_1: for (int i = 0; i < NUM_NODES; ++i) {
-        VITIS_LOOP_55_2: for (int j = 0; j < IN_FEATURES; ++j) {
+#pragma HLS ARRAY_PARTITION variable=h_in_buf cyclic factor=16 dim=2
+#pragma HLS ARRAY_PARTITION variable=w_buf cyclic factor=16 dim=2
+
+
+ VITIS_LOOP_56_1: for (int i = 0; i < NUM_NODES; ++i) {
+        VITIS_LOOP_57_2: for (int j = 0; j < IN_FEATURES; ++j) {
 #pragma HLS PIPELINE II=1
  h_in_buf[i][j] = h_in_stream.read();
         }
     }
 
 
-    VITIS_LOOP_62_3: for (int i = 0; i < IN_FEATURES; ++i) {
-        VITIS_LOOP_63_4: for (int j = 0; j < OUT_FEATURES; ++j) {
+    VITIS_LOOP_64_3: for (int i = 0; i < IN_FEATURES; ++i) {
+        VITIS_LOOP_65_4: for (int j = 0; j < OUT_FEATURES; ++j) {
 #pragma HLS PIPELINE II=1
  w_buf[i][j] = w_stream.read();
         }
     }
 
-    VITIS_LOOP_69_5: for (int i = 0; i < NUM_EDGES_NNZ; ++i) {
+    VITIS_LOOP_71_5: for (int i = 0; i < NUM_EDGES_NNZ; ++i) {
 #pragma HLS PIPELINE II=1
  adj_val_buf[i] = adj_val_stream.read();
         adj_col_buf[i] = adj_col_stream.read();
     }
-    VITIS_LOOP_74_6: for (int i = 0; i < NUM_NODES + 1; ++i) {
+    VITIS_LOOP_76_6: for (int i = 0; i < NUM_NODES + 1; ++i) {
 #pragma HLS PIPELINE II=1
  adj_row_buf[i] = adj_row_stream.read();
     }
 
     static hls_dtype aggregated_features[NUM_NODES][IN_FEATURES];
-#pragma HLS ARRAY_PARTITION variable=aggregated_features complete dim=2
+
+#pragma HLS ARRAY_PARTITION variable=aggregated_features cyclic factor=16 dim=2
 
 
- VITIS_LOOP_83_7: for (int i = 0; i < NUM_NODES; ++i) {
-        VITIS_LOOP_84_8: for (int j = 0; j < IN_FEATURES; ++j) {
+ VITIS_LOOP_86_7: for (int i = 0; i < NUM_NODES; ++i) {
+        VITIS_LOOP_87_8: for (int j = 0; j < IN_FEATURES; ++j) {
 #pragma HLS PIPELINE II=1
  aggregated_features[i][j] = 0.0;
         }
     }
 
 
-    VITIS_LOOP_91_9: for (int i = 0; i < NUM_NODES; ++i) {
+    VITIS_LOOP_94_9: for (int i = 0; i < NUM_NODES; ++i) {
         int start_idx = adj_row_buf[i];
         int end_idx = adj_row_buf[i + 1];
-        VITIS_LOOP_94_10: for (int k = start_idx; k < end_idx; ++k) {
+        VITIS_LOOP_97_10: for (int k = start_idx; k < end_idx; ++k) {
 #pragma HLS PIPELINE
  int j = adj_col_buf[k];
             hls_dtype norm_val = adj_val_buf[k];
-            VITIS_LOOP_98_11: for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
-#pragma HLS UNROLL
+            VITIS_LOOP_101_11: for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
+#pragma HLS PIPELINE II=1
  hls_dtype feature = h_in_buf[j][f_in];
                 aggregated_features[i][f_in] += norm_val * feature;
             }
@@ -6459,12 +6462,12 @@ static void compute_gcn(
     }
 
 
-    VITIS_LOOP_107_12: for (int i = 0; i < NUM_NODES; ++i) {
-        VITIS_LOOP_108_13: for (int f_out = 0; f_out < OUT_FEATURES; ++f_out) {
+    VITIS_LOOP_110_12: for (int i = 0; i < NUM_NODES; ++i) {
+        VITIS_LOOP_111_13: for (int f_out = 0; f_out < OUT_FEATURES; ++f_out) {
 #pragma HLS PIPELINE
  hls_dtype sum = 0.0;
-            VITIS_LOOP_111_14: for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
-#pragma HLS UNROLL factor=8
+            VITIS_LOOP_114_14: for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
+#pragma HLS PIPELINE II=1
  sum += aggregated_features[i][f_in] * w_buf[f_in][f_out];
             }
 
@@ -6478,8 +6481,8 @@ static void store_result(
     hls::stream<hls_dtype>& h_out_stream,
     hls_dtype* h_out
 ) {
-    VITIS_LOOP_126_1: for (int i = 0; i < NUM_NODES; ++i) {
-        VITIS_LOOP_127_2: for (int j = 0; j < OUT_FEATURES; ++j) {
+    VITIS_LOOP_129_1: for (int i = 0; i < NUM_NODES; ++i) {
+        VITIS_LOOP_130_2: for (int j = 0; j < OUT_FEATURES; ++j) {
 #pragma HLS PIPELINE II=1
  h_out[i * OUT_FEATURES + j] = h_out_stream.read();
         }
@@ -6497,7 +6500,7 @@ __attribute__((sdx_kernel("gnn", 0))) void gnn(
 ) {
 #line 1 "directive"
 #pragma HLSDIRECTIVE TOP name=gnn
-# 142 "../kernel/gnn_hls.cpp"
+# 145 "../kernel/gnn_hls.cpp"
 
 #pragma HLS INTERFACE m_axi port = h_in offset = slave bundle = gmem0 depth=3879364
 #pragma HLS INTERFACE m_axi port = w offset = slave bundle = gmem1 depth=22928

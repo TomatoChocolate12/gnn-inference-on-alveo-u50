@@ -38,83 +38,83 @@
     ^~~
     VITIS_LOOP_29_4: 
 /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6384:5: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6409:2: warning: Added loop label VITIS_LOOP_54_1:   [xilinx-label-all-loops]
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6411:2: warning: Added loop label VITIS_LOOP_56_1:   [xilinx-label-all-loops]
  for (int i = 0; i < NUM_NODES; ++i) {
  ^~~
- VITIS_LOOP_54_1: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6409:2: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6410:9: warning: Added loop label VITIS_LOOP_55_2:   [xilinx-label-all-loops]
+ VITIS_LOOP_56_1: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6411:2: note: FIX-IT applied suggested code changes
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6412:9: warning: Added loop label VITIS_LOOP_57_2:   [xilinx-label-all-loops]
         for (int j = 0; j < IN_FEATURES; ++j) {
         ^~~
-        VITIS_LOOP_55_2: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6410:9: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6417:5: warning: Added loop label VITIS_LOOP_62_3:   [xilinx-label-all-loops]
+        VITIS_LOOP_57_2: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6412:9: note: FIX-IT applied suggested code changes
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6419:5: warning: Added loop label VITIS_LOOP_64_3:   [xilinx-label-all-loops]
     for (int i = 0; i < IN_FEATURES; ++i) {
     ^~~
-    VITIS_LOOP_62_3: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6417:5: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6418:9: warning: Added loop label VITIS_LOOP_63_4:   [xilinx-label-all-loops]
+    VITIS_LOOP_64_3: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6419:5: note: FIX-IT applied suggested code changes
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6420:9: warning: Added loop label VITIS_LOOP_65_4:   [xilinx-label-all-loops]
         for (int j = 0; j < OUT_FEATURES; ++j) {
         ^~~
-        VITIS_LOOP_63_4: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6418:9: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6424:5: warning: Added loop label VITIS_LOOP_69_5:   [xilinx-label-all-loops]
+        VITIS_LOOP_65_4: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6420:9: note: FIX-IT applied suggested code changes
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6426:5: warning: Added loop label VITIS_LOOP_71_5:   [xilinx-label-all-loops]
     for (int i = 0; i < NUM_EDGES_NNZ; ++i) {
     ^~~
-    VITIS_LOOP_69_5: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6424:5: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6429:5: warning: Added loop label VITIS_LOOP_74_6:   [xilinx-label-all-loops]
+    VITIS_LOOP_71_5: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6426:5: note: FIX-IT applied suggested code changes
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6431:5: warning: Added loop label VITIS_LOOP_76_6:   [xilinx-label-all-loops]
     for (int i = 0; i < NUM_NODES + 1; ++i) {
     ^~~
-    VITIS_LOOP_74_6: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6429:5: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6438:2: warning: Added loop label VITIS_LOOP_83_7:   [xilinx-label-all-loops]
+    VITIS_LOOP_76_6: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6431:5: note: FIX-IT applied suggested code changes
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6441:2: warning: Added loop label VITIS_LOOP_86_7:   [xilinx-label-all-loops]
  for (int i = 0; i < NUM_NODES; ++i) {
  ^~~
- VITIS_LOOP_83_7: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6438:2: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6439:9: warning: Added loop label VITIS_LOOP_84_8:   [xilinx-label-all-loops]
+ VITIS_LOOP_86_7: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6441:2: note: FIX-IT applied suggested code changes
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6442:9: warning: Added loop label VITIS_LOOP_87_8:   [xilinx-label-all-loops]
         for (int j = 0; j < IN_FEATURES; ++j) {
         ^~~
-        VITIS_LOOP_84_8: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6439:9: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6446:5: warning: Added loop label VITIS_LOOP_91_9:   [xilinx-label-all-loops]
+        VITIS_LOOP_87_8: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6442:9: note: FIX-IT applied suggested code changes
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6449:5: warning: Added loop label VITIS_LOOP_94_9:   [xilinx-label-all-loops]
     for (int i = 0; i < NUM_NODES; ++i) {
     ^~~
-    VITIS_LOOP_91_9: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6446:5: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6449:9: warning: Added loop label VITIS_LOOP_94_10:   [xilinx-label-all-loops]
+    VITIS_LOOP_94_9: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6449:5: note: FIX-IT applied suggested code changes
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6452:9: warning: Added loop label VITIS_LOOP_97_10:   [xilinx-label-all-loops]
         for (int k = start_idx; k < end_idx; ++k) {
         ^~~
-        VITIS_LOOP_94_10: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6449:9: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6453:13: warning: Added loop label VITIS_LOOP_98_11:   [xilinx-label-all-loops]
+        VITIS_LOOP_97_10: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6452:9: note: FIX-IT applied suggested code changes
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6456:13: warning: Added loop label VITIS_LOOP_101_11:   [xilinx-label-all-loops]
             for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
             ^~~
-            VITIS_LOOP_98_11: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6453:13: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6462:5: warning: Added loop label VITIS_LOOP_107_12:   [xilinx-label-all-loops]
+            VITIS_LOOP_101_11: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6456:13: note: FIX-IT applied suggested code changes
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6465:5: warning: Added loop label VITIS_LOOP_110_12:   [xilinx-label-all-loops]
     for (int i = 0; i < NUM_NODES; ++i) {
     ^~~
-    VITIS_LOOP_107_12: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6462:5: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6463:9: warning: Added loop label VITIS_LOOP_108_13:   [xilinx-label-all-loops]
+    VITIS_LOOP_110_12: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6465:5: note: FIX-IT applied suggested code changes
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6466:9: warning: Added loop label VITIS_LOOP_111_13:   [xilinx-label-all-loops]
         for (int f_out = 0; f_out < OUT_FEATURES; ++f_out) {
         ^~~
-        VITIS_LOOP_108_13: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6463:9: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6466:13: warning: Added loop label VITIS_LOOP_111_14:   [xilinx-label-all-loops]
+        VITIS_LOOP_111_13: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6466:9: note: FIX-IT applied suggested code changes
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6469:13: warning: Added loop label VITIS_LOOP_114_14:   [xilinx-label-all-loops]
             for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
             ^~~
-            VITIS_LOOP_111_14: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6466:13: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6481:5: warning: Added loop label VITIS_LOOP_126_1:   [xilinx-label-all-loops]
+            VITIS_LOOP_114_14: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6469:13: note: FIX-IT applied suggested code changes
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6484:5: warning: Added loop label VITIS_LOOP_129_1:   [xilinx-label-all-loops]
     for (int i = 0; i < NUM_NODES; ++i) {
     ^~~
-    VITIS_LOOP_126_1: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6481:5: note: FIX-IT applied suggested code changes
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6482:9: warning: Added loop label VITIS_LOOP_127_2:   [xilinx-label-all-loops]
+    VITIS_LOOP_129_1: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6484:5: note: FIX-IT applied suggested code changes
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6485:9: warning: Added loop label VITIS_LOOP_130_2:   [xilinx-label-all-loops]
         for (int j = 0; j < OUT_FEATURES; ++j) {
         ^~~
-        VITIS_LOOP_127_2: 
-/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6482:9: note: FIX-IT applied suggested code changes
+        VITIS_LOOP_130_2: 
+/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp:6485:9: note: FIX-IT applied suggested code changes

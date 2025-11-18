@@ -1,6 +1,6 @@
 Execute       source -notrace -encoding utf-8 /home/Xilinx/2025.1/Vitis/tps/tcl/tcl8.6/clock.tcl 
 Execute         source -encoding utf-8 /home/Xilinx/2025.1/tps/tcl/tcl8/8.5/msgcat-1.6.1.tm 
-INFO-FLOW: Workspace /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls opened at Mon Nov 17 19:09:17 UTC 2025
+INFO-FLOW: Workspace /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls opened at Tue Nov 18 09:55:22 UTC 2025
 Execute       send_msg_by_id INFO @200-1505@%s%s default  vivado 
 INFO: [HLS 200-1505] Using default flow_target 'vivado'
 Execute       send_msg_by_id INFO @200-2174@%s%s component /home/sumit.k/gnn-inference-on-alveo-u50/hls_csim.cfg 
@@ -45,7 +45,7 @@ DBG:HLSDevice: Trying to load device library: /home/Xilinx/2025.1/Vitis/lib/lnx6
 DBG:HLSDevice: first parts/arch.xml in RDI_DATADIR: /home/Xilinx/2025.1/Vivado/data/parts/arch.xml
 DBG:HLSDevice: init success
 INFO: [HLS 200-1611] Setting target device to 'xcvu35p-fsvh2104-2L-e'
-Command           create_platform done; 1.46 sec.
+Command           create_platform done; 1.53 sec.
 Execute           source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/common/xilinx.gen 
 Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/plb46.gen 
 Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/axi4.gen 
@@ -58,9 +58,10 @@ Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/ip
 Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/ip/xfft.gen 
 Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/ip/util.gen 
 Execute             source /home/Xilinx/2025.1/Vitis/common/technology/xilinx/DSP48/dsp48.gen 
+Command           ap_source done; 0.11 sec.
 Execute           ap_part_info -name xcvu35p-fsvh2104-2L-e -data info 
 Execute           config_compile -quiet -complex-mul-dsp=0 
-Command         set_part done; 1.58 sec.
+Command         set_part done; 1.65 sec.
 Execute         send_msg_by_id INFO @200-1465@%s 'clock=5' from /home/sumit.k/gnn-inference-on-alveo-u50/hls_csim.cfg(5) 
 INFO: [HLS 200-1465] Applying config ini 'clock=5' from /home/sumit.k/gnn-inference-on-alveo-u50/hls_csim.cfg(5)
 Execute         create_clock -period 5ns 
@@ -74,12 +75,12 @@ Execute         send_msg_by_id INFO @200-1465@%s 'csim.clean=true' from /home/su
 INFO: [HLS 200-1465] Applying config ini 'csim.clean=true' from /home/sumit.k/gnn-inference-on-alveo-u50/hls_csim.cfg(15)
 Execute         config_csim -clean=true 
 INFO: [HLS 200-1907] Replacing 'config_csim -O=1' with 'config_sim -O=1' in current solution file
-Command       apply_ini done; 1.63 sec.
+Command       apply_ini done; 1.71 sec.
 Execute       write_component -config /home/sumit.k/gnn-inference-on-alveo-u50/hls_csim.cfg 
 Execute         send_msg_by_id INFO @200-2176@%s /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/vitis-comp.json 
 INFO: [HLS 200-2176] Writing Vitis IDE component file /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/vitis-comp.json
-Command     open_solution done; 1.68 sec.
-Command   open_component done; 1.69 sec.
+Command     open_solution done; 1.77 sec.
+Command   open_component done; 1.77 sec.
 Execute   apply_ini /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/config.cmdline -iscmdline 
 Execute   ::AP::init_summary_file csynth-ip 
 Execute     AP::app_get_file_relativeroot [AP::app_get_root] {}
@@ -89,7 +90,7 @@ Execute     ap_part_info -name xcvu35p-fsvh2104-2L-e -data info
 INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/xilinx-performance-pragma-detector ../kernel/gnn_hls.cpp -- -fhls -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /home/Xilinx/2025.1/Vitis/common/technology/autopilot -I /home/Xilinx/2025.1/Vitis/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -I /usr/include/x86_64-linux-gnu > /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.cpp.xilinx-performance-pragma-detector.out.log 2> /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.cpp.xilinx-performance-pragma-detector.err.log
 INFO-FLOW: Running SLX 'csynth' proc: ::SLX::run_csynth
 Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -from_csynth_design=1 
-INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 3.24 seconds. CPU system time: 1.62 seconds. Elapsed time: 8.21 seconds; current allocated memory: 457.086 MB.
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 3.2 seconds. CPU system time: 1.85 seconds. Elapsed time: 8.73 seconds; current allocated memory: 457.066 MB.
 Execute       set_directive_top gnn -name=gnn 
 INFO: [HLS 200-10] Analyzing design file '../kernel/gnn_hls.cpp' ... 
 INFO-FLOW: Compiling one TU...
@@ -103,23 +104,23 @@ INFO-FLOW: Source syntax check for synthesis
 INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll|inline -mllvm -pass-remarks=reflow|pasta|unroll|inline -fsyntax-only -fhls -target fpga64-xilinx-linux-gnu /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp -hls-platform-db-name=/home/Xilinx/2025.1/Vitis/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_2688.000000_DSP_5952.000000_FF_1743360.000000_LUT_871680.000000_SLICE_108960.000000_SLR_2.000000_URAM_640.000000 -device-name-info=xcvu35p-fsvh2104-2L-e > /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/clang.out.log 2> /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/clang.err.log
 Execute       clang_tidy xilinx-systemc-detector -desc systemc-detector /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp  -target fpga  -directive=/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/.systemc_flag 
 INFO-FLOW: exec /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/.systemc_flag -fix-errors /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp -- - -target fpga -fhls -ferror-limit=0
-Command       clang_tidy done; 0.44 sec.
+Command       clang_tidy done; 0.48 sec.
 INFO-FLOW: Running: clang-tidy CDT preprocess 39
 Execute       clang_tidy xilinx-directive2pragma -desc directive2pragma /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp  -target fpga  -directive=/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/all.directive.json 
 INFO-FLOW: exec /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/all.directive.json -fix-errors /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp -- - -target fpga -fhls -ferror-limit=0
-Command       clang_tidy done; 0.7 sec.
+Command       clang_tidy done; 0.68 sec.
 INFO-FLOW: Done: clang-tidy CDT preprocess 39 time: 0.7 seconds per iteration
 INFO-FLOW: Calling xilinx-label-all-loops ... 
 INFO-FLOW: Calling xilinx-aggregate-on-hls-vector ... 
 Execute       clang_tidy -errorcheck -desc loop-label xilinx-label-all-loops,xilinx-aggregate-on-hls-vector,,xilinx-warn-mayneed-no-ctor-attribute /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp  -target fpga  
 INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -export-fixes=/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.clang-tidy.loop-label.diag.yml -header-filter=.* --checks=-*,xilinx-label-all-loops,xilinx-aggregate-on-hls-vector,,xilinx-warn-mayneed-no-ctor-attribute -fix-errors /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp -- - -target fpga -fhls -ferror-limit=0 > /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.clang-tidy.loop-label.out.log 2> /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.clang-tidy.loop-label.err.log
 Execute         source /home/Xilinx/2025.1/Vitis/tps/tcl/tcllib2.0/yaml/yaml.tcl 
-Command       clang_tidy done; 0.99 sec.
+Command       clang_tidy done; 1.02 sec.
 INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.xilinx-dataflow-lawyer.diag.yml /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp -- - -target fpga -fhls -ferror-limit=0 -fstrict-dataflow > /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.xilinx-dataflow-lawyer.out.log 2> /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.xilinx-dataflow-lawyer.err.log
 Execute       ap_part_info -name xcvu35p-fsvh2104-2L-e -data info 
 INFO-FLOW: compiling source code to llvm bc
 INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll|inline -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info -fhls -flto -fno-exceptions -Wno-error=c++11-narrowing -hls-emit-hint-scope /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -Wdump-hls-pragmas -Wno-error=dump-hls-pragmas -hls-clock-period=5 -fno-threadsafe-statics -fno-use-cxa-atexit -target fpga64-xilinx-linux-gnu -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /home/Xilinx/2025.1/Vitis/common/technology/autopilot -I /home/Xilinx/2025.1/Vitis/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.bc -hls-platform-db-name=/home/Xilinx/2025.1/Vitis/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_2688.000000_DSP_5952.000000_FF_1743360.000000_LUT_871680.000000_SLICE_108960.000000_SLR_2.000000_URAM_640.000000 -device-name-info=xcvu35p-fsvh2104-2L-e > /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.clang.out.log 2> /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.pp.0.cpp.clang.err.log
-INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.4 seconds. CPU system time: 0.53 seconds. Elapsed time: 4.07 seconds; current allocated memory: 460.168 MB.
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.48 seconds. CPU system time: 0.53 seconds. Elapsed time: 4.14 seconds; current allocated memory: 460.164 MB.
 INFO-FLOW: Linking Debug ...
 INFO-FLOW: Linking dut bc code.
 Execute       run_link_or_opt -out /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.0.bc -args  "/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/gnn_hls.g.bc"  
@@ -131,12 +132,12 @@ INFO-FLOW: Done: gen_design_size_report post-opt time: 0 seconds per iteration
 INFO-FLOW: Linking math bc lib
 Execute       run_link_or_opt -out /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.2.m1.bc -args /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.1.lower.bc -only-needed /home/Xilinx/2025.1/Vitis/lnx64/lib/libhlsm_39.bc /home/Xilinx/2025.1/Vitis/lnx64/lib/libhlsmc++_39.bc 
 INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/llvm-link /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.1.lower.bc -only-needed /home/Xilinx/2025.1/Vitis/lnx64/lib/libhlsm_39.bc /home/Xilinx/2025.1/Vitis/lnx64/lib/libhlsmc++_39.bc -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.2.m1.bc > /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.2.m1.bc.llvm-link.out.log 2> /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.2.m1.bc.llvm-link.err.log
-Command       run_link_or_opt done; 1.64 sec.
+Command       run_link_or_opt done; 1.71 sec.
 Execute       run_link_or_opt -opt -out /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.3.fpc.bc -args /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=gnn -reflow-float-conversion 
 INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll|inline -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.3.fpc.bc.opt.diag.yml /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=gnn -reflow-float-conversion -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.3.fpc.bc > /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.3.fpc.bc.opt.out.log 2> /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.3.fpc.bc.opt.err.log
 INFO-FLOW: Running: gen_design_size_report post-opt
 INFO-FLOW: Done: gen_design_size_report post-opt time: 0 seconds per iteration
-Command       run_link_or_opt done; 0.67 sec.
+Command       run_link_or_opt done; 0.66 sec.
 Execute       run_link_or_opt -out /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.4.m2.bc -args /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.3.fpc.bc -only-needed /home/Xilinx/2025.1/Vitis/lnx64/lib/libfloatconversion_39.bc 
 INFO-FLOW: run_clang exec: /home/Xilinx/2025.1/Vitis/lnx64/tools/clang-3.9-csynth/bin/llvm-link /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.3.fpc.bc -only-needed /home/Xilinx/2025.1/Vitis/lnx64/lib/libfloatconversion_39.bc -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.4.m2.bc > /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.4.m2.bc.llvm-link.out.log 2> /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.4.m2.bc.llvm-link.err.log
 Execute       run_link_or_opt -opt -out /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.5.gdce.bc -args /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.ld.4.m2.bc -reflow-globaldce -hls-top-function-name=gnn 
@@ -158,57 +159,60 @@ Execute       send_msg_by_id INFO @200-1995@%s%s%s 20,238 Unroll/Inline (step 3)
 INFO: [HLS 200-1995] There were 20,238 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
 Execute       send_msg_by_id INFO @200-1995@%s%s%s 20,238 Unroll/Inline (step 4) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
 INFO: [HLS 200-1995] There were 20,238 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
-Execute       send_msg_by_id WARNING @200-1995@%s%s%s 6,209,467 Array/Struct (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
-WARNING: [HLS 200-1995] There were 6,209,467 instructions in the design after the 'Array/Struct' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
-Execute       send_msg_by_id INFO @200-1995@%s%s%s 53,299 Array/Struct (step 2) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
-INFO: [HLS 200-1995] There were 53,299 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
-Execute       send_msg_by_id INFO @200-1995@%s%s%s 53,299 Array/Struct (step 3) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
-INFO: [HLS 200-1995] There were 53,299 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
-Execute       send_msg_by_id INFO @200-1995@%s%s%s 53,299 Array/Struct (step 4) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
-INFO: [HLS 200-1995] There were 53,299 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
-Execute       send_msg_by_id INFO @200-1995@%s%s%s 54,784 Array/Struct (step 5) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
-INFO: [HLS 200-1995] There were 54,784 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
-Execute       send_msg_by_id INFO @200-1995@%s%s%s 54,785 Performance (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
-INFO: [HLS 200-1995] There were 54,785 instructions in the design after the 'Performance' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
-Execute       send_msg_by_id INFO @200-1995@%s%s%s 53,351 Performance (step 2) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
-INFO: [HLS 200-1995] There were 53,351 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
-Execute       send_msg_by_id INFO @200-1995@%s%s%s 63,382 Performance (step 3) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
-INFO: [HLS 200-1995] There were 63,382 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
-Execute       send_msg_by_id INFO @200-1995@%s%s%s 63,380 Performance (step 4) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
-INFO: [HLS 200-1995] There were 63,380 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
-Execute       send_msg_by_id INFO @200-1995@%s%s%s 63,404 HW Transforms (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
-INFO: [HLS 200-1995] There were 63,404 instructions in the design after the 'HW Transforms' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
-Execute       send_msg_by_id INFO @200-1995@%s%s%s 63,491 HW Transforms (step 2) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
-INFO: [HLS 200-1995] There were 63,491 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 214-291] Loop 'VITIS_LOOP_111_14' is marked as complete unroll implied by the pipeline pragma (../kernel/gnn_hls.cpp:111:32)
-INFO: [HLS 214-291] Loop 'VITIS_LOOP_98_11' is marked as complete unroll implied by the pipeline pragma (../kernel/gnn_hls.cpp:98:31)
-INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_111_14' (../kernel/gnn_hls.cpp:111:32) in function 'compute_gcn' completely with a factor of 1433 (../kernel/gnn_hls.cpp:43:0)
-INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_98_11' (../kernel/gnn_hls.cpp:98:31) in function 'compute_gcn' completely with a factor of 1433 (../kernel/gnn_hls.cpp:43:0)
-INFO: [HLS 214-248] Applying array_partition to '_ZZL11compute_gcnRN3hls6streamIfLi0EEES2_S2_RNS0_IiLi0EEES4_S2_E19aggregated_features': Complete partitioning on dimension 2. (../kernel/gnn_hls.cpp:79:0)
+Execute       send_msg_by_id WARNING @200-1995@%s%s%s 106,566 Array/Struct (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
+WARNING: [HLS 200-1995] There were 106,566 instructions in the design after the 'Array/Struct' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 42,079 Array/Struct (step 2) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 42,079 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 42,079 Array/Struct (step 3) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 42,079 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 42,079 Array/Struct (step 4) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 42,079 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 43,564 Array/Struct (step 5) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 43,564 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 43,565 Performance (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 43,565 instructions in the design after the 'Performance' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 42,131 Performance (step 2) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 42,131 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 42,131 Performance (step 3) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 42,131 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 42,129 Performance (step 4) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 42,129 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 42,153 HW Transforms (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 42,153 instructions in the design after the 'HW Transforms' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 42,241 HW Transforms (step 2) (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 42,241 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (/home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_114_14' is marked as complete unroll implied by the pipeline pragma (../kernel/gnn_hls.cpp:114:32)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_101_11' is marked as complete unroll implied by the pipeline pragma (../kernel/gnn_hls.cpp:101:32)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_114_14' (../kernel/gnn_hls.cpp:114:32) in function 'compute_gcn' completely with a factor of 1433 (../kernel/gnn_hls.cpp:43:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'VITIS_LOOP_114_14' (../kernel/gnn_hls.cpp:114:32) in function 'compute_gcn' has been removed because the loop is unrolled completely (../kernel/gnn_hls.cpp:43:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_101_11' (../kernel/gnn_hls.cpp:101:32) in function 'compute_gcn' completely with a factor of 1433 (../kernel/gnn_hls.cpp:43:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'VITIS_LOOP_101_11' (../kernel/gnn_hls.cpp:101:32) in function 'compute_gcn' has been removed because the loop is unrolled completely (../kernel/gnn_hls.cpp:43:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL11compute_gcnRN3hls6streamIfLi0EEES2_S2_RNS0_IiLi0EEES4_S2_E19aggregated_features': Cyclic partitioning with factor 16 on dimension 2. (../kernel/gnn_hls.cpp:81:0)
 INFO: [HLS 214-248] Applying array_partition to '_ZZL11compute_gcnRN3hls6streamIfLi0EEES2_S2_RNS0_IiLi0EEES4_S2_E5w_buf': Complete partitioning on dimension 2. (../kernel/gnn_hls.cpp:45:0)
-INFO: [HLS 214-248] Applying array_partition to '_ZZL11compute_gcnRN3hls6streamIfLi0EEES2_S2_RNS0_IiLi0EEES4_S2_E8h_in_buf': Complete partitioning on dimension 2. (../kernel/gnn_hls.cpp:44:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL11compute_gcnRN3hls6streamIfLi0EEES2_S2_RNS0_IiLi0EEES4_S2_E8h_in_buf': Cyclic partitioning with factor 16 on dimension 2. (../kernel/gnn_hls.cpp:44:0)
+INFO: [HLS 214-437] Automatically disabling loop flattening for loop 'VITIS_LOOP_94_9'. (../kernel/gnn_hls.cpp:94:22)
 INFO: [HLS 214-115] Multiple burst reads of length 1433 and bit width 512 has been inferred on bundle 'gmem1'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../kernel/gnn_hls.cpp:20:22)
 INFO: [HLS 214-115] Multiple burst reads of length 2639 and bit width 128 has been inferred on bundle 'gmem2'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../kernel/gnn_hls.cpp:24:22)
 INFO: [HLS 214-115] Multiple burst reads of length 2639 and bit width 128 has been inferred on bundle 'gmem3'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../kernel/gnn_hls.cpp:24:22)
-INFO: [HLS 214-115] Multiple burst writes of length 2708 and bit width 512 in loop 'VITIS_LOOP_126_1'(../kernel/gnn_hls.cpp:126:23) has been inferred on bundle 'gmem0'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../kernel/gnn_hls.cpp:126:23)
+INFO: [HLS 214-115] Multiple burst writes of length 2708 and bit width 512 in loop 'VITIS_LOOP_129_1'(../kernel/gnn_hls.cpp:129:23) has been inferred on bundle 'gmem0'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../kernel/gnn_hls.cpp:129:23)
 INFO-FLOW: DBG:PUTS: copy_raw_kernel_xml ap_link_39: copying raw kernel.xml: /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/../../kernel.xml -> /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/kernel.internal.xml
-INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 3532.21 seconds. CPU system time: 19.26 seconds. Elapsed time: 3555.26 seconds; current allocated memory: 462.945 MB.
-INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 462.945 MB.
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 257.75 seconds. CPU system time: 0.73 seconds. Elapsed time: 263.41 seconds; current allocated memory: 462.980 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.01 seconds; current allocated memory: 462.980 MB.
 Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
 Execute         cleanup_all_models 
 INFO: [HLS 200-10] Starting code transformations ...
 INFO-FLOW: Running Standard Transforms...
 Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top gnn -deadargelim -mem2reg -instcombine -dce -presyn-prepare -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -promote-dbg-pointer -norm-name /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.0.bc -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.1.bc -f -phase std-opt 
-Command         transform done; 33.94 sec.
-INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 33.77 seconds. CPU system time: 0.13 seconds. Elapsed time: 34.03 seconds; current allocated memory: 606.094 MB.
+Command         transform done; 25.98 sec.
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 25.85 seconds. CPU system time: 0.09 seconds. Elapsed time: 26.03 seconds; current allocated memory: 527.375 MB.
 INFO: [HLS 200-10] Checking synthesizability ...
 INFO-FLOW: Checking Synthesizability 1/2..
 Execute         transform -hls -syn-check -check-rec-only -scalarrepl -norm-name -dce -mem2reg -instcombine -directive-preproc -mem2reg -dse -dce -dce -pag -array-normalize -instcombine -dce -array-seg-normalize -instcombine -dce -data-pack -instcombine -dce -inst-simplify -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -directive-preproc -mem2reg -dse -dce -globaldce /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.1.bc -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.2.prechk.bc -f 
-Command         transform done; 16.72 sec.
+Command         transform done; 10.06 sec.
 INFO-FLOW: Checking Synthesizability 2/2..
 Execute         transform -syn-check /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.2.prechk.bc -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.2.bc -f -phase syn-check 
-Command         transform done; 0.33 sec.
-INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 16.9 seconds. CPU system time: 0.07 seconds. Elapsed time: 17.06 seconds; current allocated memory: 679.172 MB.
+Command         transform done; 0.27 sec.
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 10.19 seconds. CPU system time: 0.06 seconds. Elapsed time: 10.33 seconds; current allocated memory: 608.488 MB.
 INFO-FLOW: Compiler optimizing ...
 INFO-FLOW: Share syncheck's 1.bc for syn flow: copy /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.g.1.bc to /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.o.1.bc
 INFO-FLOW: Presyn 1...
@@ -219,39 +223,38 @@ WARNING: [HLS 200-805] An internal stream 'h_in_stream' with default size can re
 WARNING: [HLS 200-805] An internal stream 'adj_val_stream' with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
 WARNING: [HLS 200-805] An internal stream 'adj_row_stream' with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
 WARNING: [HLS 200-805] An internal stream 'adj_col_stream' with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-INFO: [XFORM 203-712] Applying dataflow to function 'gnn' (../kernel/gnn_hls.cpp:135:1), detected/extracted 4 process function(s): 
+INFO: [XFORM 203-712] Applying dataflow to function 'gnn' (../kernel/gnn_hls.cpp:138:1), detected/extracted 4 process function(s): 
 	 'entry_proc'
 	 'load_inputs'
 	 'compute_gcn'
 	 'store_result'.
-Command         transform done; 135.81 sec.
+Command         transform done; 105.56 sec.
 INFO-FLOW: Presyn 2...
 Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin2 -bitwidthmin2 -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -barrier -norm-name /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.o.1.tmp.bc -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.o.2.bc -f -phase presyn 
-Command         transform done; 19.47 sec.
-INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 154.93 seconds. CPU system time: 0.26 seconds. Elapsed time: 155.33 seconds; current allocated memory: 866.266 MB.
+Command         transform done; 11.28 sec.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 116.67 seconds. CPU system time: 0.1 seconds. Elapsed time: 116.89 seconds; current allocated memory: 716.316 MB.
 Execute         transform -hls -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -aggr-aa -licm -loop-dep -loop-bound -licm -loop-simplify -loop-sink-hoist -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg-lite -loop-simplify -array-burst -promote-global-argument -dce -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -inst-simplify -cfgopt -simplifycfg-lite -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -deadargelim -dce -canonicalize-dataflow -dce -deadargelim -globaldce -mem2reg -bram-byte-enable -inst-simplify -inst-rectify -instcombine -adce -deadargelim -load-elim -read-loop-dep -loop-simplify -loop-rewind-sink-hoist -loop-outline -hls-dead-arg-elim -directive-preproc -bitwidthmin2 -bitwidthmin2 -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable-spec-prop -mul2addshift -deadargelim -inst-simplify -dce -mem2reg -instcombine -gvn -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg-lite -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -gvn -adce -deadargelim -float-op-raise -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg-lite -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg-lite -loop-simplify -mergereturn -inst-simplify -inst-rectify -globaldce -dce -load-elim -bitop-lower -float-op-raise -fma-raise -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -dyn-mem-reuse -dce -recurrence-min -dce -share-scalar-alloca -deadargelim -dce -check-stream -norm-name -legalize -inst-clarity -bitwidth -dce -validate-dataflow -dump-loop-dep-to-ir -check-all-ssdm -drop-inferred-ii -dump-complexity-metric /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.o.2.bc -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
-INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_126_1'(../kernel/gnn_hls.cpp:126:23) and 'VITIS_LOOP_127_2'(../kernel/gnn_hls.cpp:127:27) in function 'store_result' into perfectly nested loops.
-INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_54_1'(../kernel/gnn_hls.cpp:54:19) and 'VITIS_LOOP_55_2'(../kernel/gnn_hls.cpp:55:26) in function 'compute_gcn' into perfectly nested loops.
-INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_62_3'(../kernel/gnn_hls.cpp:62:22) and 'VITIS_LOOP_63_4'(../kernel/gnn_hls.cpp:63:26) in function 'compute_gcn' into perfectly nested loops.
-INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_83_7'(../kernel/gnn_hls.cpp:83:19) and 'VITIS_LOOP_84_8'(../kernel/gnn_hls.cpp:84:26) in function 'compute_gcn' into perfectly nested loops.
-INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_107_12'(../kernel/gnn_hls.cpp:107:24) and 'VITIS_LOOP_108_13'(../kernel/gnn_hls.cpp:108:28) in function 'compute_gcn' into perfectly nested loops.
-INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_126_1' (../kernel/gnn_hls.cpp:126:23) in function 'store_result'.
-INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_54_1' (../kernel/gnn_hls.cpp:54:19) in function 'compute_gcn'.
-INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_62_3' (../kernel/gnn_hls.cpp:62:22) in function 'compute_gcn'.
-INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_83_7' (../kernel/gnn_hls.cpp:83:19) in function 'compute_gcn'.
-WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_91_9' (../kernel/gnn_hls.cpp:91:22) in function 'compute_gcn' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
-INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_107_12' (../kernel/gnn_hls.cpp:107:24) in function 'compute_gcn'.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_129_1'(../kernel/gnn_hls.cpp:129:23) and 'VITIS_LOOP_130_2'(../kernel/gnn_hls.cpp:130:27) in function 'store_result' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_56_1'(../kernel/gnn_hls.cpp:56:19) and 'VITIS_LOOP_57_2'(../kernel/gnn_hls.cpp:57:26) in function 'compute_gcn' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_64_3'(../kernel/gnn_hls.cpp:64:22) and 'VITIS_LOOP_65_4'(../kernel/gnn_hls.cpp:65:26) in function 'compute_gcn' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_86_7'(../kernel/gnn_hls.cpp:86:19) and 'VITIS_LOOP_87_8'(../kernel/gnn_hls.cpp:87:26) in function 'compute_gcn' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_110_12'(../kernel/gnn_hls.cpp:110:24) and 'VITIS_LOOP_111_13'(../kernel/gnn_hls.cpp:111:28) in function 'compute_gcn' into perfectly nested loops.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_129_1' (../kernel/gnn_hls.cpp:129:23) in function 'store_result'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_56_1' (../kernel/gnn_hls.cpp:56:19) in function 'compute_gcn'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_64_3' (../kernel/gnn_hls.cpp:64:22) in function 'compute_gcn'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_86_7' (../kernel/gnn_hls.cpp:86:19) in function 'compute_gcn'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_110_12' (../kernel/gnn_hls.cpp:110:24) in function 'compute_gcn'.
 Execute           auto_get_db
-Command         transform done; 63.43 sec.
+Command         transform done; 57.08 sec.
 INFO-FLOW: Building ssdm...
 Execute         transform -hls -cdfg-build /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.o.3.bc -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
-Command         transform done; 321.87 sec.
-INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 384.76 seconds. CPU system time: 0.42 seconds. Elapsed time: 385.3 seconds; current allocated memory: 1.404 GB.
+Command         transform done; 21.37 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 77.93 seconds. CPU system time: 0.42 seconds. Elapsed time: 78.46 seconds; current allocated memory: 1.213 GB.
 INFO-FLOW: Finish building internal data model.
-Command       opt_and_import_c done; 591.73 sec.
-Command     elaborate done; 4151.06 sec.
+Command       opt_and_import_c done; 231.71 sec.
+Command     elaborate done; 499.28 sec.
 Execute     ap_eval exec zip -j /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/dut.hcp $dbDir/a.o.3.bc $dbDir/${topname}.rtl_wrap.cfg.tcl $dbDir/apatb_${topname}.cpp $dbDir/apatb_${topname}_util.cpp $dbDir/apatb_${topname}_ir.ll $dbDir/mapper_${topname}.cpp $dbDir/top-io-fe.xml $dbDir/kernel.internal.xml $workdir/../hls.app 
-Command     ap_eval done; 0.46 sec.
+Command     ap_eval done; 0.43 sec.
 Execute     autosyn -from_csynth_design=1 
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO-FLOW: Synthesizing C/C++ design ...
@@ -261,15 +264,15 @@ Execute       get_model_list gnn -filter all-wo-channel -topdown
 Execute       preproc_iomode -model gnn 
 Execute       preproc_iomode -model store_result 
 Execute       preproc_iomode -model compute_gcn 
-Execute       preproc_iomode -model compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13 
-Command       preproc_iomode done; 0.2 sec.
-Execute       preproc_iomode -model compute_gcn_Outline_VITIS_LOOP_91_9 
-Execute       preproc_iomode -model compute_gcn_Pipeline_VITIS_LOOP_94_10 
-Execute       preproc_iomode -model compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8 
-Execute       preproc_iomode -model compute_gcn_Pipeline_VITIS_LOOP_74_6 
-Execute       preproc_iomode -model compute_gcn_Pipeline_VITIS_LOOP_69_5 
-Execute       preproc_iomode -model compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4 
-Execute       preproc_iomode -model compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2 
+Execute       preproc_iomode -model compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13 
+Command       preproc_iomode done; 0.14 sec.
+Execute       preproc_iomode -model compute_gcn_Outline_VITIS_LOOP_94_9 
+Execute       preproc_iomode -model compute_gcn_Pipeline_VITIS_LOOP_97_10 
+Execute       preproc_iomode -model compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8 
+Execute       preproc_iomode -model compute_gcn_Pipeline_VITIS_LOOP_76_6 
+Execute       preproc_iomode -model compute_gcn_Pipeline_VITIS_LOOP_71_5 
+Execute       preproc_iomode -model compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4 
+Execute       preproc_iomode -model compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2 
 Execute       preproc_iomode -model load_inputs 
 Execute       preproc_iomode -model load_inputs_Pipeline_VITIS_LOOP_29_4 
 Execute       preproc_iomode -model load_inputs_Pipeline_VITIS_LOOP_24_3 
@@ -277,7 +280,7 @@ Execute       preproc_iomode -model load_inputs_Pipeline_VITIS_LOOP_20_2
 Execute       preproc_iomode -model load_inputs_Pipeline_VITIS_LOOP_16_1 
 Execute       preproc_iomode -model entry_proc 
 Execute       get_model_list gnn -filter all-wo-channel 
-INFO-FLOW: Model list for configure: entry_proc load_inputs_Pipeline_VITIS_LOOP_16_1 load_inputs_Pipeline_VITIS_LOOP_20_2 load_inputs_Pipeline_VITIS_LOOP_24_3 load_inputs_Pipeline_VITIS_LOOP_29_4 load_inputs compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2 compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4 compute_gcn_Pipeline_VITIS_LOOP_69_5 compute_gcn_Pipeline_VITIS_LOOP_74_6 compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8 compute_gcn_Pipeline_VITIS_LOOP_94_10 compute_gcn_Outline_VITIS_LOOP_91_9 compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13 compute_gcn store_result gnn
+INFO-FLOW: Model list for configure: entry_proc load_inputs_Pipeline_VITIS_LOOP_16_1 load_inputs_Pipeline_VITIS_LOOP_20_2 load_inputs_Pipeline_VITIS_LOOP_24_3 load_inputs_Pipeline_VITIS_LOOP_29_4 load_inputs compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2 compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4 compute_gcn_Pipeline_VITIS_LOOP_71_5 compute_gcn_Pipeline_VITIS_LOOP_76_6 compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8 compute_gcn_Pipeline_VITIS_LOOP_97_10 compute_gcn_Outline_VITIS_LOOP_94_9 compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13 compute_gcn store_result gnn
 INFO-FLOW: Configuring Module : entry_proc ...
 Execute       set_default_model entry_proc 
 Execute       apply_spec_resource_limit entry_proc 
@@ -296,30 +299,30 @@ Execute       apply_spec_resource_limit load_inputs_Pipeline_VITIS_LOOP_29_4
 INFO-FLOW: Configuring Module : load_inputs ...
 Execute       set_default_model load_inputs 
 Execute       apply_spec_resource_limit load_inputs 
-INFO-FLOW: Configuring Module : compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2 ...
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2 
-Execute       apply_spec_resource_limit compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2 
-INFO-FLOW: Configuring Module : compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4 ...
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4 
-Execute       apply_spec_resource_limit compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4 
-INFO-FLOW: Configuring Module : compute_gcn_Pipeline_VITIS_LOOP_69_5 ...
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_69_5 
-Execute       apply_spec_resource_limit compute_gcn_Pipeline_VITIS_LOOP_69_5 
-INFO-FLOW: Configuring Module : compute_gcn_Pipeline_VITIS_LOOP_74_6 ...
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_74_6 
-Execute       apply_spec_resource_limit compute_gcn_Pipeline_VITIS_LOOP_74_6 
-INFO-FLOW: Configuring Module : compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8 ...
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8 
-Execute       apply_spec_resource_limit compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8 
-INFO-FLOW: Configuring Module : compute_gcn_Pipeline_VITIS_LOOP_94_10 ...
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_94_10 
-Execute       apply_spec_resource_limit compute_gcn_Pipeline_VITIS_LOOP_94_10 
-INFO-FLOW: Configuring Module : compute_gcn_Outline_VITIS_LOOP_91_9 ...
-Execute       set_default_model compute_gcn_Outline_VITIS_LOOP_91_9 
-Execute       apply_spec_resource_limit compute_gcn_Outline_VITIS_LOOP_91_9 
-INFO-FLOW: Configuring Module : compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13 ...
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13 
-Execute       apply_spec_resource_limit compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13 
+INFO-FLOW: Configuring Module : compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2 ...
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2 
+Execute       apply_spec_resource_limit compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2 
+INFO-FLOW: Configuring Module : compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4 ...
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4 
+Execute       apply_spec_resource_limit compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4 
+INFO-FLOW: Configuring Module : compute_gcn_Pipeline_VITIS_LOOP_71_5 ...
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_71_5 
+Execute       apply_spec_resource_limit compute_gcn_Pipeline_VITIS_LOOP_71_5 
+INFO-FLOW: Configuring Module : compute_gcn_Pipeline_VITIS_LOOP_76_6 ...
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_76_6 
+Execute       apply_spec_resource_limit compute_gcn_Pipeline_VITIS_LOOP_76_6 
+INFO-FLOW: Configuring Module : compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8 ...
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8 
+Execute       apply_spec_resource_limit compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8 
+INFO-FLOW: Configuring Module : compute_gcn_Pipeline_VITIS_LOOP_97_10 ...
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_97_10 
+Execute       apply_spec_resource_limit compute_gcn_Pipeline_VITIS_LOOP_97_10 
+INFO-FLOW: Configuring Module : compute_gcn_Outline_VITIS_LOOP_94_9 ...
+Execute       set_default_model compute_gcn_Outline_VITIS_LOOP_94_9 
+Execute       apply_spec_resource_limit compute_gcn_Outline_VITIS_LOOP_94_9 
+INFO-FLOW: Configuring Module : compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13 ...
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13 
+Execute       apply_spec_resource_limit compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13 
 INFO-FLOW: Configuring Module : compute_gcn ...
 Execute       set_default_model compute_gcn 
 Execute       apply_spec_resource_limit compute_gcn 
@@ -329,7 +332,7 @@ Execute       apply_spec_resource_limit store_result
 INFO-FLOW: Configuring Module : gnn ...
 Execute       set_default_model gnn 
 Execute       apply_spec_resource_limit gnn 
-INFO-FLOW: Model list for preprocess: entry_proc load_inputs_Pipeline_VITIS_LOOP_16_1 load_inputs_Pipeline_VITIS_LOOP_20_2 load_inputs_Pipeline_VITIS_LOOP_24_3 load_inputs_Pipeline_VITIS_LOOP_29_4 load_inputs compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2 compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4 compute_gcn_Pipeline_VITIS_LOOP_69_5 compute_gcn_Pipeline_VITIS_LOOP_74_6 compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8 compute_gcn_Pipeline_VITIS_LOOP_94_10 compute_gcn_Outline_VITIS_LOOP_91_9 compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13 compute_gcn store_result gnn
+INFO-FLOW: Model list for preprocess: entry_proc load_inputs_Pipeline_VITIS_LOOP_16_1 load_inputs_Pipeline_VITIS_LOOP_20_2 load_inputs_Pipeline_VITIS_LOOP_24_3 load_inputs_Pipeline_VITIS_LOOP_29_4 load_inputs compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2 compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4 compute_gcn_Pipeline_VITIS_LOOP_71_5 compute_gcn_Pipeline_VITIS_LOOP_76_6 compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8 compute_gcn_Pipeline_VITIS_LOOP_97_10 compute_gcn_Outline_VITIS_LOOP_94_9 compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13 compute_gcn store_result gnn
 INFO-FLOW: Preprocessing Module: entry_proc ...
 Execute       set_default_model entry_proc 
 Execute       cdfg_preprocess -model entry_proc 
@@ -354,48 +357,46 @@ INFO-FLOW: Preprocessing Module: load_inputs ...
 Execute       set_default_model load_inputs 
 Execute       cdfg_preprocess -model load_inputs 
 Execute       rtl_gen_preprocess load_inputs 
-INFO-FLOW: Preprocessing Module: compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2 ...
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2 
-Execute       cdfg_preprocess -model compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2 
-Command       cdfg_preprocess done; 0.24 sec.
-Execute       rtl_gen_preprocess compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2 
-INFO-FLOW: Preprocessing Module: compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4 ...
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4 
-Execute       cdfg_preprocess -model compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4 
-Execute       rtl_gen_preprocess compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4 
-INFO-FLOW: Preprocessing Module: compute_gcn_Pipeline_VITIS_LOOP_69_5 ...
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_69_5 
-Execute       cdfg_preprocess -model compute_gcn_Pipeline_VITIS_LOOP_69_5 
-Execute       rtl_gen_preprocess compute_gcn_Pipeline_VITIS_LOOP_69_5 
-INFO-FLOW: Preprocessing Module: compute_gcn_Pipeline_VITIS_LOOP_74_6 ...
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_74_6 
-Execute       cdfg_preprocess -model compute_gcn_Pipeline_VITIS_LOOP_74_6 
-Execute       rtl_gen_preprocess compute_gcn_Pipeline_VITIS_LOOP_74_6 
-INFO-FLOW: Preprocessing Module: compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8 ...
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8 
-Execute       cdfg_preprocess -model compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8 
-Command       cdfg_preprocess done; 0.19 sec.
-Execute       rtl_gen_preprocess compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8 
-INFO-FLOW: Preprocessing Module: compute_gcn_Pipeline_VITIS_LOOP_94_10 ...
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_94_10 
-Execute       cdfg_preprocess -model compute_gcn_Pipeline_VITIS_LOOP_94_10 
-Command       cdfg_preprocess done; 22.49 sec.
-Execute       rtl_gen_preprocess compute_gcn_Pipeline_VITIS_LOOP_94_10 
-INFO-FLOW: Preprocessing Module: compute_gcn_Outline_VITIS_LOOP_91_9 ...
-Execute       set_default_model compute_gcn_Outline_VITIS_LOOP_91_9 
-Execute       cdfg_preprocess -model compute_gcn_Outline_VITIS_LOOP_91_9 
-Command       cdfg_preprocess done; 6.42 sec.
-Execute       rtl_gen_preprocess compute_gcn_Outline_VITIS_LOOP_91_9 
-INFO-FLOW: Preprocessing Module: compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13 ...
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13 
-Execute       cdfg_preprocess -model compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13 
-Command       cdfg_preprocess done; 0.96 sec.
-Execute       rtl_gen_preprocess compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13 
-Command       rtl_gen_preprocess done; 0.21 sec.
+INFO-FLOW: Preprocessing Module: compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2 ...
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2 
+Execute       cdfg_preprocess -model compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2 
+Execute       rtl_gen_preprocess compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2 
+INFO-FLOW: Preprocessing Module: compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4 ...
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4 
+Execute       cdfg_preprocess -model compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4 
+Execute       rtl_gen_preprocess compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4 
+INFO-FLOW: Preprocessing Module: compute_gcn_Pipeline_VITIS_LOOP_71_5 ...
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_71_5 
+Execute       cdfg_preprocess -model compute_gcn_Pipeline_VITIS_LOOP_71_5 
+Execute       rtl_gen_preprocess compute_gcn_Pipeline_VITIS_LOOP_71_5 
+INFO-FLOW: Preprocessing Module: compute_gcn_Pipeline_VITIS_LOOP_76_6 ...
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_76_6 
+Execute       cdfg_preprocess -model compute_gcn_Pipeline_VITIS_LOOP_76_6 
+Execute       rtl_gen_preprocess compute_gcn_Pipeline_VITIS_LOOP_76_6 
+INFO-FLOW: Preprocessing Module: compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8 ...
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8 
+Execute       cdfg_preprocess -model compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8 
+Execute       rtl_gen_preprocess compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8 
+INFO-FLOW: Preprocessing Module: compute_gcn_Pipeline_VITIS_LOOP_97_10 ...
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_97_10 
+Execute       cdfg_preprocess -model compute_gcn_Pipeline_VITIS_LOOP_97_10 
+Command       cdfg_preprocess done; 23.57 sec.
+Execute       rtl_gen_preprocess compute_gcn_Pipeline_VITIS_LOOP_97_10 
+INFO-FLOW: Preprocessing Module: compute_gcn_Outline_VITIS_LOOP_94_9 ...
+Execute       set_default_model compute_gcn_Outline_VITIS_LOOP_94_9 
+Execute       cdfg_preprocess -model compute_gcn_Outline_VITIS_LOOP_94_9 
+Command       cdfg_preprocess done; 5.93 sec.
+Execute       rtl_gen_preprocess compute_gcn_Outline_VITIS_LOOP_94_9 
+INFO-FLOW: Preprocessing Module: compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13 ...
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13 
+Execute       cdfg_preprocess -model compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13 
+Command       cdfg_preprocess done; 0.98 sec.
+Execute       rtl_gen_preprocess compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13 
+Command       rtl_gen_preprocess done; 0.15 sec.
 INFO-FLOW: Preprocessing Module: compute_gcn ...
 Execute       set_default_model compute_gcn 
 Execute       cdfg_preprocess -model compute_gcn 
-Command       cdfg_preprocess done; 241.42 sec.
+Command       cdfg_preprocess done; 192.68 sec.
 Execute       rtl_gen_preprocess compute_gcn 
 INFO-FLOW: Preprocessing Module: store_result ...
 Execute       set_default_model store_result 
@@ -404,9 +405,9 @@ Execute       rtl_gen_preprocess store_result
 INFO-FLOW: Preprocessing Module: gnn ...
 Execute       set_default_model gnn 
 Execute       cdfg_preprocess -model gnn 
-Command       cdfg_preprocess done; 0.16 sec.
+Command       cdfg_preprocess done; 0.14 sec.
 Execute       rtl_gen_preprocess gnn 
-INFO-FLOW: Model list for synthesis: entry_proc load_inputs_Pipeline_VITIS_LOOP_16_1 load_inputs_Pipeline_VITIS_LOOP_20_2 load_inputs_Pipeline_VITIS_LOOP_24_3 load_inputs_Pipeline_VITIS_LOOP_29_4 load_inputs compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2 compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4 compute_gcn_Pipeline_VITIS_LOOP_69_5 compute_gcn_Pipeline_VITIS_LOOP_74_6 compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8 compute_gcn_Pipeline_VITIS_LOOP_94_10 compute_gcn_Outline_VITIS_LOOP_91_9 compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13 compute_gcn store_result gnn
+INFO-FLOW: Model list for synthesis: entry_proc load_inputs_Pipeline_VITIS_LOOP_16_1 load_inputs_Pipeline_VITIS_LOOP_20_2 load_inputs_Pipeline_VITIS_LOOP_24_3 load_inputs_Pipeline_VITIS_LOOP_29_4 load_inputs compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2 compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4 compute_gcn_Pipeline_VITIS_LOOP_71_5 compute_gcn_Pipeline_VITIS_LOOP_76_6 compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8 compute_gcn_Pipeline_VITIS_LOOP_97_10 compute_gcn_Outline_VITIS_LOOP_94_9 compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13 compute_gcn store_result gnn
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'entry_proc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -414,8 +415,8 @@ Execute       set_default_model entry_proc
 Execute       schedule -model entry_proc 
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 0.16 sec.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 272.94 seconds. CPU system time: 0.53 seconds. Elapsed time: 273.54 seconds; current allocated memory: 1.497 GB.
+Command       schedule done; 0.15 sec.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 223.83 seconds. CPU system time: 0.41 seconds. Elapsed time: 224.29 seconds; current allocated memory: 1.296 GB.
 Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/entry_proc.verbose.sched.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
@@ -429,7 +430,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.296 GB.
 Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/entry_proc.verbose.bind.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
@@ -445,7 +446,7 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_16_1'.
 INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 74, loop 'VITIS_LOOP_16_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.296 GB.
 Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/load_inputs_Pipeline_VITIS_LOOP_16_1.verbose.sched.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
@@ -459,7 +460,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.296 GB.
 Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/load_inputs_Pipeline_VITIS_LOOP_16_1.verbose.bind.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
@@ -475,7 +476,7 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_20_2'.
 INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'VITIS_LOOP_20_2'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.296 GB.
 Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/load_inputs_Pipeline_VITIS_LOOP_20_2.verbose.sched.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
@@ -489,7 +490,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.296 GB.
 Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/load_inputs_Pipeline_VITIS_LOOP_20_2.verbose.bind.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
@@ -505,7 +506,7 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_24_3'.
 INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'VITIS_LOOP_24_3'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.296 GB.
 Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/load_inputs_Pipeline_VITIS_LOOP_24_3.verbose.sched.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
@@ -519,7 +520,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 1.296 GB.
 Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/load_inputs_Pipeline_VITIS_LOOP_24_3.verbose.bind.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
@@ -535,7 +536,7 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_29_4'.
 INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 74, loop 'VITIS_LOOP_29_4'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.296 GB.
 Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/load_inputs_Pipeline_VITIS_LOOP_29_4.verbose.sched.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
@@ -549,7 +550,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 1.296 GB.
 Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/load_inputs_Pipeline_VITIS_LOOP_29_4.verbose.bind.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
@@ -563,7 +564,7 @@ Execute       set_default_model load_inputs
 Execute       schedule -model load_inputs 
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.296 GB.
 Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/load_inputs.verbose.sched.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
@@ -577,7 +578,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 1.497 GB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 1.296 GB.
 Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/load_inputs.verbose.bind.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
@@ -585,259 +586,262 @@ Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family
 Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/load_inputs.bind.adb -f 
 INFO-FLOW: Finish binding load_inputs.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2' 
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2 
-Execute       schedule -model compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2 
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2 
+Execute       schedule -model compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2 
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_54_1_VITIS_LOOP_55_2'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_54_1_VITIS_LOOP_55_2'
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln59) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_56_1_VITIS_LOOP_57_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'VITIS_LOOP_56_1_VITIS_LOOP_57_2'
 INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 36.45 sec.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 36.47 seconds. CPU system time: 0.03 seconds. Elapsed time: 36.51 seconds; current allocated memory: 1.497 GB.
-Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2.verbose.sched.rpt 
+Command       schedule done; 0.15 sec.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.18 seconds. CPU system time: 0 seconds. Elapsed time: 0.2 seconds; current allocated memory: 1.296 GB.
+Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2.verbose.sched.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
 Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
-Command       syn_report done; 0.47 sec.
-Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2.sched.adb -f 
-Command       db_write done; 0.73 sec.
-INFO-FLOW: Finish scheduling compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2.
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2 
-Execute       bind -model compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2 
+Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2.sched.adb -f 
+INFO-FLOW: Finish scheduling compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2.
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2 
+Execute       bind -model compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2 
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-Command       bind done; 0.22 sec.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 1.2 seconds. CPU system time: 0.04 seconds. Elapsed time: 1.42 seconds; current allocated memory: 1.513 GB.
-Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2.verbose.bind.rpt 
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.296 GB.
+Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2.verbose.bind.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
 Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
-Command       syn_report done; 0.39 sec.
-Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2.bind.adb -f 
-Command       db_write done; 0.8 sec.
-INFO-FLOW: Finish binding compute_gcn_Pipeline_VITIS_LOOP_54_1_VITIS_LOOP_55_2.
+Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2.bind.adb -f 
+INFO-FLOW: Finish binding compute_gcn_Pipeline_VITIS_LOOP_56_1_VITIS_LOOP_57_2.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4' 
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4 
-Execute       schedule -model compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4 
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4 
+Execute       schedule -model compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4 
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_62_3_VITIS_LOOP_63_4'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_62_3_VITIS_LOOP_63_4'
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_64_3_VITIS_LOOP_65_4'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_64_3_VITIS_LOOP_65_4'
+INFO: [SCHED 204-11] Finished scheduling.
+Command       schedule done; 0.13 sec.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.14 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 1.296 GB.
+Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4.verbose.sched.rpt 
+Execute         list_part -family xcvu35p-fsvh2104-2L-e 
+Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
+Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
+Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4.sched.adb -f 
+INFO-FLOW: Finish scheduling compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4.
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4 
+Execute       bind -model compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.296 GB.
+Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4.verbose.bind.rpt 
+Execute         list_part -family xcvu35p-fsvh2104-2L-e 
+Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
+Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
+Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4.bind.adb -f 
+INFO-FLOW: Finish binding compute_gcn_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_65_4.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_71_5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_71_5 
+Execute       schedule -model compute_gcn_Pipeline_VITIS_LOOP_71_5 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_71_5'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_71_5'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 1.296 GB.
+Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_71_5.verbose.sched.rpt 
+Execute         list_part -family xcvu35p-fsvh2104-2L-e 
+Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
+Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
+Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_71_5.sched.adb -f 
+INFO-FLOW: Finish scheduling compute_gcn_Pipeline_VITIS_LOOP_71_5.
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_71_5 
+Execute       bind -model compute_gcn_Pipeline_VITIS_LOOP_71_5 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 1.296 GB.
+Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_71_5.verbose.bind.rpt 
+Execute         list_part -family xcvu35p-fsvh2104-2L-e 
+Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
+Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
+Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_71_5.bind.adb -f 
+INFO-FLOW: Finish binding compute_gcn_Pipeline_VITIS_LOOP_71_5.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_76_6' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_76_6 
+Execute       schedule -model compute_gcn_Pipeline_VITIS_LOOP_76_6 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_76_6'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_76_6'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 1.296 GB.
+Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_76_6.verbose.sched.rpt 
+Execute         list_part -family xcvu35p-fsvh2104-2L-e 
+Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
+Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
+Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_76_6.sched.adb -f 
+INFO-FLOW: Finish scheduling compute_gcn_Pipeline_VITIS_LOOP_76_6.
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_76_6 
+Execute       bind -model compute_gcn_Pipeline_VITIS_LOOP_76_6 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 1.296 GB.
+Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_76_6.verbose.bind.rpt 
+Execute         list_part -family xcvu35p-fsvh2104-2L-e 
+Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
+Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
+Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_76_6.bind.adb -f 
+INFO-FLOW: Finish binding compute_gcn_Pipeline_VITIS_LOOP_76_6.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8 
+Execute       schedule -model compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_86_7_VITIS_LOOP_87_8'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'VITIS_LOOP_86_7_VITIS_LOOP_87_8'
 INFO: [SCHED 204-11] Finished scheduling.
 Command       schedule done; 0.14 sec.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1.08 seconds. CPU system time: 0.03 seconds. Elapsed time: 1.35 seconds; current allocated memory: 1.513 GB.
-Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4.verbose.sched.rpt 
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.15 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 1.296 GB.
+Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8.verbose.sched.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
 Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
-Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4.sched.adb -f 
-INFO-FLOW: Finish scheduling compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4.
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4 
-Execute       bind -model compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4 
+Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8.sched.adb -f 
+INFO-FLOW: Finish scheduling compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8.
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8 
+Execute       bind -model compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8 
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.513 GB.
-Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4.verbose.bind.rpt 
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.296 GB.
+Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8.verbose.bind.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
 Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
-Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4.bind.adb -f 
-INFO-FLOW: Finish binding compute_gcn_Pipeline_VITIS_LOOP_62_3_VITIS_LOOP_63_4.
+Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8.bind.adb -f 
+INFO-FLOW: Finish binding compute_gcn_Pipeline_VITIS_LOOP_86_7_VITIS_LOOP_87_8.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_69_5' 
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_97_10' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_69_5 
-Execute       schedule -model compute_gcn_Pipeline_VITIS_LOOP_69_5 
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_97_10 
+Execute       schedule -model compute_gcn_Pipeline_VITIS_LOOP_97_10 
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_69_5'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_69_5'
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_97_10'.
+WARNING: [HLS 200-880] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_97_10' (loop 'VITIS_LOOP_97_10'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('empty_write_ln104', ../kernel/gnn_hls.cpp:104) of variable 'add_i', ../kernel/gnn_hls.cpp:104 on local variable 'empty' and 'load' operation 32 bit ('p_load', ../kernel/gnn_hls.cpp:104) on local variable 'empty'.
+WARNING: [HLS 200-880] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_97_10' (loop 'VITIS_LOOP_97_10'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0) between 'store' operation 0 bit ('empty_write_ln104', ../kernel/gnn_hls.cpp:104) of variable 'add_i', ../kernel/gnn_hls.cpp:104 on local variable 'empty' and 'load' operation 32 bit ('p_load', ../kernel/gnn_hls.cpp:104) on local variable 'empty'.
+WARNING: [HLS 200-880] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_97_10' (loop 'VITIS_LOOP_97_10'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0) between 'store' operation 0 bit ('empty_write_ln104', ../kernel/gnn_hls.cpp:104) of variable 'add_i', ../kernel/gnn_hls.cpp:104 on local variable 'empty' and 'load' operation 32 bit ('p_load', ../kernel/gnn_hls.cpp:104) on local variable 'empty'.
+WARNING: [HLS 200-885] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_97_10' (loop 'VITIS_LOOP_97_10'): Unable to schedule 'load' operation 32 bit ('feature', ../kernel/gnn_hls.cpp:103) on array 'compute_gcn_stream_stream_stream_stream_stream_stream_h_in_buf_9' due to limited memory ports (II = 4). Please consider using a memory core with more ports or partitioning the array 'compute_gcn_stream_stream_stream_stream_stream_stream_h_in_buf_9'.
+WARNING: [HLS 200-885] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_97_10' (loop 'VITIS_LOOP_97_10'): Unable to schedule 'load' operation 32 bit ('feature', ../kernel/gnn_hls.cpp:103) on array 'compute_gcn_stream_stream_stream_stream_stream_stream_h_in_buf_9' due to limited memory ports (II = 35). Please consider using a memory core with more ports or partitioning the array 'compute_gcn_stream_stream_stream_stream_stream_stream_h_in_buf_9'.
+WARNING: [HLS 200-885] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_97_10' (loop 'VITIS_LOOP_97_10'): Unable to schedule 'load' operation 32 bit ('feature', ../kernel/gnn_hls.cpp:103) on array 'compute_gcn_stream_stream_stream_stream_stream_stream_h_in_buf_9' due to limited memory ports (II = 43). Please consider using a memory core with more ports or partitioning the array 'compute_gcn_stream_stream_stream_stream_stream_stream_h_in_buf_9'.
+WARNING: [HLS 200-885] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_97_10' (loop 'VITIS_LOOP_97_10'): Unable to schedule 'load' operation 32 bit ('feature', ../kernel/gnn_hls.cpp:103) on array 'compute_gcn_stream_stream_stream_stream_stream_stream_h_in_buf_9' due to limited memory ports (II = 44). Please consider using a memory core with more ports or partitioning the array 'compute_gcn_stream_stream_stream_stream_stream_stream_h_in_buf_9'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 45, Depth = 57, loop 'VITIS_LOOP_97_10'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 1.513 GB.
-Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_69_5.verbose.sched.rpt 
+Command       schedule done; 111.92 sec.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 111.85 seconds. CPU system time: 0.08 seconds. Elapsed time: 111.94 seconds; current allocated memory: 1.372 GB.
+Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_97_10.verbose.sched.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
 Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
-Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_69_5.sched.adb -f 
-INFO-FLOW: Finish scheduling compute_gcn_Pipeline_VITIS_LOOP_69_5.
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_69_5 
-Execute       bind -model compute_gcn_Pipeline_VITIS_LOOP_69_5 
+Command       syn_report done; 0.62 sec.
+Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_97_10.sched.adb -f 
+Command       db_write done; 1.04 sec.
+INFO-FLOW: Finish scheduling compute_gcn_Pipeline_VITIS_LOOP_97_10.
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_97_10 
+Execute       bind -model compute_gcn_Pipeline_VITIS_LOOP_97_10 
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.513 GB.
-Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_69_5.verbose.bind.rpt 
+Command       bind done; 7 sec.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 8.11 seconds. CPU system time: 0.05 seconds. Elapsed time: 8.66 seconds; current allocated memory: 1.372 GB.
+Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_97_10.verbose.bind.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
 Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
-Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_69_5.bind.adb -f 
-INFO-FLOW: Finish binding compute_gcn_Pipeline_VITIS_LOOP_69_5.
+Command       syn_report done; 0.76 sec.
+Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_97_10.bind.adb -f 
+Command       db_write done; 1.39 sec.
+INFO-FLOW: Finish binding compute_gcn_Pipeline_VITIS_LOOP_97_10.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_74_6' 
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Outline_VITIS_LOOP_94_9' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_74_6 
-Execute       schedule -model compute_gcn_Pipeline_VITIS_LOOP_74_6 
+Execute       set_default_model compute_gcn_Outline_VITIS_LOOP_94_9 
+Execute       schedule -model compute_gcn_Outline_VITIS_LOOP_94_9 
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_74_6'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_74_6'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.03 seconds; current allocated memory: 1.513 GB.
-Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_74_6.verbose.sched.rpt 
+Command       schedule done; 13.43 sec.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 14.7 seconds. CPU system time: 0.09 seconds. Elapsed time: 15.59 seconds; current allocated memory: 1.457 GB.
+Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Outline_VITIS_LOOP_94_9.verbose.sched.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
 Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
-Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_74_6.sched.adb -f 
-INFO-FLOW: Finish scheduling compute_gcn_Pipeline_VITIS_LOOP_74_6.
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_74_6 
-Execute       bind -model compute_gcn_Pipeline_VITIS_LOOP_74_6 
+Command       syn_report done; 0.22 sec.
+Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Outline_VITIS_LOOP_94_9.sched.adb -f 
+Command       db_write done; 0.45 sec.
+INFO-FLOW: Finish scheduling compute_gcn_Outline_VITIS_LOOP_94_9.
+Execute       set_default_model compute_gcn_Outline_VITIS_LOOP_94_9 
+Execute       bind -model compute_gcn_Outline_VITIS_LOOP_94_9 
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 1.513 GB.
-Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_74_6.verbose.bind.rpt 
+Command       bind done; 2.56 sec.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 2.98 seconds. CPU system time: 0.03 seconds. Elapsed time: 3.23 seconds; current allocated memory: 1.457 GB.
+Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Outline_VITIS_LOOP_94_9.verbose.bind.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
 Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
-Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_74_6.bind.adb -f 
-INFO-FLOW: Finish binding compute_gcn_Pipeline_VITIS_LOOP_74_6.
+Command       syn_report done; 0.5 sec.
+Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Outline_VITIS_LOOP_94_9.bind.adb -f 
+Command       db_write done; 0.6 sec.
+INFO-FLOW: Finish binding compute_gcn_Outline_VITIS_LOOP_94_9.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8' 
+INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8 
-Execute       schedule -model compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8 
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13 
+Execute       schedule -model compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13 
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_83_7_VITIS_LOOP_84_8'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_83_7_VITIS_LOOP_84_8'
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_110_12_VITIS_LOOP_111_13'.
+WARNING: [HLS 200-885] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13' (loop 'VITIS_LOOP_110_12_VITIS_LOOP_111_13'): Unable to schedule 'load' operation 32 bit ('compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_2184', ../kernel/gnn_hls.cpp:110) on array 'compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_9' due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array 'compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_9'.
+WARNING: [HLS 200-885] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13' (loop 'VITIS_LOOP_110_12_VITIS_LOOP_111_13'): Unable to schedule 'load' operation 32 bit ('compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_2224', ../kernel/gnn_hls.cpp:110) on array 'compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_9' due to limited memory ports (II = 2). Please consider using a memory core with more ports or partitioning the array 'compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_9'.
+WARNING: [HLS 200-885] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13' (loop 'VITIS_LOOP_110_12_VITIS_LOOP_111_13'): Unable to schedule 'load' operation 32 bit ('compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_2264', ../kernel/gnn_hls.cpp:110) on array 'compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_9' due to limited memory ports (II = 3). Please consider using a memory core with more ports or partitioning the array 'compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_9'.
+WARNING: [HLS 200-885] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13' (loop 'VITIS_LOOP_110_12_VITIS_LOOP_111_13'): Unable to schedule 'load' operation 32 bit ('compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_2304', ../kernel/gnn_hls.cpp:110) on array 'compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_9' due to limited memory ports (II = 4). Please consider using a memory core with more ports or partitioning the array 'compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_9'.
+WARNING: [HLS 200-885] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13' (loop 'VITIS_LOOP_110_12_VITIS_LOOP_111_13'): Unable to schedule 'load' operation 32 bit ('compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_1326', ../kernel/gnn_hls.cpp:110) on array 'compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_9' due to limited memory ports (II = 35). Please consider using a memory core with more ports or partitioning the array 'compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_9'.
+WARNING: [HLS 200-885] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13' (loop 'VITIS_LOOP_110_12_VITIS_LOOP_111_13'): Unable to schedule 'load' operation 32 bit ('compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_1486', ../kernel/gnn_hls.cpp:110) on array 'compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_9' due to limited memory ports (II = 43). Please consider using a memory core with more ports or partitioning the array 'compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_9'.
+WARNING: [HLS 200-885] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13' (loop 'VITIS_LOOP_110_12_VITIS_LOOP_111_13'): Unable to schedule 'load' operation 32 bit ('compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_1506', ../kernel/gnn_hls.cpp:110) on array 'compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_9' due to limited memory ports (II = 44). Please consider using a memory core with more ports or partitioning the array 'compute_gcn_stream_stream_stream_stream_stream_stream_aggregated_features_9'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 45, Depth = 7177, loop 'VITIS_LOOP_110_12_VITIS_LOOP_111_13'
 INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 36.08 sec.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 36.02 seconds. CPU system time: 0.06 seconds. Elapsed time: 36.09 seconds; current allocated memory: 1.543 GB.
-Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8.verbose.sched.rpt 
-Execute         list_part -family xcvu35p-fsvh2104-2L-e 
-Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
-Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
-Command       syn_report done; 0.43 sec.
-Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8.sched.adb -f 
-Command       db_write done; 0.73 sec.
-INFO-FLOW: Finish scheduling compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8.
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8 
-Execute       bind -model compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8 
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-Command       bind done; 0.2 sec.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 1.14 seconds. CPU system time: 0.04 seconds. Elapsed time: 1.36 seconds; current allocated memory: 1.551 GB.
-Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8.verbose.bind.rpt 
-Execute         list_part -family xcvu35p-fsvh2104-2L-e 
-Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
-Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
-Command       syn_report done; 0.39 sec.
-Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8.bind.adb -f 
-Command       db_write done; 0.81 sec.
-INFO-FLOW: Finish binding compute_gcn_Pipeline_VITIS_LOOP_83_7_VITIS_LOOP_84_8.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_94_10' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_94_10 
-Execute       schedule -model compute_gcn_Pipeline_VITIS_LOOP_94_10 
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_94_10'.
-WARNING: [HLS 200-880] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_94_10' (loop 'VITIS_LOOP_94_10'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('empty_write_ln101', ../kernel/gnn_hls.cpp:101) of variable 'add_i', ../kernel/gnn_hls.cpp:101 on local variable 'empty' and 'load' operation 32 bit ('p_load', ../kernel/gnn_hls.cpp:101) on local variable 'empty'.
-WARNING: [HLS 200-880] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_94_10' (loop 'VITIS_LOOP_94_10'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0) between 'store' operation 0 bit ('empty_write_ln101', ../kernel/gnn_hls.cpp:101) of variable 'add_i', ../kernel/gnn_hls.cpp:101 on local variable 'empty' and 'load' operation 32 bit ('p_load', ../kernel/gnn_hls.cpp:101) on local variable 'empty'.
-WARNING: [HLS 200-880] The II Violation in module 'compute_gcn_Pipeline_VITIS_LOOP_94_10' (loop 'VITIS_LOOP_94_10'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0) between 'store' operation 0 bit ('empty_write_ln101', ../kernel/gnn_hls.cpp:101) of variable 'add_i', ../kernel/gnn_hls.cpp:101 on local variable 'empty' and 'load' operation 32 bit ('p_load', ../kernel/gnn_hls.cpp:101) on local variable 'empty'.
-INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 4, Depth = 16, loop 'VITIS_LOOP_94_10'
-INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 78.15 sec.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 78.99 seconds. CPU system time: 0.09 seconds. Elapsed time: 79.35 seconds; current allocated memory: 1.667 GB.
-Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_94_10.verbose.sched.rpt 
-Execute         list_part -family xcvu35p-fsvh2104-2L-e 
-Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
-Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
-Command       syn_report done; 0.52 sec.
-Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_94_10.sched.adb -f 
-Command       db_write done; 1.06 sec.
-INFO-FLOW: Finish scheduling compute_gcn_Pipeline_VITIS_LOOP_94_10.
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_94_10 
-Execute       bind -model compute_gcn_Pipeline_VITIS_LOOP_94_10 
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-Command       bind done; 6.17 sec.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 7.19 seconds. CPU system time: 0.06 seconds. Elapsed time: 7.78 seconds; current allocated memory: 1.680 GB.
-Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_94_10.verbose.bind.rpt 
-Execute         list_part -family xcvu35p-fsvh2104-2L-e 
-Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
-Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
-Command       syn_report done; 0.82 sec.
-Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_94_10.bind.adb -f 
-Command       db_write done; 1.48 sec.
-INFO-FLOW: Finish binding compute_gcn_Pipeline_VITIS_LOOP_94_10.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Outline_VITIS_LOOP_91_9' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-Execute       set_default_model compute_gcn_Outline_VITIS_LOOP_91_9 
-Execute       schedule -model compute_gcn_Outline_VITIS_LOOP_91_9 
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 26.77 sec.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 28.09 seconds. CPU system time: 0.13 seconds. Elapsed time: 29.07 seconds; current allocated memory: 1.747 GB.
-Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Outline_VITIS_LOOP_91_9.verbose.sched.rpt 
-Execute         list_part -family xcvu35p-fsvh2104-2L-e 
-Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
-Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
-Command       syn_report done; 0.21 sec.
-Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Outline_VITIS_LOOP_91_9.sched.adb -f 
-Command       db_write done; 0.54 sec.
-INFO-FLOW: Finish scheduling compute_gcn_Outline_VITIS_LOOP_91_9.
-Execute       set_default_model compute_gcn_Outline_VITIS_LOOP_91_9 
-Execute       bind -model compute_gcn_Outline_VITIS_LOOP_91_9 
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-Command       bind done; 2.54 sec.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 2.99 seconds. CPU system time: 0.03 seconds. Elapsed time: 3.29 seconds; current allocated memory: 1.747 GB.
-Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Outline_VITIS_LOOP_91_9.verbose.bind.rpt 
-Execute         list_part -family xcvu35p-fsvh2104-2L-e 
-Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
-Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
-Command       syn_report done; 0.65 sec.
-Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Outline_VITIS_LOOP_91_9.bind.adb -f 
-Command       db_write done; 0.77 sec.
-INFO-FLOW: Finish binding compute_gcn_Outline_VITIS_LOOP_91_9.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13 
-Execute       schedule -model compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13 
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_107_12_VITIS_LOOP_108_13'.
-INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 7174, loop 'VITIS_LOOP_107_12_VITIS_LOOP_108_13'
-INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 263.46 sec.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 263.93 seconds. CPU system time: 0.48 seconds. Elapsed time: 264.9 seconds; current allocated memory: 2.027 GB.
-Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13.verbose.sched.rpt 
+Command       schedule done; 261.4 sec.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 261.71 seconds. CPU system time: 0.43 seconds. Elapsed time: 262.52 seconds; current allocated memory: 1.744 GB.
+Execute       syn_report -verbosereport -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13.verbose.sched.rpt 
 Execute         list_part -family xcvu35p-fsvh2104-2L-e 
 Execute           ap_family_info -name xcvu35p-fsvh2104-2L-e -data names 
 Execute           ap_part_info -quiet -name xcvu35p-fsvh2104-2L-e -data family 
 Command       syn_report done; 16.08 sec.
-Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13.sched.adb -f 
+Execute       db_write -o /home/sumit.k/gnn-inference-on-alveo-u50/build/hls/hls/.autopilot/db/compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13.sched.adb -f 
 Command       db_write done; 2.84 sec.
-INFO-FLOW: Finish scheduling compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13.
-Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13 
-Execute       bind -model compute_gcn_Pipeline_VITIS_LOOP_107_12_VITIS_LOOP_108_13 
+INFO-FLOW: Finish scheduling compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13.
+Execute       set_default_model compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13 
+Execute       bind -model compute_gcn_Pipeline_VITIS_LOOP_110_12_VITIS_LOOP_111_13 

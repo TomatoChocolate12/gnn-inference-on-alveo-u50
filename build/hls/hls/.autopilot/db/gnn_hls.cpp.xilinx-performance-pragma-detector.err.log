@@ -31,7 +31,7 @@ In file included from /home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_
 /home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:109:9: note: in instantiation of member function 'hls::stream<float, 0>::read' requested here
         read(tmp);
         ^
-/home/sumit.k/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.cpp:57:42: note: in instantiation of member function 'hls::stream<float, 0>::read' requested here
+/home/sumit.k/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.cpp:59:42: note: in instantiation of member function 'hls::stream<float, 0>::read' requested here
             h_in_buf[i][j] = h_in_stream.read();
                                          ^
 In file included from /home/sumit.k/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.cpp:1:
@@ -43,6 +43,6 @@ In file included from /home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_
 /home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:109:9: note: in instantiation of member function 'hls::stream<int, 0>::read' requested here
         read(tmp);
         ^
-/home/sumit.k/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.cpp:72:41: note: in instantiation of member function 'hls::stream<int, 0>::read' requested here
+/home/sumit.k/gnn-inference-on-alveo-u50/build/../kernel/gnn_hls.cpp:74:41: note: in instantiation of member function 'hls::stream<int, 0>::read' requested here
         adj_col_buf[i] = adj_col_stream.read();
                                         ^

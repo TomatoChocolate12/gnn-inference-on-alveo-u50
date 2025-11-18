@@ -41,12 +41,20 @@ bool load_cora_data(
     std::vector<int>& adj_col_indices_vec,
     std::vector<int>& adj_row_ptr_vec
 ) {
-    // Try multiple possible paths (HLS may run from different directories)
-    std::vector<std::string> possible_paths = {
-        "data/cora",           // From project root
-        "../data/cora",        // From build/hls
-        "../../data/cora"      // From build/hls/csim/build
+    std::vector<std::string> possible_paths;
+    if (const char* env_dir = std::getenv("GNN_TB_DATA_DIR")) {
+        possible_paths.emplace_back(env_dir);
+    }
+    // Try multiple possible relative paths (HLS may launch from deep work dirs)
+    const char* rel_paths[] = {
+        "data/cora",
+        "../data/cora",
+        "../../data/cora",
+        "../../../data/cora",
+        "../../../../data/cora",
+        "../../../../../data/cora"
     };
+    possible_paths.insert(possible_paths.end(), std::begin(rel_paths), std::end(rel_paths));
     
     for (const auto& data_dir : possible_paths) {
         std::cout << "Info: TB attempting to load data from " << data_dir << "..." << std::endl;
