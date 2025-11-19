@@ -1,3 +1,0 @@
-relativeroot=/home/sumit.k/gnn-inference-on-alveo-u50
-original_argv=-c --mode hls --config hls_csim.cfg --work_dir build/hls 
-

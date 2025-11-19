@@ -1,9 +1,0 @@
-{
-  "name": "hls",
-  "type": "HLS",
-  "configuration": {
-    "componentType": "HLS",
-    "configFiles": ["..\/..\/hls_csim.cfg"],
-    "work_dir": "."
-  }
-}
