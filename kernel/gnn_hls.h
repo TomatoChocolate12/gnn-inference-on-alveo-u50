@@ -10,8 +10,7 @@ const int NUM_NODES = 2708;
 const int NUM_EDGES_NNZ = 10556; // Non-zero entries in adj matrix
 const int IN_FEATURES = 1433;
 const int OUT_FEATURES = 16;
-typedef float hls_dtype;
-
+typedef ap_fixed<16, 6, AP_RND, AP_SAT> hls_dtype;
 // --- Top-Level Kernel Function DECLARATION ---
 extern "C" {
 void gnn(

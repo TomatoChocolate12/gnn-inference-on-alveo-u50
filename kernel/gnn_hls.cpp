@@ -41,16 +41,23 @@ static void compute_gcn(
     hls::stream<int>& adj_row_stream,
     hls::stream<hls_dtype>& h_out_stream
 ) {
+    const int UNROLL_FACTOR = 16;
+    
     static hls_dtype h_in_buf[NUM_NODES][IN_FEATURES];
     static hls_dtype w_buf[IN_FEATURES][OUT_FEATURES];
+
+    #pragma HLS BIND_STORAGE variable=h_in_buf type=ram_2p impl=uram
+    #pragma HLS BIND_STORAGE variable=w_buf complete dim=2
+    #pragma HLS ARRAY_PARTITION variable=h_in_buf cyclic factor=UNROLL_FACTOR dim=2
+
     static hls_dtype adj_val_buf[NUM_EDGES_NNZ];
     static int adj_col_buf[NUM_EDGES_NNZ];
     static int adj_row_buf[NUM_NODES + 1];
 
-    // Use cyclic partitioning with factor 16 instead of complete (1433 is too large)
-    // This creates 16 parallel banks, which is more reasonable for FPGA resources
-    #pragma HLS ARRAY_PARTITION variable=h_in_buf cyclic factor=16 dim=2
-    #pragma HLS ARRAY_PARTITION variable=w_buf cyclic factor=16 dim=2
+    // // Use cyclic partitioning with factor 16 instead of complete (1433 is too large)
+    // // This creates 16 parallel banks, which is more reasonable for FPGA resources
+    // #pragma HLS ARRAY_PARTITION variable=h_in_buf cyclic factor=16 dim=2
+    // #pragma HLS ARRAY_PARTITION variable=w_buf cyclic factor=16 dim=2
 
     // Read h_in: stored as [node][feature]
     for (int i = 0; i < NUM_NODES; ++i) {
@@ -79,44 +86,48 @@ static void compute_gcn(
     }
 
     static hls_dtype aggregated_features[NUM_NODES][IN_FEATURES];
-    // Use cyclic partitioning with factor 16 instead of complete
-    #pragma HLS ARRAY_PARTITION variable=aggregated_features cyclic factor=16 dim=2
-
+    #pragma HLS BIND_STORAGE variable=aggregated_features type=ram_2p impl=uram
+    #pragma HLS ARRAY_PARTITION variable=aggregated_features cyclic factor=UNROLL_FACTOR dim=2
+    
     // Initialize aggregated features
-    for (int i = 0; i < NUM_NODES; ++i) {
+    init agg: for (int i = 0; i < NUM_NODES; ++i) {
+        #pragma HLS PIPELINE II=1
         for (int j = 0; j < IN_FEATURES; ++j) {
-            #pragma HLS PIPELINE II=1
-            aggregated_features[i][j] = 0.0;
+            aggregated_features[i][j] = 0;
         }
     }
 
     // SpMM: Aggregate neighbor features
-    for (int i = 0; i < NUM_NODES; ++i) {
+    spmm_nodes: for (int i = 0; i < NUM_NODES; ++i) {
         int start_idx = adj_row_buf[i];
         int end_idx = adj_row_buf[i + 1];
-        for (int k = start_idx; k < end_idx; ++k) {
-            #pragma HLS PIPELINE
-            int j = adj_col_buf[k];
+
+        spmm_neighbors: for(int k = start_idx; k < end_idx; ++k){
+            #pragma HLS PIPELINE II=1
+            int neighbor_idx = adj_col_buf[k];
             hls_dtype norm_val = adj_val_buf[k];
-            for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
-                #pragma HLS PIPELINE II=1
-                hls_dtype feature = h_in_buf[j][f_in];
-                aggregated_features[i][f_in] += norm_val * feature;
+
+            spmm_features: for(int f = 0; f < IN_FEATURES; ++f) {
+                #pragma HLS UNROLL factor=UNROLL_FACTOR
+                hls_dtype feat = h_in_buf[neighbor_idx][f];
+                aggregated_features[i][f] += norm_val * feat;
             }
         }
     }
 
     // GEMM + ReLU: Transform aggregated features
-    for (int i = 0; i < NUM_NODES; ++i) {
-        for (int f_out = 0; f_out < OUT_FEATURES; ++f_out) {
-            #pragma HLS PIPELINE
+    gemm_nodes: for (int i = 0; i < NUM_NODES; ++i) {
+        #pragma HLS PIPELINE II=1
+
+        gemm_out: for (int f_out = 0; f_out < OUT_FEATURES; ++f_out) {
             hls_dtype sum = 0.0;
-            for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
-                #pragma HLS PIPELINE II=1
+
+            gemm_in: for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
+                #pragma HLS UNROLL factor=UNROLL_FACTOR
                 sum += aggregated_features[i][f_in] * w_buf[f_in][f_out];
             }
             // Apply ReLU and write to stream
-            h_out_stream << (sum > 0.0 ? sum : 0.0);
+            h_out_stream << (sum > 0.0 ? sum : (hls_dtype)0.0);
         }
     }
 }
