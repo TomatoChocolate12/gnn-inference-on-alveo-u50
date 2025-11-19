@@ -10,7 +10,7 @@
 #include <vector>
 #include <sstream>
 
-#include "../kernel/gnn_hls.h"
+#include "gnn_hls.h"
 
 struct GraphTensors {
   std::vector<hls_dtype> features;      // NUM_NODES * IN_FEATURES

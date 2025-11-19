@@ -1,7 +1,7 @@
 CXX ?= g++
 CXXFLAGS ?= -O2 -std=c++17 -Wall -Wextra -Werror
 LDFLAGS ?=
-INCLUDES := -Iinclude -I../kernel
+INCLUDES := -Iinclude
 SRC := $(wildcard src/*.cpp)
 BUILD_DIR := build
 TARGET := $(BUILD_DIR)/host.exe
