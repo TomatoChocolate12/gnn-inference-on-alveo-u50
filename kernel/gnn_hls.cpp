@@ -90,7 +90,7 @@ static void compute_gcn(
     #pragma HLS ARRAY_PARTITION variable=aggregated_features cyclic factor=UNROLL_FACTOR dim=2
     
     // Initialize aggregated features
-    init agg: for (int i = 0; i < NUM_NODES; ++i) {
+    init_agg: for (int i = 0; i < NUM_NODES; ++i) {
         #pragma HLS PIPELINE II=1
         for (int j = 0; j < IN_FEATURES; ++j) {
             aggregated_features[i][j] = 0;
