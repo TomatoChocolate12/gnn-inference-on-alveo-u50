@@ -16,18 +16,18 @@
 // =========================================================
 #ifdef ENABLE_TEST_MODE
     // --- TINY DATASET (Fast Simulation) ---
-    #define NUM_NODES 16
-    #define NUM_EDGES_NNZ 32
-    #define IN_FEATURES 32
+    #define NUM_NODES 100
+    #define NUM_EDGES_NNZ 200
+    #define IN_FEATURES 1433
     #define OUT_FEATURES 16
     
     // Derived Depths for Pragmas
-    #define DEPTH_H_IN (16 * 32)
-    #define DEPTH_W (32 * 16)
-    #define DEPTH_ADJ_VAL 32
-    #define DEPTH_ADJ_COL 32
-    #define DEPTH_ADJ_ROW (16 + 1)
-    #define DEPTH_H_OUT (16 * 16)
+    #define DEPTH_H_IN (100 * 1433)
+    #define DEPTH_W (1433 * 16)
+    #define DEPTH_ADJ_VAL 200
+    #define DEPTH_ADJ_COL 200
+    #define DEPTH_ADJ_ROW (100 + 1)
+    #define DEPTH_H_OUT (100 * 16)
 
 #else
     // --- FULL CORA DATASET (Hardware Implementation) ---
