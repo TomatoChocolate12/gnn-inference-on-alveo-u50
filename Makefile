@@ -7,10 +7,10 @@ PLATFORM ?= xilinx_u50_gen3x16_xdma_5_202210_1
 XCLBIN ?= kernel/build/gcn_layer_hls.$(TARGET).xclbin
 HLS_CFG ?= hls_csim.cfg
 WORK_HLS ?= build/hls
+# Temporary config file path for test mode
+HLS_TEST_CFG := $(WORK_HLS)/test_mode.cfg
 
 # --- LOGIC TO FORCE TEST MODE FOR EMULATION ---
-# If we are running hw_emu, we define TEST_MODE.
-# We also pass this to 'make cosim' manually if desired.
 COMMON_FLAGS :=
 ifeq ($(TARGET),hw_emu)
     COMMON_FLAGS += -DTEST_MODE
@@ -24,8 +24,13 @@ endif
 csim:
 	@echo "=== HLS C-simulation ==="
 	@mkdir -p $(WORK_HLS)
-	# Pass TEST_MODE to CFLAGS so the simulation uses small graph
-	vitis-run --mode hls --csim --config $(HLS_CFG) --work_dir $(WORK_HLS) --cflags "-DTEST_MODE"
+	# 1. Create a temporary config merging base config + TEST_MODE flags
+	cat $(HLS_CFG) > $(HLS_TEST_CFG)
+	@echo "" >> $(HLS_TEST_CFG)
+	@echo "[hls]" >> $(HLS_TEST_CFG)
+	@echo "csim.cflags=-DTEST_MODE" >> $(HLS_TEST_CFG)
+	# 2. Run using the temp config
+	vitis-run --mode hls --csim --config $(HLS_TEST_CFG) --work_dir $(WORK_HLS)
 
 # -------------------------
 # HLS: Synthesis
@@ -38,19 +43,30 @@ csynth:
 # -------------------------
 # HLS: Co-simulation
 # -------------------------
-cosim: 
+cosim:
 	@echo "=== HLS Co-simulation ==="
-	# We force synthesis + cosim here with the flag to ensure small dataset
 	@mkdir -p $(WORK_HLS)
-	v++ -c --mode hls --config $(HLS_CFG) --work_dir $(WORK_HLS) --cflags "-DTEST_MODE"
-	vitis-run --mode hls --cosim --config $(HLS_CFG) --work_dir $(WORK_HLS)
+	# 1. Create a temporary config merging base config + TEST_MODE flags
+	# We apply the flag to synthesis (syn), csim, and cosim phases to be safe
+	cat $(HLS_CFG) > $(HLS_TEST_CFG)
+	@echo "" >> $(HLS_TEST_CFG)
+	@echo "[hls]" >> $(HLS_TEST_CFG)
+	@echo "syn.cflags=-DTEST_MODE" >> $(HLS_TEST_CFG)
+	@echo "csim.cflags=-DTEST_MODE" >> $(HLS_TEST_CFG)
+	@echo "cosim.cflags=-DTEST_MODE" >> $(HLS_TEST_CFG)
+	
+	# 2. Run Synthesis first (required for cosim) with the small dataset config
+	v++ -c --mode hls --config $(HLS_TEST_CFG) --work_dir $(WORK_HLS)
+	
+	# 3. Run Co-simulation
+	vitis-run --mode hls --cosim --config $(HLS_TEST_CFG) --work_dir $(WORK_HLS)
 
 # -------------------------
 # Vitis kernel build
 # -------------------------
 kernel:
 	@echo "=== Building Kernel XCLBIN for TARGET=$(TARGET) ==="
-	# Pass COMMON_FLAGS (contains -DTEST_MODE if hw_emu) to kernel makefile
+	# Pass COMMON_FLAGS to kernel makefile (-D is supported by standard v++ kernel compiler)
 	$(MAKE) -C kernel TARGET=$(TARGET) PLATFORM=$(PLATFORM) EXTRA_FLAGS="$(COMMON_FLAGS)" xclbin
 
 # -------------------------
@@ -58,7 +74,6 @@ kernel:
 # -------------------------
 host:
 	@echo "=== Building Host ==="
-	# Pass COMMON_FLAGS to host makefile so header constants match kernel
 	$(MAKE) -C host EXTRA_FLAGS="$(COMMON_FLAGS)" all
 
 # -------------------------
