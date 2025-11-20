@@ -1,6 +1,6 @@
 CXX ?= g++
-# REMOVED -Werror. Added -Wno-... flags to silence Xilinx header noise.
-CXXFLAGS ?= -O2 -std=c++17 -Wall -Wextra -Wno-unknown-pragmas -Wno-unused-label -Wno-comment -Wno-deprecated-copy
+# Added EXTRA_FLAGS here
+CXXFLAGS ?= -O2 -std=c++17 -Wall -Wextra -Wno-unknown-pragmas -Wno-unused-label -Wno-comment -Wno-deprecated-copy $(EXTRA_FLAGS)
 LDFLAGS ?=
 INCLUDES := -Iinclude
 SRC := $(wildcard src/*.cpp)

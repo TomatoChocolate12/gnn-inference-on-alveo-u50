@@ -26,11 +26,13 @@ $(XO_DIR):
 	@mkdir -p $(XO_DIR)
 
 $(XO_FILE): $(KERNEL_SRC) gnn_hls.h | $(XO_DIR)
-	$(VPP) -c -k $(KERNEL_NAME) -t $(TARGET) --platform $(PLATFORM) \
-		-I../kernel \
-		--report_level 2 \
-		--save-temps \
-		-o $@ $<
+        $(VPP) -c -k $(KERNEL_NAME) -t $(TARGET) --platform $(PLATFORM) \
+                -I../kernel \
+                $(EXTRA_FLAGS) \
+                --report_level 2 \
+                --save-temps \
+                -o $@ $<
+
 
 $(XCLBIN_FILE): $(XO_FILE) link.cfg | $(XO_DIR)
 	$(VPP) -l -t $(TARGET) --platform $(PLATFORM) \

@@ -165,7 +165,7 @@ inline std::vector<hls_dtype> run_cpu_reference(const GraphTensors &tensors) {
         sum += aggregated[node * IN_FEATURES + fin] *
                tensors.weights[fin * OUT_FEATURES + fout];
       }
-      out[node * OUT_FEATURES + fout] = (sum > (hls_dtype)0) ? sum : (hls_dtype);
+      out[node * OUT_FEATURES + fout] = (sum > (hls_dtype)0) ? sum : (hls_dtype)0;
     }
   }
   return out;
