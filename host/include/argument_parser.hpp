@@ -1,57 +1,65 @@
 #pragma once
 
-#include <cstdlib>
-#include <optional>
 #include <string>
-#include <unordered_map>
+#include <iostream>
 #include <vector>
+#include <stdexcept>
+#include <cstring>
+#include <cstdlib>
 
 struct Arguments {
-  std::string xclbin_path;
-  std::string data_dir;
-  int device_index = 0;
-  bool use_synthetic = false;
-  bool enable_golden_check = false;
+    std::string xclbin_path;
+    int device_index = 0;
+    bool use_synthetic = false;       // Triggered by -s or --synthetic
+    bool enable_golden_check = true;  // Default true, disable with --no-golden
+    std::string data_dir = "";
 };
 
 class ArgumentParser {
- public:
-  ArgumentParser() = default;
+public:
+    Arguments parse(int argc, const char* const argv[]) {
+        Arguments args;
+        bool xclbin_found = false;
 
-  Arguments parse(int argc, const char *const argv[]) {
-    Arguments args;
-    args.xclbin_path = "kernel/build/gcn_layer_hls.hw.xclbin";
-    args.data_dir = "data/cora";
+        for (int i = 1; i < argc; ++i) {
+            std::string arg = argv[i];
+            
+            if (arg == "--xclbin_file") {
+                if (i + 1 < argc) {
+                    args.xclbin_path = argv[++i];
+                    xclbin_found = true;
+                } else {
+                    throw std::runtime_error("Missing value for --xclbin_file");
+                }
+            } else if (arg == "--device_id") {
+                if (i + 1 < argc) {
+                    args.device_index = std::stoi(argv[++i]);
+                } else {
+                    throw std::runtime_error("Missing value for --device_id");
+                }
+            } else if (arg == "-s" || arg == "--synthetic") {
+                args.use_synthetic = true;
+            } else if (arg == "--golden") {
+                args.enable_golden_check = true;
+            } else if (arg == "--no-golden") {
+                args.enable_golden_check = false;
+            } else {
+                // If argument doesn't start with '-', assume it's the data directory
+                if (arg[0] != '-') {
+                    args.data_dir = arg;
+                } else {
+                    throw std::runtime_error("Unknown argument: " + arg);
+                }
+            }
+        }
 
-    for (int i = 1; i < argc; ++i) {
-      std::string token = argv[i];
-      if (token == "--help" || token == "-h") {
-        print_help(argv[0]);
-        std::exit(0);
-      } else if (token == "--xclbin_file" && i + 1 < argc) {
-        args.xclbin_path = argv[++i];
-      } else if (token == "--data_dir" && i + 1 < argc) {
-        args.data_dir = argv[++i];
-      } else if (token == "--device_id" && i + 1 < argc) {
-        args.device_index = std::stoi(argv[++i]);
-      } else if (token == "--use_synthetic") {
-        args.use_synthetic = true;
-      } else if (token == "--enable_golden_check") {
-        args.enable_golden_check = true;
-      } else {
-        throw std::runtime_error("Unknown argument: " + token);
-      }
+        if (!xclbin_found) {
+            throw std::runtime_error("Option --xclbin_file is required.");
+        }
+
+        // If not using synthetic data and no data_dir provided, we might want to warn or fail.
+        // But for now, main.cpp usually falls back or checks this logic.
+        
+        return args;
     }
-    return args;
-  }
-
-  static void print_help(const char *exe_name) {
-    std::cout << "Usage: " << exe_name << " [options]\n"
-              << "  --xclbin_file <path>       Path to xclbin file (default kernel/build/...)\n"
-              << "  --data_dir <dir>           Directory with binary graph tensors\n"
-              << "  --device_id <id>           Xilinx device index (default 0)\n"
-              << "  --use_synthetic           Generate deterministic synthetic data\n"
-              << "  --enable_golden_check     Run CPU golden model to verify output\n"
-              << "  -h, --help                Show this message\n";
-  }
 };
