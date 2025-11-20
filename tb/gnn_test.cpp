@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
-#include "gnn_hls.h" // Ensure this is in your include path
+#include "../kernel/gnn_hls.h" // Ensure this is in your include path
 
 // --- CPU Reference Implementation ---
 // Matches the logic in host/include/graph_loader.hpp but self-contained for HLS TB
