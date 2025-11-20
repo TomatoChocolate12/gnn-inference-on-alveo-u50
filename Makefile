@@ -7,8 +7,9 @@ PLATFORM ?= xilinx_u50_gen3x16_xdma_5_202210_1
 XCLBIN ?= kernel/build/gcn_layer_hls.$(TARGET).xclbin
 HLS_CFG ?= hls_csim.cfg
 WORK_HLS ?= build/hls
-# Temporary config file path for test mode
-HLS_TEST_CFG := $(WORK_HLS)/test_mode.cfg
+
+# Place the temp config in the ROOT directory so relative paths work
+HLS_TEST_CFG := test_mode.cfg 
 
 # --- LOGIC TO FORCE TEST MODE FOR EMULATION ---
 COMMON_FLAGS :=
@@ -24,13 +25,15 @@ endif
 csim:
 	@echo "=== HLS C-simulation ==="
 	@mkdir -p $(WORK_HLS)
-	# 1. Create a temporary config merging base config + TEST_MODE flags
+	# 1. Create temp config in ROOT dir
 	cat $(HLS_CFG) > $(HLS_TEST_CFG)
 	@echo "" >> $(HLS_TEST_CFG)
 	@echo "[hls]" >> $(HLS_TEST_CFG)
 	@echo "csim.cflags=-DTEST_MODE" >> $(HLS_TEST_CFG)
-	# 2. Run using the temp config
+	# 2. Run
 	vitis-run --mode hls --csim --config $(HLS_TEST_CFG) --work_dir $(WORK_HLS)
+	# 3. Cleanup
+	rm -f $(HLS_TEST_CFG)
 
 # -------------------------
 # HLS: Synthesis
@@ -46,8 +49,7 @@ csynth:
 cosim:
 	@echo "=== HLS Co-simulation ==="
 	@mkdir -p $(WORK_HLS)
-	# 1. Create a temporary config merging base config + TEST_MODE flags
-	# We apply the flag to synthesis (syn), csim, and cosim phases to be safe
+	# 1. Create temp config in ROOT dir
 	cat $(HLS_CFG) > $(HLS_TEST_CFG)
 	@echo "" >> $(HLS_TEST_CFG)
 	@echo "[hls]" >> $(HLS_TEST_CFG)
@@ -55,11 +57,14 @@ cosim:
 	@echo "csim.cflags=-DTEST_MODE" >> $(HLS_TEST_CFG)
 	@echo "cosim.cflags=-DTEST_MODE" >> $(HLS_TEST_CFG)
 	
-	# 2. Run Synthesis first (required for cosim) with the small dataset config
+	# 2. Run Synthesis first (REQUIRED for cosim)
 	v++ -c --mode hls --config $(HLS_TEST_CFG) --work_dir $(WORK_HLS)
 	
 	# 3. Run Co-simulation
 	vitis-run --mode hls --cosim --config $(HLS_TEST_CFG) --work_dir $(WORK_HLS)
+	
+	# 4. Cleanup
+	rm -f $(HLS_TEST_CFG)
 
 # -------------------------
 # Vitis kernel build
