@@ -43,7 +43,7 @@ static void compute_gcn(
     hls::stream<hls_dtype>& h_out_stream
 ) {
     // Partition factor for parallel processing
-    const int UNROLL_FACTOR = 16;
+    const int UNROLL_FACTOR = 64;
     
     // --- Buffers ---
     // Use URAM for large buffers. 
