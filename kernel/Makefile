@@ -26,7 +26,7 @@ $(XO_DIR):
 	@mkdir -p $(XO_DIR)
 
 $(XO_FILE): $(KERNEL_SRC) gnn_hls.h | $(XO_DIR)
-        $(VPP) -c -k $(KERNEL_NAME) -t $(TARGET) --platform $(PLATFORM) \
+		$(VPP) -c -k $(KERNEL_NAME) -t $(TARGET) --platform $(PLATFORM) \
                 -I../kernel \
                 $(EXTRA_FLAGS) \
                 --report_level 2 \

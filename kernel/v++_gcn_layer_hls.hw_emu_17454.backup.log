@@ -1,3 +1,0 @@
-ERROR: [v++ 60-2365] Invalid format for 'advanced.param' option: compiler.fallbackDdrRead
-INFO: [v++ 60-1662] Stopping dispatch session having empty uuid.
-INFO: [v++ 60-1653] Closing dispatch client.
