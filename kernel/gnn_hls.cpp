@@ -170,12 +170,12 @@ void gnn(
     const int* adj_row_ptr,
     hls_dtype* h_out
 ) {
-    #pragma HLS INTERFACE m_axi port = h_in offset = slave bundle = gmem0 
-    #pragma HLS INTERFACE m_axi port = w offset = slave bundle = gmem1 
-    #pragma HLS INTERFACE m_axi port = adj_values offset = slave bundle = gmem2 
-    #pragma HLS INTERFACE m_axi port = adj_col_indices offset = slave bundle = gmem3 
-    #pragma HLS INTERFACE m_axi port = adj_row_ptr offset = slave bundle = gmem3 
-    #pragma HLS INTERFACE m_axi port = h_out offset = slave bundle = gmem0 
+    #pragma HLS INTERFACE m_axi port = h_in offset = slave bundle = gmem0  depth=DEPTH_H_IN
+    #pragma HLS INTERFACE m_axi port = w offset = slave bundle = gmem1 depth=DEPTH_W
+    #pragma HLS INTERFACE m_axi port = adj_values offset = slave bundle = gmem2 depth=DEPTH_ADJ_VAL
+    #pragma HLS INTERFACE m_axi port = adj_col_indices offset = slave bundle = gmem3 depth=DEPTH_ADJ_COL
+    #pragma HLS INTERFACE m_axi port = adj_row_ptr offset = slave bundle = gmem3 depth=DEPTH_ADJ_ROW
+    #pragma HLS INTERFACE m_axi port = h_out offset = slave bundle = gmem0 depth=DEPTH_H_OUT
 
     #pragma HLS INTERFACE s_axilite port = h_in bundle = control
     #pragma HLS INTERFACE s_axilite port = w bundle = control

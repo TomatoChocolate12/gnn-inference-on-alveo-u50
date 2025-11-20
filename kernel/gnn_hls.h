@@ -4,20 +4,49 @@
 #include <hls_stream.h>
 #include <ap_fixed.h> 
 
-// If TEST_MODE is defined (passed via Makefile), use Tiny dimensions
-#ifdef TEST_MODE
-    const int NUM_NODES = 16;
-    const int NUM_EDGES_NNZ = 32; 
-    const int IN_FEATURES = 32;
-    const int OUT_FEATURES = 16;
-#else
-    // Standard Cora Dataset
-    const int NUM_NODES = 2708;
-    const int NUM_EDGES_NNZ = 10556;
-    const int IN_FEATURES = 1433;
-    const int OUT_FEATURES = 16;
+// =========================================================
+// CONFIGURATION SWITCH
+// =========================================================
+#if defined(__XRT_EMULATION__) || defined(COSIM_TEST) || defined(TEST_MODE)
+    #define ENABLE_TEST_MODE // Active for sw_emu, hw_emu, and hls co-sim
 #endif
 
+// =========================================================
+// GRAPH DIMENSIONS (Using #define for Pragma Compatibility)
+// =========================================================
+#ifdef ENABLE_TEST_MODE
+    // --- TINY DATASET (Fast Simulation) ---
+    #define NUM_NODES 16
+    #define NUM_EDGES_NNZ 32
+    #define IN_FEATURES 32
+    #define OUT_FEATURES 16
+    
+    // Derived Depths for Pragmas
+    #define DEPTH_H_IN (16 * 32)
+    #define DEPTH_W (32 * 16)
+    #define DEPTH_ADJ_VAL 32
+    #define DEPTH_ADJ_COL 32
+    #define DEPTH_ADJ_ROW (16 + 1)
+    #define DEPTH_H_OUT (16 * 16)
+
+#else
+    // --- FULL CORA DATASET (Hardware Implementation) ---
+    #define NUM_NODES 2708
+    #define NUM_EDGES_NNZ 10556
+    #define IN_FEATURES 1433
+    #define OUT_FEATURES 16
+
+    // Derived Depths for Pragmas
+    // (Calculated: 2708 * 1433 = 3880564)
+    #define DEPTH_H_IN (2708 * 1433)
+    #define DEPTH_W (1433 * 16)
+    #define DEPTH_ADJ_VAL 10556
+    #define DEPTH_ADJ_COL 10556
+    #define DEPTH_ADJ_ROW (2708 + 1)
+    #define DEPTH_H_OUT (2708 * 16)
+#endif
+
+// Data Type Definition
 typedef ap_fixed<16, 6, AP_RND, AP_SAT> hls_dtype;
 
 extern "C" {
@@ -31,4 +60,4 @@ void gnn(
 );
 }
 
-#endif
+#endif // GCN_HLS_H
