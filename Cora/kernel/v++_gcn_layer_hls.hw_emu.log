@@ -1,0 +1,233 @@
+WARNING: [v++ 60-642] Invalid or deprecated parameter name: compiler.fallbackDdrRead
+INFO: [v++ 60-1306] Additional information associated with this v++ link can be found at:
+	Reports: /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/reports/link
+	Log files: /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/logs/link
+INFO: [v++ 60-1548] Creating build summary session with primary output /home/sumit.k/gnn-inference-on-alveo-u50/kernel/build/gcn_layer_hls.hw_emu.xclbin.link_summary, at Thu Nov 20 10:56:22 2025
+INFO: [v++ 60-1315] Creating rulecheck session with output '/home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/reports/link/v++_link_gcn_layer_hls.hw_emu_guidance.html', at Thu Nov 20 10:56:22 2025
+INFO: [v++ 60-895]   Target platform: /opt/xilinx/platforms/xilinx_u50_gen3x16_xdma_5_202210_1/xilinx_u50_gen3x16_xdma_5_202210_1.xpfm
+INFO: [v++ 60-1578]   This platform contains Xilinx Shell Archive '/opt/xilinx/platforms/xilinx_u50_gen3x16_xdma_5_202210_1/hw_emu/hw_emu.xsa'
+INFO: [v++ 74-78] Compiler Version string: 2025.1
+INFO: [v++ 60-1302] Platform 'xilinx_u50_gen3x16_xdma_5_202210_1.xpfm' has been explicitly enabled for this release.
+INFO: [v++ 60-629] Linking for hardware emulation target
+INFO: [v++ 60-423]   Target device: xilinx_u50_gen3x16_xdma_5_202210_1
+INFO: [v++ 60-1332] Run 'run_link' status: Not started
+INFO: [v++ 60-1443] [10:56:28] Run run_link: Step system_link: Started
+INFO: [v++ 60-1453] Command Line: system_link --xo /home/sumit.k/gnn-inference-on-alveo-u50/kernel/build/gcn_layer_hls.hw_emu.xo --config /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/syslinkConfig.ini --xpfm /opt/xilinx/platforms/xilinx_u50_gen3x16_xdma_5_202210_1/xilinx_u50_gen3x16_xdma_5_202210_1.xpfm --target emu --output_dir /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int --temp_dir /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/sys_link
+INFO: [v++ 60-1454] Run Directory: /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/run_link
+INFO: [SYSTEM_LINK 82-70] Extracting xo v3 file /home/sumit.k/gnn-inference-on-alveo-u50/kernel/build/gcn_layer_hls.hw_emu.xo
+INFO: [SYSTEM_LINK 82-53] Creating IP database /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/sys_link/_sysl/.cdb/xd_ip_db.xml
+INFO: [SYSTEM_LINK 82-38] [10:56:32] build_xd_ip_db started: /home/Xilinx/2025.1/Vitis/bin/build_xd_ip_db -ip_search 0  -sds-pf /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/sys_link/hw_emu.hpfm -clkid 0 -ip /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/sys_link/iprepo/xilinx_com_hls_gnn_1_0,gnn -o /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/sys_link/_sysl/.cdb/xd_ip_db.xml
+INFO: [SYSTEM_LINK 82-37] [10:56:33] build_xd_ip_db finished successfully
+Time (s): cpu = 00:00:00.61 ; elapsed = 00:00:00.78 . Memory (MB): peak = 498.820 ; gain = 0.000 ; free physical = 94671 ; free virtual = 126079
+INFO: [SYSTEM_LINK 82-51] Create system connectivity graph
+INFO: [SYSTEM_LINK 82-102] Applying explicit connections to the system connectivity graph: /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/sys_link/cfgraph/cfgen_cfgraph.xml
+INFO: [SYSTEM_LINK 82-38] [10:56:33] cfgen started: /home/Xilinx/2025.1/Vitis/bin/cfgen  -nk gnn:1:gnn_1 -sp gnn_1.h_in:HBM[0] -sp gnn_1.h_out:HBM[0] -sp gnn_1.w:HBM[1] -sp gnn_1.adj_values:HBM[2] -sp gnn_1.adj_col_indices:HBM[3] -sp gnn_1.adj_row_ptr:HBM[3] -dpa_mem_offload false -dpa_aie_mem_offload false -dmclkid 0 -r /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/sys_link/_sysl/.cdb/xd_ip_db.xml -o /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/sys_link/cfgraph/cfgen_cfgraph.xml
+INFO: [CFGEN 83-0] Kernel Specs: 
+INFO: [CFGEN 83-0]   kernel: gnn, num: 1  {gnn_1}
+INFO: [CFGEN 83-0] Port Specs: 
+INFO: [CFGEN 83-0]   kernel: gnn_1, k_port: h_in, sptag: HBM[0]
+INFO: [CFGEN 83-0]   kernel: gnn_1, k_port: h_out, sptag: HBM[0]
+INFO: [CFGEN 83-0]   kernel: gnn_1, k_port: w, sptag: HBM[1]
+INFO: [CFGEN 83-0]   kernel: gnn_1, k_port: adj_values, sptag: HBM[2]
+INFO: [CFGEN 83-0]   kernel: gnn_1, k_port: adj_col_indices, sptag: HBM[3]
+INFO: [CFGEN 83-0]   kernel: gnn_1, k_port: adj_row_ptr, sptag: HBM[3]
+INFO: [SYSTEM_LINK 82-37] [10:56:37] cfgen finished successfully
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 498.820 ; gain = 0.000 ; free physical = 94671 ; free virtual = 126079
+INFO: [SYSTEM_LINK 82-52] Create top-level block diagram
+INFO: [SYSTEM_LINK 82-38] [10:56:37] cf2bd started: /home/Xilinx/2025.1/Vitis/bin/cf2bd  --linux --trace_buffer 1024 --input_file /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/sys_link/cfgraph/cfgen_cfgraph.xml --ip_db /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/sys_link/_sysl/.cdb/xd_ip_db.xml --cf_name dr --working_dir /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/sys_link/_sysl/.xsd --temp_dir /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/sys_link --output_dir /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int
+INFO: [CF2BD 82-31] Launching cf2xd: cf2xd -linux -trace-buffer 1024 -i /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/sys_link/cfgraph/cfgen_cfgraph.xml -r /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/sys_link/_sysl/.cdb/xd_ip_db.xml -o dr.xml
+INFO: [CF2BD 82-28] cf2xd finished successfully
+INFO: [CF2BD 82-31] Launching cf_xsd: cf_xsd -disable-address-gen -dn dr -dp /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/sys_link/_sysl/.xsd
+rlwrap: warning: your $TERM is 'xterm-256color' but rlwrap couldn't find it in the terminfo database. Expect some problems.: Inappropriate ioctl for device
+INFO: [CF2BD 82-28] cf_xsd finished successfully
+INFO: [SYSTEM_LINK 82-37] [10:56:41] cf2bd finished successfully
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 498.820 ; gain = 0.000 ; free physical = 94669 ; free virtual = 126077
+INFO: [v++ 60-1441] [10:56:41] Run run_link: Step system_link: Completed
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 515.824 ; gain = 0.000 ; free physical = 94790 ; free virtual = 126185
+INFO: [v++ 60-1443] [10:56:41] Run run_link: Step cf2sw: Started
+INFO: [v++ 60-1453] Command Line: cf2sw -sdsl /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/sdsl.dat -rtd /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/cf2sw.rtd -nofilter /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/cf2sw_full.rtd -xclbin /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/xclbin_orig.xml -o /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/xclbin_orig.1.xml
+INFO: [v++ 60-1454] Run Directory: /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/run_link
+INFO: [v++ 60-1441] [10:56:45] Run run_link: Step cf2sw: Completed
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 515.824 ; gain = 0.000 ; free physical = 94792 ; free virtual = 126188
+INFO: [v++ 60-1443] [10:56:45] Run run_link: Step rtd2_system_diagram: Started
+INFO: [v++ 60-1453] Command Line: rtd2SystemDiagram
+INFO: [v++ 60-1454] Run Directory: /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/run_link
+INFO: [v++ 60-1441] [10:56:45] Run run_link: Step rtd2_system_diagram: Completed
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.28 . Memory (MB): peak = 515.824 ; gain = 0.000 ; free physical = 94779 ; free virtual = 126174
+INFO: [v++ 60-1443] [10:56:45] Run run_link: Step vpl: Started
+INFO: [v++ 60-1453] Command Line: vpl -t hw_emu -f xilinx_u50_gen3x16_xdma_5_202210_1 --remote_ip_cache /home/sumit.k/gnn-inference-on-alveo-u50/kernel/.ipcache --output_dir /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int --log_dir /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/logs/link --report_dir /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/reports/link --config /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/vplConfig.ini -k /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link --emulation_mode debug_waveform --no-info --iprepo /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/xo/ip_repo/xilinx_com_hls_gnn_1_0 --messageDb /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/run_link/vpl.pb /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/dr.bd.tcl
+INFO: [v++ 60-1454] Run Directory: /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/run_link
+
+****** vpl v2025.1 (64-bit)
+  **** SW Build 6137779 on 2025-05-21-18:10:03
+  **** Start of session at: Thu Nov 20 10:56:48 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+INFO: [VPL 60-839] Read in kernel information from file '/home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/kernel_info.dat'.
+WARNING: [VPL 60-642] Invalid or deprecated parameter name: compiler.fallbackDdrRead
+INFO: [VPL 74-78] Compiler Version string: 2025.1
+INFO: [VPL 60-423]   Target device: xilinx_u50_gen3x16_xdma_5_202210_1
+INFO: [VPL 60-1032] Extracting hardware platform to /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/vivado/vpl/.local/hw_platform
+[10:57:11] Run vpl: Step create_project: Started
+Creating Vivado project.
+[10:58:15] Run vpl: Step create_project: Completed
+[10:58:15] Run vpl: Step create_bd: Started
+[10:58:39] Run vpl: Step create_bd: Completed
+[10:58:39] Run vpl: Step update_bd: Started
+[10:58:40] Run vpl: Step update_bd: Completed
+[10:58:40] Run vpl: Step generate_target: Started
+[10:59:46] Run vpl: Step generate_target: Completed
+[10:59:46] Run vpl: Step config_hw_emu.gen_scripts: Started
+[11:00:53] Run vpl: Step config_hw_emu.gen_scripts: Completed
+[11:00:53] Run vpl: Step config_hw_emu.compile: Started
+[11:02:10] Run vpl: Step config_hw_emu.compile: Completed
+[11:02:10] Run vpl: Step config_hw_emu.elaborate: Started
+Check VPL, containing 2 checks, has run: 0 errors, 34 warning violations
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP pfm_top_axi_vip_0_0 is locked. The IP is locked for the following reason - * IP definition 'AXI Verification IP (1.1)' for IP 'pfm_top_axi_vip_0_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_psr_aclk_0 is locked. The IP is locked for the following reason - * IP definition 'Processor System Reset (5.0)' for IP 'bd_387c_psr_aclk_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_sarn_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Node (1.0)' for IP 'bd_387c_sarn_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_m00wn_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Node (1.0)' for IP 'bd_387c_m00wn_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_m01s2a_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect SC2AXI Bridge (1.0)' for IP 'bd_387c_m01s2a_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_s00mmu_0 is locked. The IP is locked for the following reason - * IP definition 'SC MMU (1.0)' for IP 'bd_387c_s00mmu_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_srn_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Node (1.0)' for IP 'bd_387c_srn_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_m01arn_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Node (1.0)' for IP 'bd_387c_m01arn_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_m01wn_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Node (1.0)' for IP 'bd_387c_m01wn_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_s00sic_0 is locked. The IP is locked for the following reason - * IP definition 'SC SI_CONVERTER (1.0)' for IP 'bd_387c_s00sic_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_swn_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Node (1.0)' for IP 'bd_387c_swn_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_awsw_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Switchboard (1.0)' for IP 'bd_387c_awsw_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_m00rn_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Node (1.0)' for IP 'bd_387c_m00rn_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_m01e_0 is locked. The IP is locked for the following reason - * IP definition 'SC EXIT (1.0)' for IP 'bd_387c_m01e_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_rsw_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Switchboard (1.0)' for IP 'bd_387c_rsw_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_bsw_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Switchboard (1.0)' for IP 'bd_387c_bsw_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_m00s2a_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect SC2AXI Bridge (1.0)' for IP 'bd_387c_m00s2a_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_m01rn_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Node (1.0)' for IP 'bd_387c_m01rn_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_s00a2s_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect AXI2SC Bridge (1.0)' for IP 'bd_387c_s00a2s_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP pfm_top_xbar_0 is locked. The IP is locked for the following reason - * IP definition 'AXI Crossbar (2.1)' for IP 'pfm_top_xbar_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_m00bn_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Node (1.0)' for IP 'bd_387c_m00bn_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_m01awn_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Node (1.0)' for IP 'bd_387c_m01awn_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_arsw_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Switchboard (1.0)' for IP 'bd_387c_arsw_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_m00e_0 is locked. The IP is locked for the following reason - * IP definition 'SC EXIT (1.0)' for IP 'bd_387c_m00e_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_m01bn_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Node (1.0)' for IP 'bd_387c_m01bn_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP pfm_top_connect_to_es_cu_0 is locked. The IP is locked for the following reason - * IP definition 'AXI Interconnect (2.1)' for IP 'pfm_top_connect_to_es_cu_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_m00arn_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Node (1.0)' for IP 'bd_387c_m00arn_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_sawn_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Node (1.0)' for IP 'bd_387c_sawn_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP pfm_top_smartconnect_0_0 is locked. The IP is locked for the following reason - * IP definition 'AXI SmartConnect (1.0)' for IP 'pfm_top_smartconnect_0_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+ * IP 'pfm_top_smartconnect_0_0' contains one or more locked subcores.* Target IP definition 'AXI SmartConnect (1.0)' requires a revision change. Please review the change log before upgrading the IP.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_m00awn_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Node (1.0)' for IP 'bd_387c_m00awn_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_sbn_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Node (1.0)' for IP 'bd_387c_sbn_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_one_0 is locked. The IP is locked for the following reason - * IP definition 'Constant (1.1)' for IP 'bd_387c_one_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_s00tr_0 is locked. The IP is locked for the following reason - * IP definition 'SC TRANSACTION_REGULATOR (1.0)' for IP 'bd_387c_s00tr_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+WARNING: [IP-LOCK-01] In your vivado project:prj for design:dr the IP bd_387c_wsw_0 is locked. The IP is locked for the following reason - * IP definition 'SmartConnect Switchboard (1.0)' for IP 'bd_387c_wsw_0' (customized with software release 2022.1) has a different revision in the IP Catalog.
+.
+[11:02:47] Run vpl: Step config_hw_emu.elaborate: Completed
+[11:02:48] Run vpl: FINISHED. Run Status: config_hw_emu.elaborate Complete!
+INFO: [v++ 60-1441] [11:02:53] Run run_link: Step vpl: Completed
+Time (s): cpu = 00:00:13 ; elapsed = 00:06:08 . Memory (MB): peak = 515.824 ; gain = 0.000 ; free physical = 94006 ; free virtual = 126086
+INFO: [v++ 60-1443] [11:02:53] Run run_link: Step rtdgen: Started
+INFO: [v++ 60-1453] Command Line: rtdgen
+INFO: [v++ 60-1454] Run Directory: /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/run_link
+INFO: [v++ 60-991] clock name 'kernel_clk/clk' (clock ID '0') is being mapped to clock name 'DATA_CLK' in the xclbin
+INFO: [v++ 60-1230] The compiler selected the following frequencies for the runtime controllable kernel clock(s) and scalable system clock(s): Kernel (DATA) clock: kernel_clk/clk = 300, Kernel (KERNEL) clock: kernel_clk/clk = 300
+INFO: [v++ 60-1453] Command Line: cf2sw -a /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/address_map.xml -sdsl /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/sdsl.dat -xclbin /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/xclbin_orig.xml -rtd /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/gcn_layer_hls.hw_emu.rtd -o /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/gcn_layer_hls.hw_emu.xml
+INFO: [v++ 60-1652] Cf2sw returned exit code: 0
+WARNING: [v++ 60-1455] Debuggable symbols are not generated successfully, clean up /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/consolidated.cf
+INFO: [v++ 60-1441] [11:03:00] Run run_link: Step rtdgen: Completed
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 515.824 ; gain = 0.000 ; free physical = 93973 ; free virtual = 126089
+INFO: [v++ 60-1443] [11:03:00] Run run_link: Step xclbinutil: Started
+INFO: [v++ 60-1453] Command Line: xclbinutil --add-section BITSTREAM:RAW:/home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/behav.xse --force --target hw_emu --key-value SYS:dfx_enable:false --add-section :JSON:/home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/gcn_layer_hls.hw_emu.rtd --add-section CLOCK_FREQ_TOPOLOGY:JSON:/home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/gcn_layer_hls.hw_emu_xml.rtd --add-section BUILD_METADATA:JSON:/home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/gcn_layer_hls.hw_emu_build.rtd --add-section EMBEDDED_METADATA:RAW:/home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/gcn_layer_hls.hw_emu.xml --add-section SYSTEM_METADATA:RAW:/home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/systemDiagramModelSlrBaseAddress.json --key-value SYS:PlatformVBNV:xilinx_u50_gen3x16_xdma_5_202210_1 --output /home/sumit.k/gnn-inference-on-alveo-u50/kernel/build/gcn_layer_hls.hw_emu.xclbin
+INFO: [v++ 60-1454] Run Directory: /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/run_link
+XRT Build Version: 2.14.384 (2022.2)
+       Build Date: 2022-12-09 00:55:08
+          Hash ID: 090bb050d570d2b668477c3bd0f979dc3a34b9db
+Creating a default 'in-memory' xclbin image.
+
+Section: 'BITSTREAM'(0) was successfully added.
+Size   : 37629873 bytes
+Format : RAW
+File   : '/home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/behav.xse'
+
+Section: 'MEM_TOPOLOGY'(6) was successfully added.
+Format : JSON
+File   : 'mem_topology'
+
+Section: 'IP_LAYOUT'(8) was successfully added.
+Format : JSON
+File   : 'ip_layout'
+
+Section: 'CONNECTIVITY'(7) was successfully added.
+Format : JSON
+File   : 'connectivity'
+
+Section: 'CLOCK_FREQ_TOPOLOGY'(11) was successfully added.
+Size   : 274 bytes
+Format : JSON
+File   : '/home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/gcn_layer_hls.hw_emu_xml.rtd'
+
+Section: 'BUILD_METADATA'(14) was successfully added.
+Size   : 3078 bytes
+Format : JSON
+File   : '/home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/gcn_layer_hls.hw_emu_build.rtd'
+
+Section: 'EMBEDDED_METADATA'(2) was successfully added.
+Size   : 20542 bytes
+Format : RAW
+File   : '/home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/gcn_layer_hls.hw_emu.xml'
+
+Section: 'SYSTEM_METADATA'(22) was successfully added.
+Size   : 21062 bytes
+Format : RAW
+File   : '/home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/int/systemDiagramModelSlrBaseAddress.json'
+Successfully wrote (37693296 bytes) to the output file: /home/sumit.k/gnn-inference-on-alveo-u50/kernel/build/gcn_layer_hls.hw_emu.xclbin
+Leaving xclbinutil.
+INFO: [v++ 60-1441] [11:03:01] Run run_link: Step xclbinutil: Completed
+Time (s): cpu = 00:00:00.22 ; elapsed = 00:00:00.69 . Memory (MB): peak = 515.824 ; gain = 0.000 ; free physical = 93935 ; free virtual = 126087
+INFO: [v++ 60-1443] [11:03:01] Run run_link: Step xclbinutilinfo: Started
+INFO: [v++ 60-1453] Command Line: xclbinutil --quiet --force --info /home/sumit.k/gnn-inference-on-alveo-u50/kernel/build/gcn_layer_hls.hw_emu.xclbin.info --input /home/sumit.k/gnn-inference-on-alveo-u50/kernel/build/gcn_layer_hls.hw_emu.xclbin
+INFO: [v++ 60-1454] Run Directory: /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/link/run_link
+INFO: [v++ 60-1441] [11:03:02] Run run_link: Step xclbinutilinfo: Completed
+Time (s): cpu = 00:00:00.59 ; elapsed = 00:00:00.68 . Memory (MB): peak = 515.824 ; gain = 0.000 ; free physical = 93934 ; free virtual = 126086
+INFO: [v++ 60-244] Generating system estimate report...
+INFO: [v++ 60-1092] Generated system estimate report: /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/reports/link/system_estimate_gcn_layer_hls.hw_emu.xtxt
+INFO: [v++ 60-586] Created build/gcn_layer_hls.hw_emu.xclbin
+INFO: [v++ 60-1307] Run completed. Additional information can be found in:
+	Guidance: /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/reports/link/v++_link_gcn_layer_hls.hw_emu_guidance.html
+	Steps Log File: /home/sumit.k/gnn-inference-on-alveo-u50/kernel/_x/logs/link/link.steps.log
+
+INFO: [v++ 60-2343] Use the Vitis Unified IDE to visualize and navigate the reports. Run the following command. 
+    vitis --analyze /home/sumit.k/gnn-inference-on-alveo-u50/kernel/build/gcn_layer_hls.hw_emu.xclbin.link_summary 
+INFO: [v++ 60-791] Total elapsed time: 0h 6m 42s
+INFO: [v++ 60-1653] Closing dispatch client.

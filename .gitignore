@@ -1,5 +1,12 @@
-build/
-.vscode/
-.Xil/
-kernel/_x/
-kernel/.Xil/
+ogbn-products/build/
+ogbn-products/.vscode/
+ogbn-products/.Xil/
+ogbn-products/kernel/_x/
+ogbn-products/kernel/.Xil/
+ogbn-products/data/ogbn-products/
+
+Cora/build/
+Cora/.vscode/
+Cora/.Xil/
+Cora/kernel/_x/
+Cora/kernel/.Xil/
