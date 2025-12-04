@@ -1,0 +1,51 @@
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:2399:5: warning: Added loop label VITIS_LOOP_676_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^~~
+    VITIS_LOOP_676_1: 
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:2399:5: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:2413:5: warning: Added loop label VITIS_LOOP_690_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^~~
+    VITIS_LOOP_690_1: 
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:2413:5: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:2427:5: warning: Added loop label VITIS_LOOP_704_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^~~
+    VITIS_LOOP_704_1: 
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:2427:5: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:4383:7: warning: Added loop label VITIS_LOOP_1248_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1248_1: 
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:4383:7: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:6399:49: error: Invalid Directive: for current device, ram_2p + uram is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=h_in_buf type=ram_2p impl=uram
+                                                ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:6413:9: warning: Added loop label VITIS_LOOP_66_1:   [xilinx-label-all-loops]
+        for (int j = 0; j < 1433; ++j) {
+        ^~~
+        VITIS_LOOP_66_1: 
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:6413:9: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:6420:9: warning: Added loop label VITIS_LOOP_73_2:   [xilinx-label-all-loops]
+        for (int j = 0; j < 16; ++j) {
+        ^~~
+        VITIS_LOOP_73_2: 
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:6420:9: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:6438:60: error: Invalid Directive: for current device, ram_2p + uram is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=aggregated_features type=ram_2p impl=uram
+                                                           ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:6444:2: warning: Added loop label VITIS_LOOP_97_3:   [xilinx-label-all-loops]
+ for (int j = 0; j < 1433; ++j) {
+ ^~~
+ VITIS_LOOP_97_3: 
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:6444:2: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:6503:5: warning: Added loop label VITIS_LOOP_156_1:   [xilinx-label-all-loops]
+    for (int i = 0; i < 100; ++i) {
+    ^~~
+    VITIS_LOOP_156_1: 
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:6503:5: note: FIX-IT applied suggested code changes
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:6504:9: warning: Added loop label VITIS_LOOP_157_2:   [xilinx-label-all-loops]
+        for (int j = 0; j < 16; ++j) {
+        ^~~
+        VITIS_LOOP_157_2: 
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp:6504:9: note: FIX-IT applied suggested code changes

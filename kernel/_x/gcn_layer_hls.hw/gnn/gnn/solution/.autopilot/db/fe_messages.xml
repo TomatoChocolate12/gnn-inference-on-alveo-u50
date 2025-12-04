@@ -1,0 +1,126 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:18:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_inputs" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:22:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_inputs" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:26:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_inputs" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:31:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_inputs" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:52:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=h_in_buf type=ram_2p impl=uram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:53:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=h_in_buf cyclic factor=UNROLL_FACTOR dim=2" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:58:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=w_buf complete dim=2" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:67:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:74:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:80:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:85:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:91:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=aggregated_features type=ram_2p impl=uram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:92:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=aggregated_features cyclic factor=UNROLL_FACTOR dim=2" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:96:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:107:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:113:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="factor=UNROLL_FACTOR" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:123:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:127:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=output_acc complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:138:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_gcn" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:158:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="store_result" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw/gnn/gnn.tcl:23:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=gnn" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:173:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = h_in offset = slave bundle = gmem0 depth=(2708 * 1433)" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:174:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = w offset = slave bundle = gmem1 depth=(1433 * 16)" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:175:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = adj_values offset = slave bundle = gmem2 depth=10556" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:176:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = adj_col_indices offset = slave bundle = gmem3 depth=10556" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:177:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = adj_row_ptr offset = slave bundle = gmem3 depth=(2708 + 1)" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:178:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = h_out offset = slave bundle = gmem0 depth=(2708 * 16)" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:180:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = h_in bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:181:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = w bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:182:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = adj_values bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:183:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = adj_col_indices bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:184:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = adj_row_ptr bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:185:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = h_out bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:186:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = return bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:196:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=h_in_stream depth=64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:197:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=w_stream depth=64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:198:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=adj_val_stream depth=64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:199:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=adj_col_stream depth=64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:200:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=adj_row_stream depth=64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:201:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=h_out_stream depth=64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:203:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="gnn" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

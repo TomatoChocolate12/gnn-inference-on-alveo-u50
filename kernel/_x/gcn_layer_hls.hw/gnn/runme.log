@@ -1,0 +1,63 @@
+
+*** Running loader
+    with args -exec vitis_hls -f gnn.tcl -messageDb vitis_hls.pb
+
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2025.1 (64-bit)
+  **** SW Build 6135595 on May 21 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Thu Nov 20 04:22:15 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source /home/Xilinx/2025.1/Vitis/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] For user 'yashas.b' on host 'node08' (Linux_x86_64 version 5.4.0-216-generic) on Thu Nov 20 04:22:16 UTC 2025
+INFO: [HLS 200-10] On os Ubuntu 20.04.6 LTS
+INFO: [HLS 200-10] In directory '/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw/gnn'
+WARNING: [HLS 200-2053] The vitis_hls executable is deprecated. Consider using vitis-run --mode hls --tcl
+Sourcing Tcl script 'gnn.tcl'
+INFO: [HLS 200-1510] Running: open_project gnn 
+WARNING: [HLS 200-2182] The 'gnn' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Creating and opening solution '/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw/gnn/gnn'.
+INFO: [HLS 200-1510] Running: set_top gnn 
+INFO: [HLS 200-1510] Running: add_files /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp -cflags  -I /home/yashas.b/gnn-inference-on-alveo-u50/kernel 
+INFO: [HLS 200-10] Adding design file '/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution -flow_target vitis solution 
+INFO: [HLS 200-10] Creating and opening solution '/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw/gnn/gnn/solution'.
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_latency=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_rtl -register_reset_num=3
+INFO: [HLS 200-1510] Running: set_part xcu50-fsvh2104-2-e 
+INFO: [HLS 200-1611] Setting target device to 'xcu50-fsvh2104-2-e'
+INFO: [HLS 200-1510] Running: create_clock -period 300.000000MHz -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3.333ns.
+INFO: [HLS 200-1510] Running: config_dataflow -strict_mode warning 
+INFO: [HLS 200-1510] Running: config_rtl -deadlock_detection sim 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_conservative_mode=1 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_addr64 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_auto_max_ports=0 
+INFO: [HLS 200-1510] Running: config_export -format xo -ipname gnn 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.62 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.71 seconds; current allocated memory: 445.348 MB.
+INFO: [HLS 200-10] Analyzing design file '/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.71 seconds. CPU system time: 0.66 seconds. Elapsed time: 4.49 seconds; current allocated memory: 448.918 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+INFO: [HLS 200-1995] There were 3,343 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw/gnn/gnn/solution/syn/report/csynth_design_size.rpt:2)
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:08:01; Allocated memory: 19.570 MB.
+1
+    while executing
+"catch {::vitis_hls_bin {*}$myArgs} err"
+    (procedure "::AP::command_distributor" line 96)
+    invoked from within
+"::AP::command_distributor 0"
+    (procedure "::AP::autosetupRun" line 29)
+    invoked from within
+"::AP::autosetupRun"
+INFO: [Common 17-344] 'source' was cancelled
+INFO: [HLS 200-112] Total CPU user time: 9.11 seconds. Total CPU system time: 2.67 seconds. Total elapsed time: 489.06 seconds; peak allocated memory: 464.918 MB.

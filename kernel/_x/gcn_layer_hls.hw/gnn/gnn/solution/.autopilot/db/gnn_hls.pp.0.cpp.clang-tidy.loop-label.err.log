@@ -1,0 +1,3 @@
+2 errors generated.
+Error while processing /home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw/gnn/gnn/solution/.autopilot/db/gnn_hls.pp.0.cpp.
+clang-tidy applied 9 of 9 suggested fixes.

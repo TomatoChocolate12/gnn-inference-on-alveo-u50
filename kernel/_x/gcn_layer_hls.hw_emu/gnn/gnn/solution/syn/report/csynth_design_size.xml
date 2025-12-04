@@ -1,0 +1,45 @@
+<design_size title="Design Size Report">
+    <item name="C-Synthesis has not completed!">
+        <item name="Array/Struct"/>
+        <item name="Performance"/>
+        <item name="HW Transforms"/>
+    </item>
+    <item name="Total Instructions per Compilation Phase">
+        <table>
+            <keys size="4">Phase, Step, Instructions, Description</keys>
+            <column name="Compile/Link">,     3343, After all functions are compiled and linked into a single design</column>
+            <column name="">, , </column>
+            <column name="Unroll/Inline">, , After user unroll and inline pragmas are applied</column>
+            <column name="">(1) unroll, 2467976 *, user unroll pragmas are applied</column>
+            <column name="">(2) simplification, 1399849 *, simplification of applied user unroll pragmas</column>
+            <column name="">(3) inline, 1363950 *, user inline pragmas are applied</column>
+            <column name="">(4) simplification, 1290753 *, simplification of applied user inline pragmas</column>
+            <column name="">, , </column>
+            <column name="Array/Struct">, pending, After user array partition and struct aggregate/disaggregate pragmas are applied</column>
+            <column name="Performance">, , After transformations are applied to meet performance pragma targets</column>
+            <column name="HW Transforms">, , After hardware transfomations</column>
+        </table>
+    </item>
+    <item name="Instructions per Function for each Compilation Phase">
+        <hiertable>
+            <header size="4" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline"/>
+            <rows>
+                <row id="0" col0="gnn" col1="gnn_hls.cpp:165" col2="3343" col3="1290753" col3_note="*">
+                    <row id="3" col0="load_inputs" col1="gnn_hls.cpp:4" col2="82" col3="36"/>
+                    <row id="1" col0="compute_gcn" col1="gnn_hls.cpp:37" col2="3159" col3="1290671"/>
+                    <row id="2" col0="store_result" col1="gnn_hls.cpp:152" col2="37" col3="16"/>
+                </row>
+            </rows>
+            <notes>
+                <note name="*" desc="Exceeded design size warning message threshold"/>
+            </notes>
+        </hiertable>
+    </item>
+    <item name="Design Size Message Settings">
+        <table>
+            <keys size="3">Message Setting, Value, Description</keys>
+            <column name="config_compile -design_size_maximum_warning">100000, Show a warning when total design instructions exceeds this value</column>
+        </table>
+    </item>
+</design_size>
+

@@ -1,0 +1,70 @@
+{
+  "0": {
+    "basicblocks": 13,
+    "calls": "1 2 3",
+    "control_depth": 0,
+    "def_use_depth": 2,
+    "file": "gnn_hls.cpp",
+    "fileloc": 165,
+    "instructions": 59,
+    "loads": {
+      "G": 6
+    },
+    "memory_accesses": 0,
+    "name": "gnn",
+    "stores": {
+      "G": 6
+    },
+    "total_instructions": 2467976
+  },
+  "1": {
+    "basicblocks": 17,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "gnn_hls.cpp",
+    "fileloc": 4,
+    "instructions": 49,
+    "loads": {
+      "L": 5
+    },
+    "memory_accesses": 10,
+    "name": "load_inputs",
+    "total_instructions": 49
+  },
+  "2": {
+    "basicblocks": 1138340,
+    "calls": "",
+    "control_depth": 5,
+    "def_use_depth": 19,
+    "file": "gnn_hls.cpp",
+    "fileloc": 37,
+    "instructions": 2466297,
+    "loads": {
+      "G": 30097,
+      "L": 68816
+    },
+    "memory_accesses": 197863,
+    "name": "compute_gcn",
+    "stores": {
+      "G": 7170,
+      "L": 91744
+    },
+    "total_instructions": 2467849
+  },
+  "3": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "gnn_hls.cpp",
+    "fileloc": 152,
+    "instructions": 19,
+    "memory_accesses": 2,
+    "name": "store_result",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 19
+  }
+}

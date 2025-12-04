@@ -1,0 +1,23 @@
+[
+  {
+    "functionLabel": "",
+    "functionName": "gnn",
+    "id": 0,
+    "ifcond": "",
+    "insert_position": "",
+    "label": "",
+    "pragma": {
+      "name": "TOP",
+      "option": [
+        {
+          "name": "name",
+          "value": "gnn"
+        }
+      ]
+    },
+    "slx": false,
+    "sourceFile": "/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw/gnn/gnn.tcl",
+    "sourceLine": 23,
+    "success": true
+  }
+]

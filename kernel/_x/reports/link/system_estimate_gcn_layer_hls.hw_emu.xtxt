@@ -1,0 +1,87 @@
+===============================================================================
+Version:    v++ v2025.1 (64-bit)
+Build:      SW Build 6137779 on 2025-05-21-18:10:03
+Copyright:  Copyright 1986-2025 Xilinx, Inc. All Rights Reserved.
+Created:    Thu Nov 20 06:41:29 2025
+===============================================================================
+
+-------------------------------------------------------------------------------
+Design Name:             gcn_layer_hls.hw_emu
+Target Device:           xilinx:u50:gen3x16_xdma_5:202210.1
+Target Clock:            300.000000MHz
+Total number of kernels: 1
+-------------------------------------------------------------------------------
+
+Kernel Summary
+Kernel Name  Type  Target              OpenCL Library        Compute Units
+-----------  ----  ------------------  --------------------  -------------
+gnn          c     fpga0:OCL_REGION_0  gcn_layer_hls.hw_emu  1
+
+
+-------------------------------------------------------------------------------
+OpenCL Binary:     gcn_layer_hls.hw_emu
+Kernels mapped to: clc_region
+
+Timing Information (MHz)
+Compute Unit  Kernel Name  Module Name                                     Target Frequency  Estimated Frequency
+------------  -----------  ----------------------------------------------  ----------------  -------------------
+gnn_1         gnn          entry_proc                                      300.300293        821.692688
+gnn_1         gnn          load_inputs_Pipeline_load_h_in                  300.300293        411.015198
+gnn_1         gnn          load_inputs_Pipeline_load_w                     300.300293        411.015198
+gnn_1         gnn          load_inputs_Pipeline_load_adj                   300.300293        411.015198
+gnn_1         gnn          load_inputs_Pipeline_load_row                   300.300293        411.015198
+gnn_1         gnn          load_inputs                                     300.300293        411.015198
+gnn_1         gnn          compute_gcn_Pipeline_read_h_in_VITIS_LOOP_66_1  300.300293        450.24765
+gnn_1         gnn          compute_gcn_Pipeline_read_w_VITIS_LOOP_73_2     300.300293        420.875427
+gnn_1         gnn          compute_gcn_Pipeline_read_adj                   300.300293        526.315796
+gnn_1         gnn          compute_gcn_Pipeline_read_row                   300.300293        521.920654
+gnn_1         gnn          compute_gcn_Pipeline_init_agg                   300.300293        450.24765
+gnn_1         gnn          compute_gcn_Pipeline_spmm_neighbors             300.300293        354.987579
+gnn_1         gnn          compute_gcn_Outline_spmm_nodes                  300.300293        354.987579
+gnn_1         gnn          compute_gcn_Pipeline_gemm_nodes                 300.300293        411.522614
+gnn_1         gnn          compute_gcn                                     300.300293        354.987579
+gnn_1         gnn          store_result                                    300.300293        411.015198
+gnn_1         gnn          gnn                                             300.300293        354.987579
+
+Latency Information
+Compute Unit  Kernel Name  Module Name                                     Start Interval  Best (cycles)  Avg (cycles)  Worst (cycles)  Best (absolute)  Avg (absolute)  Worst (absolute)
+------------  -----------  ----------------------------------------------  --------------  -------------  ------------  --------------  ---------------  --------------  ----------------
+gnn_1         gnn          entry_proc                                      0               0              0             0               0 ns             0 ns            0 ns
+gnn_1         gnn          load_inputs_Pipeline_load_h_in                  513             515            515           515             1.716 us         1.716 us        1.716 us
+gnn_1         gnn          load_inputs_Pipeline_load_w                     513             515            515           515             1.716 us         1.716 us        1.716 us
+gnn_1         gnn          load_inputs_Pipeline_load_adj                   33              35             35            35              0.117 us         0.117 us        0.117 us
+gnn_1         gnn          load_inputs_Pipeline_load_row                   18              92             92            92              0.307 us         0.307 us        0.307 us
+gnn_1         gnn          load_inputs                                     1235            1235           1235          1235            4.116 us         4.116 us        4.116 us
+gnn_1         gnn          compute_gcn_Pipeline_read_h_in_VITIS_LOOP_66_1  513             515            515           515             1.716 us         1.716 us        1.716 us
+gnn_1         gnn          compute_gcn_Pipeline_read_w_VITIS_LOOP_73_2     513             514            514           514             1.713 us         1.713 us        1.713 us
+gnn_1         gnn          compute_gcn_Pipeline_read_adj                   33              34             34            34              0.113 us         0.113 us        0.113 us
+gnn_1         gnn          compute_gcn_Pipeline_read_row                   18              19             19            19              63.327 ns        63.327 ns       63.327 ns
+gnn_1         gnn          compute_gcn_Pipeline_init_agg                   17              18             18            18              59.994 ns        59.994 ns       59.994 ns
+gnn_1         gnn          compute_gcn_Pipeline_spmm_neighbors             0               undef          undef         undef           undef            undef           undef
+gnn_1         gnn          compute_gcn_Outline_spmm_nodes                  undef           undef          undef         undef           undef            undef           undef
+gnn_1         gnn          compute_gcn_Pipeline_gemm_nodes                 272             297            297           297             0.990 us         0.990 us        0.990 us
+gnn_1         gnn          compute_gcn                                     undef           undef          undef         undef           undef            undef           undef
+gnn_1         gnn          store_result                                    257             328            328           328             1.093 us         1.093 us        1.093 us
+gnn_1         gnn          gnn                                             undef           undef          undef         undef           undef            undef           undef
+
+Area Information
+Compute Unit  Kernel Name  Module Name                                     FF     LUT     DSP  BRAM  URAM
+------------  -----------  ----------------------------------------------  -----  ------  ---  ----  ----
+gnn_1         gnn          entry_proc                                      3      29      0    0     0
+gnn_1         gnn          load_inputs_Pipeline_load_h_in                  1027   132     0    0     0
+gnn_1         gnn          load_inputs_Pipeline_load_w                     1027   132     0    0     0
+gnn_1         gnn          load_inputs_Pipeline_load_adj                   1520   148     0    0     0
+gnn_1         gnn          load_inputs_Pipeline_load_row                   826    2369    0    0     0
+gnn_1         gnn          load_inputs                                     5235   3689    0    0     0
+gnn_1         gnn          compute_gcn_Pipeline_read_h_in_VITIS_LOOP_66_1  53     154     0    0     0
+gnn_1         gnn          compute_gcn_Pipeline_read_w_VITIS_LOOP_73_2     24     151     0    0     0
+gnn_1         gnn          compute_gcn_Pipeline_read_adj                   15     87      0    0     0
+gnn_1         gnn          compute_gcn_Pipeline_read_row                   13     73      0    0     0
+gnn_1         gnn          compute_gcn_Pipeline_init_agg                   13     63      0    0     0
+gnn_1         gnn          compute_gcn_Pipeline_spmm_neighbors             2417   5972    0    0     0
+gnn_1         gnn          compute_gcn_Outline_spmm_nodes                  3139   6096    0    0     0
+gnn_1         gnn          compute_gcn_Pipeline_gemm_nodes                 49617  92438   0    0     0
+gnn_1         gnn          compute_gcn                                     61404  106058  0    0     64
+gnn_1         gnn          store_result                                    1577   933     0    0     0
+gnn_1         gnn          gnn                                             78837  121091  0    32    64
+-------------------------------------------------------------------------------

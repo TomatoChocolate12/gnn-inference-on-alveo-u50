@@ -1,0 +1,124 @@
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:18:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_inputs_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:22:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_inputs_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:26:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_inputs_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:31:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_inputs_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:52:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=variable=h_in_buf type=ram_2p impl=uram_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=h_in_buf type=ram_2p impl=uram
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:53:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=variable=h_in_buf cyclic factor=UNROLL_FACTOR dim=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS ARRAY_PARTITION variable=h_in_buf cyclic factor=UNROLL_FACTOR dim=2
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:58:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=variable=w_buf complete dim=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS ARRAY_PARTITION variable=w_buf complete dim=2
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:67:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:74:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:80:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:85:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:91:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=variable=aggregated_features type=ram_2p impl=uram_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=aggregated_features type=ram_2p impl=uram
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:92:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=variable=aggregated_features cyclic factor=UNROLL_FACTOR dim=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS ARRAY_PARTITION variable=aggregated_features cyclic factor=UNROLL_FACTOR dim=2
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:96:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:107:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:113:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=factor=UNROLL_FACTOR_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS UNROLL factor=UNROLL_FACTOR
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:123:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:127:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=variable=output_acc complete_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS ARRAY_PARTITION variable=output_acc complete
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:138:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_gcn_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS UNROLL
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:158:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=store_result_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw/gnn/gnn.tcl:23:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=top_XLX_SEP_ PragmaContext=directive_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=name=gnn_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLSDIRECTIVE TOP name=gnn
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:173:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=m_axi port = h_in offset = slave bundle = gmem0 depth=(2708 * 1433)_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE m_axi port = h_in offset = slave bundle = gmem0 depth=(2708 * 1433)
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:174:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=m_axi port = w offset = slave bundle = gmem1 depth=(1433 * 16)_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE m_axi port = w offset = slave bundle = gmem1 depth=(1433 * 16)
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:175:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=m_axi port = adj_values offset = slave bundle = gmem2 depth=10556_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE m_axi port = adj_values offset = slave bundle = gmem2 depth=10556
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:176:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=m_axi port = adj_col_indices offset = slave bundle = gmem3 depth=10556_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE m_axi port = adj_col_indices offset = slave bundle = gmem3 depth=10556
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:177:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=m_axi port = adj_row_ptr offset = slave bundle = gmem3 depth=(2708 + 1)_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE m_axi port = adj_row_ptr offset = slave bundle = gmem3 depth=(2708 + 1)
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:178:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=m_axi port = h_out offset = slave bundle = gmem0 depth=(2708 * 16)_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE m_axi port = h_out offset = slave bundle = gmem0 depth=(2708 * 16)
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:180:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=s_axilite port = h_in bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port = h_in bundle = control
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:181:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=s_axilite port = w bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port = w bundle = control
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:182:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=s_axilite port = adj_values bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port = adj_values bundle = control
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:183:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=s_axilite port = adj_col_indices bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port = adj_col_indices bundle = control
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:184:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=s_axilite port = adj_row_ptr bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port = adj_row_ptr bundle = control
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:185:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=s_axilite port = h_out bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port = h_out bundle = control
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:186:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=s_axilite port = return bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port = return bundle = control
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:196:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=variable=h_in_stream depth=64_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable=h_in_stream depth=64
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:197:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=variable=w_stream depth=64_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable=w_stream depth=64
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:198:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=variable=adj_val_stream depth=64_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable=adj_val_stream depth=64
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:199:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=variable=adj_col_stream depth=64_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable=adj_col_stream depth=64
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:200:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=variable=adj_row_stream depth=64_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable=adj_row_stream depth=64
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:201:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=variable=h_out_stream depth=64_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable=h_out_stream depth=64
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:203:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=dataflow_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=gnn_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS dataflow
+        ^
+41 warnings generated.

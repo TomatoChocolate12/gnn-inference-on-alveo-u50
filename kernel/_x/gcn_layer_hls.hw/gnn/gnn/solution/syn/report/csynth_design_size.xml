@@ -1,0 +1,38 @@
+<design_size title="Design Size Report">
+    <item name="C-Synthesis has not completed!">
+        <item name="Unroll/Inline"/>
+        <item name="Array/Struct"/>
+        <item name="Performance"/>
+        <item name="HW Transforms"/>
+    </item>
+    <item name="Total Instructions per Compilation Phase">
+        <table>
+            <keys size="3">Phase, Instructions, Description</keys>
+            <column name="Compile/Link">3343, After all functions are compiled and linked into a single design</column>
+            <column name="Unroll/Inline">pending, After user unroll and inline pragmas are applied</column>
+            <column name="Array/Struct">, After user array partition and struct aggregate/disaggregate pragmas are applied</column>
+            <column name="Performance">, After transformations are applied to meet performance pragma targets</column>
+            <column name="HW Transforms">, After hardware transfomations</column>
+        </table>
+    </item>
+    <item name="Instructions per Function for each Compilation Phase">
+        <hiertable>
+            <header size="3" col0="Function" col1="Location" col2="Compile/Link"/>
+            <rows>
+                <row id="0" col0="gnn" col1="gnn_hls.cpp:165" col2="3343">
+                    <row id="3" col0="load_inputs" col1="gnn_hls.cpp:4" col2="82"/>
+                    <row id="1" col0="compute_gcn" col1="gnn_hls.cpp:37" col2="3159"/>
+                    <row id="2" col0="store_result" col1="gnn_hls.cpp:152" col2="37"/>
+                </row>
+            </rows>
+            <notes/>
+        </hiertable>
+    </item>
+    <item name="Design Size Message Settings">
+        <table>
+            <keys size="3">Message Setting, Value, Description</keys>
+            <column name="config_compile -design_size_maximum_warning">100000, Show a warning when total design instructions exceeds this value</column>
+        </table>
+    </item>
+</design_size>
+

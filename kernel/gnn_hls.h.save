@@ -1,0 +1,45 @@
+#ifndef GCN_HLS_H
+#define GCN_HLS_H
+
+#ifdef __SYNTHESIS__   // defined by HLS toolchain during synthesis
+  #include <hls_stream.h>
+#else
+  // Host fallback: minimal shim that mimics the tiny interface you need.
+  // Only add what host code actually uses.
+  #include <queue>
+  template<typename T>
+  class hls_stream {
+  public:
+    void write(const T &v) { q.push(v); }
+    bool empty() const { return q.empty(); }
+    T read() { T v = q.front(); q.pop(); return v; }
+    size_t size() const { return q.size(); }
+  private:
+    std::queue<T> q;
+  };
+#endif
+
+
+// --- Define Kernel Constants ---
+// These MUST match the host code and testbench
+const int NUM_NODES = 2708;
+const int NUM_EDGES_NNZ = 10556; // Non-zero entries in adj matrix
+const int IN_FEATURES = 1433;
+const int OUT_FEATURES = 16;
+typedef float hls_dtype;
+
+// --- Top-Level Kernel Function DECLARATION ---
+extern "C" {
+void gnn(
+    // Global Memory Interfaces (Pointers)
+    const hls_dtype* h_in,           // Input features
+    const hls_dtype* w,              // Weights
+    const hls_dtype* adj_values,     // CSR adjacency values
+    const int* adj_col_indices,      // CSR adjacency col indices
+    const int* adj_row_ptr,          // CSR adjacency row ptr
+    hls_dtype* h_out                 // Output features
+);
+} // extern "C"
+
+#endif // GCN_HLS_H
+

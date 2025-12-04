@@ -1,0 +1,35 @@
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2025.1 (64-bit)
+Tool Version Limit: 2025.05
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+==============================================================
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_latency=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_rtl -register_reset_num=3
+INFO: [HLS 200-1510] Running: set_part xcu50-fsvh2104-2-e 
+INFO: [HLS 200-1611] Setting target device to 'xcu50-fsvh2104-2-e'
+INFO: [HLS 200-1510] Running: create_clock -period 300.000000MHz -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3.333ns.
+INFO: [HLS 200-1510] Running: config_dataflow -strict_mode warning 
+INFO: [HLS 200-1510] Running: config_rtl -deadlock_detection sim 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_conservative_mode=1 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_addr64 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_auto_max_ports=0 
+INFO: [HLS 200-1510] Running: config_export -format xo -ipname gnn 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.72 seconds. CPU system time: 0.09 seconds. Elapsed time: 0.86 seconds; current allocated memory: 445.387 MB.
+INFO: [HLS 200-10] Analyzing design file '/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 4.82 seconds. CPU system time: 0.77 seconds. Elapsed time: 5.75 seconds; current allocated memory: 448.973 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+INFO: [HLS 200-1995] There were 3,343 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 2,467,976 instructions in the design after the 'Unroll/Inline' phase of compilation. See the Design Size Report for more details (/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 1,399,849 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 1,363,950 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 1,290,753 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (/home/yashas.b/gnn-inference-on-alveo-u50/kernel/_x/gcn_layer_hls.hw_emu/gnn/gnn/solution/syn/report/csynth_design_size.rpt:2)
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 05:43:21; Allocated memory: 19.586 MB.
+INFO: [Common 17-344] 'source' was cancelled

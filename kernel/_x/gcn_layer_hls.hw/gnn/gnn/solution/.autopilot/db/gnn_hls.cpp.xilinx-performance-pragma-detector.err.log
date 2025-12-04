@@ -1,0 +1,74 @@
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:52:53: error: Invalid Directive: for current device, ram_2p + uram is invalid combination for BIND_STORAGE's option 'type + impl'
+    #pragma HLS BIND_STORAGE variable=h_in_buf type=ram_2p impl=uram
+                                                    ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:91:64: error: Invalid Directive: for current device, ram_2p + uram is invalid combination for BIND_STORAGE's option 'type + impl'
+    #pragma HLS BIND_STORAGE variable=aggregated_features type=ram_2p impl=uram
+                                                               ^
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:1:
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.h:4:
+In file included from /home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream.h:12:
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:127:9: error: use of undeclared identifier '__fpga_fifo_push'
+        __fpga_fifo_push(&V, &din);
+        ^
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:82:9: note: in instantiation of member function 'hls::stream<ap_fixed<16, 6, AP_RND, AP_SAT, 0>, 0>::write' requested here
+        write(wdata);
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:19:21: note: in instantiation of member function 'hls::stream<ap_fixed<16, 6, AP_RND, AP_SAT, 0>, 0>::operator<<' requested here
+        h_in_stream << h_in[i];
+                    ^
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:1:
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.h:4:
+In file included from /home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream.h:12:
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:127:9: error: use of undeclared identifier '__fpga_fifo_push'
+        __fpga_fifo_push(&V, &din);
+        ^
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:82:9: note: in instantiation of member function 'hls::stream<int, 0>::write' requested here
+        write(wdata);
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:28:24: note: in instantiation of member function 'hls::stream<int, 0>::operator<<' requested here
+        adj_col_stream << adj_col_indices[i];
+                       ^
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:1:
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.h:4:
+In file included from /home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream.h:12:
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:98:9: error: use of undeclared identifier '__fpga_fifo_pop'
+        __fpga_fifo_pop(&V, &dout);
+        ^
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:109:9: note: in instantiation of member function 'hls::stream<ap_fixed<16, 6, AP_RND, AP_SAT, 0>, 0>::read' requested here
+        read(tmp);
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:68:42: note: in instantiation of member function 'hls::stream<ap_fixed<16, 6, AP_RND, AP_SAT, 0>, 0>::read' requested here
+            h_in_buf[i][j] = h_in_stream.read();
+                                         ^
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:1:
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.h:4:
+In file included from /home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream.h:12:
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:98:9: error: use of undeclared identifier '__fpga_fifo_pop'
+        __fpga_fifo_pop(&V, &dout);
+        ^
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:109:9: note: in instantiation of member function 'hls::stream<int, 0>::read' requested here
+        read(tmp);
+        ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:82:41: note: in instantiation of member function 'hls::stream<int, 0>::read' requested here
+        adj_col_buf[i] = adj_col_stream.read();
+                                        ^
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:1:
+In file included from /home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.h:5:
+In file included from /home/Xilinx/2025.1/Vitis/common/technology/autopilot/ap_fixed.h:10:
+In file included from /home/Xilinx/2025.1/Vitis/common/technology/autopilot/etc/ap_fixed_base.h:16:
+In file included from /home/Xilinx/2025.1/Vitis/common/technology/autopilot/ap_int.h:11:
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/etc/ap_int_base.h:1209:12: error: use of undeclared identifier '__fpga_ctlz'
+    return __fpga_ctlz(this->V);
+           ^
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/etc/ap_fixed_base.h:1050:17: note: in instantiation of member function 'ap_int_base<16, false>::countLeadingZeros' requested here
+    int l = tmp.countLeadingZeros(); ///< number of leading zeros.
+                ^
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/etc/ap_fixed_base.h:1663:3: note: in instantiation of member function 'ap_fixed_base<16, 6, true, AP_RND, AP_SAT, 0>::to_double' requested here
+  DOUBLE_CMP_AF(>)
+  ^
+/home/Xilinx/2025.1/Vitis/common/technology/autopilot/etc/ap_fixed_base.h:1661:67: note: expanded from macro 'DOUBLE_CMP_AF'
+  AP_INLINE AP_NODEBUG bool operator Sym(double d) const { return to_double() Sym d; }
+                                                                  ^
+/home/yashas.b/gnn-inference-on-alveo-u50/kernel/gnn_hls.cpp:146:34: note: in instantiation of member function 'ap_fixed_base<16, 6, true, AP_RND, AP_SAT, 0>::operator>' requested here
+            h_out_stream << (val > 0.0 ? val : (hls_dtype)0.0);
+                                 ^

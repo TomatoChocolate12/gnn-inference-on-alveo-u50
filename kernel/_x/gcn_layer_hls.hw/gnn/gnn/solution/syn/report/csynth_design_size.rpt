@@ -1,0 +1,35 @@
+================================================================
+== Design Size Report
+================================================================
+
+* C-Synthesis has not completed!
+
+* Total Instructions per Compilation Phase
++---------------+--------------+----------------------------------------------------------------------------------+
+| Phase         | Instructions | Description                                                                      |
++---------------+--------------+----------------------------------------------------------------------------------+
+| Compile/Link  | 3,343        | After all functions are compiled and linked into a single design                 |
+| Unroll/Inline | pending      | After user unroll and inline pragmas are applied                                 |
+| Array/Struct  |              | After user array partition and struct aggregate/disaggregate pragmas are applied |
+| Performance   |              | After transformations are applied to meet performance pragma targets             |
+| HW Transforms |              | After hardware transfomations                                                    |
++---------------+--------------+----------------------------------------------------------------------------------+
+
+* Instructions per Function for each Compilation Phase
++-----------------+-----------------+--------------+
+| Function        | Location        | Compile/Link |
++-----------------+-----------------+--------------+
+| + gnn           | gnn_hls.cpp:165 | 3,343        |
+|    load_inputs  | gnn_hls.cpp:4   |   82         |
+|    compute_gcn  | gnn_hls.cpp:37  | 3,159        |
+|    store_result | gnn_hls.cpp:152 |   37         |
++-----------------+-----------------+--------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+
