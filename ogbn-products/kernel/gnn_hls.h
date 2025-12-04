@@ -5,49 +5,47 @@
 #include <ap_fixed.h> 
 
 // =========================================================
-// CONFIGURATION SWITCH
+// CONFIGURATION
 // =========================================================
 #if defined(__XRT_EMULATION__) || defined(COSIM_TEST) || defined(TEST_MODE)
-    #define ENABLE_TEST_MODE // Active for sw_emu, hw_emu, and hls co-sim
+    #define ENABLE_TEST_MODE
 #endif
 
-// =========================================================
-// GRAPH DIMENSIONS (Using #define for Pragma Compatibility)
-// =========================================================
+// Architecture Constants
+#define NUM_PE 8             // 8 Parallel Engines to saturate HBM and DSPs
+#define VECTOR_SIZE 50       // Process 50 features per cycle (High DSP usage)
+#define URAM_BUFFER_SIZE 4096 // Store 4096 nodes results before writing (High URAM usage)
+
+// Dataset Constants
 #ifdef ENABLE_TEST_MODE
-    // --- TINY DATASET (Fast Simulation) ---
     #define NUM_NODES 16
     #define NUM_EDGES_NNZ 32
     #define IN_FEATURES 32
     #define OUT_FEATURES 16
     
-    // Derived Depths for Pragmas
-    #define DEPTH_H_IN (100 * 1433)
-    #define DEPTH_W (1433 * 16)
-    #define DEPTH_ADJ_VAL 200
-    #define DEPTH_ADJ_COL 200
-    #define DEPTH_ADJ_ROW (100 + 1)
-    #define DEPTH_H_OUT (100 * 16)
-
+    // Depths
+    #define DEPTH_H_IN (16*32)
+    #define DEPTH_W (32*16)
+    #define DEPTH_ADJ_VAL 32
+    #define DEPTH_ADJ_COL 32
+    #define DEPTH_ADJ_ROW (16+1)
+    #define DEPTH_H_OUT (16*16)
 #else
-    // --- FULL OGBN-PRODUCTS DATASET (Hardware Implementation) ---
-    // ogbn-products: ~2.4M nodes, ~61.9M edges, 100 features, 47 classes
+    // OGBN-PRODUCTS
     #define NUM_NODES 2449029
     #define NUM_EDGES_NNZ 61859140
     #define IN_FEATURES 100
-    #define OUT_FEATURES 47  // num_classes for ogbn-products
+    #define OUT_FEATURES 47 // Products has 47 classes
 
-    // Derived Depths for Pragmas
-    // (Calculated: 2449029 * 100 = 244902900)
-    #define DEPTH_H_IN (2449029 * 100)
-    #define DEPTH_W (100 * 47)
-    #define DEPTH_ADJ_VAL 61859140
-    #define DEPTH_ADJ_COL 61859140
-    #define DEPTH_ADJ_ROW (2449029 + 1)
-    #define DEPTH_H_OUT (2449029 * 47)
+    // Depths
+    #define DEPTH_H_IN (NUM_NODES * IN_FEATURES)
+    #define DEPTH_W (IN_FEATURES * OUT_FEATURES)
+    #define DEPTH_ADJ_VAL NUM_EDGES_NNZ
+    #define DEPTH_ADJ_COL NUM_EDGES_NNZ
+    #define DEPTH_ADJ_ROW (NUM_NODES + 1)
+    #define DEPTH_H_OUT (NUM_NODES * OUT_FEATURES)
 #endif
 
-// Data Type Definition
 typedef ap_fixed<16, 6, AP_RND, AP_SAT> hls_dtype;
 
 extern "C" {

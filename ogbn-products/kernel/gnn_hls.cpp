@@ -1,276 +1,133 @@
 #include "gnn_hls.h"
 
-// Tripcount helpers for latency estimation
-static const int TRIP_TOTAL_NODE_FEATURES = NUM_NODES * IN_FEATURES;
-static const int TRIP_TOTAL_WEIGHTS = IN_FEATURES * OUT_FEATURES;
-static const int TRIP_TOTAL_EDGES = NUM_EDGES_NNZ;
-static const int TRIP_TOTAL_ROWS = NUM_NODES + 1;
-
-// Stage 1: load_inputs
-static void load_inputs(
+// =========================================================================
+// COMPUTE ENGINE
+// This function acts as one "Core". We instantiate 8 of these.
+// =========================================================================
+static void compute_engine(
+    int pe_id,
     const hls_dtype* h_in,
-    const hls_dtype* w,
-    const hls_dtype* adj_values,
-    const int* adj_col_indices,
     const int* adj_row_ptr,
-    hls::stream<hls_dtype>& h_in_stream,
-    hls::stream<hls_dtype>& w_stream,
-    hls::stream<hls_dtype>& adj_val_stream,
-    hls::stream<int>& adj_col_stream,
-    hls::stream<int>& adj_row_stream
-) {
-    // Reads are sequential, no complex logic needed here
-    load_h_in: for (int i = 0; i < NUM_NODES * IN_FEATURES; ++i) {
-        #pragma HLS LOOP_TRIPCOUNT min=TRIP_TOTAL_NODE_FEATURES max=TRIP_TOTAL_NODE_FEATURES
-        #pragma HLS PIPELINE II=1
-        h_in_stream << h_in[i];
-    }
-    load_w: for (int i = 0; i < IN_FEATURES * OUT_FEATURES; ++i) {
-        #pragma HLS LOOP_TRIPCOUNT min=TRIP_TOTAL_WEIGHTS max=TRIP_TOTAL_WEIGHTS
-        #pragma HLS PIPELINE II=1
-        w_stream << w[i];
-    }
-    load_adj: for (int i = 0; i < NUM_EDGES_NNZ; ++i) {
-        #pragma HLS LOOP_TRIPCOUNT min=TRIP_TOTAL_EDGES max=TRIP_TOTAL_EDGES
-        #pragma HLS PIPELINE II=1
-        adj_val_stream << adj_values[i];
-        adj_col_stream << adj_col_indices[i];
-    }
-    load_row: for (int i = 0; i < NUM_NODES + 1; ++i) {
-        #pragma HLS LOOP_TRIPCOUNT min=TRIP_TOTAL_ROWS max=TRIP_TOTAL_ROWS
-        #pragma HLS PIPELINE II=1
-        adj_row_stream << adj_row_ptr[i];
-    }
-}
-
-// Stage 2: compute_gcn
-static void compute_gcn(
-    hls::stream<hls_dtype>& h_in_stream,
-    hls::stream<hls_dtype>& w_stream,
-    hls::stream<hls_dtype>& adj_val_stream,
-    hls::stream<int>& adj_col_stream,
-    hls::stream<int>& adj_row_stream,
-    hls::stream<hls_dtype>& h_out_stream
-) {
-    // Partition factor for parallel processing - REDUCED to fit resources
-    const int FEATURE_UNROLL = 4;        // Further reduced to fit URAM/LUT/DSP
-    const int NODE_PARALLEL = 1;         // Reduced to 1 to minimize resource usage
-    const int GEMM_FIN_UNROLL = 2;      // Further reduced to fit DSP
-    const int NODE_TILE_COUNT = (NUM_NODES + NODE_PARALLEL - 1) / NODE_PARALLEL;
-    const int GEMM_TILE_COUNT = (IN_FEATURES + GEMM_FIN_UNROLL - 1) / GEMM_FIN_UNROLL;
-    
-    // --- Buffers ---
-    // Use URAM for large buffers without partitioning to minimize URAM usage
-    // Partitioning large arrays creates too many URAM banks
-    static hls_dtype h_in_buf[NUM_NODES][IN_FEATURES];
-    #pragma HLS BIND_STORAGE variable=h_in_buf type=ram_2p impl=uram
-    // Removed partitioning to reduce URAM usage - access will be sequential
-
-    // Weights buffer: Use minimal cyclic partitioning only for GEMM parallelization
-    static hls_dtype w_buf[IN_FEATURES][OUT_FEATURES];
-    #pragma HLS ARRAY_PARTITION variable=w_buf cyclic factor=FEATURE_UNROLL dim=2
-
-    static hls_dtype adj_val_buf[NUM_EDGES_NNZ];
-    static int adj_col_buf[NUM_EDGES_NNZ];
-    static int adj_row_buf[NUM_NODES + 1];
-
-    // --- READ PHASE ---
-    read_h_in: for (int i = 0; i < NUM_NODES; ++i) {
-        #pragma HLS LOOP_TRIPCOUNT min=NUM_NODES max=NUM_NODES
-        for (int j = 0; j < IN_FEATURES; ++j) {
-            #pragma HLS LOOP_TRIPCOUNT min=IN_FEATURES max=IN_FEATURES
-            #pragma HLS PIPELINE II=1
-            h_in_buf[i][j] = h_in_stream.read();
-        }
-    }
-    
-    read_w: for (int i = 0; i < IN_FEATURES; ++i) {
-        #pragma HLS LOOP_TRIPCOUNT min=IN_FEATURES max=IN_FEATURES
-        for (int j = 0; j < OUT_FEATURES; ++j) {
-            #pragma HLS LOOP_TRIPCOUNT min=OUT_FEATURES max=OUT_FEATURES
-            #pragma HLS PIPELINE II=1
-            w_buf[i][j] = w_stream.read();
-        }
-    }
-    
-    read_adj: for (int i = 0; i < NUM_EDGES_NNZ; ++i) {
-        #pragma HLS LOOP_TRIPCOUNT min=TRIP_TOTAL_EDGES max=TRIP_TOTAL_EDGES
-        #pragma HLS PIPELINE II=1
-        adj_val_buf[i] = adj_val_stream.read();
-        adj_col_buf[i] = adj_col_stream.read();
-    }
-    read_row: for (int i = 0; i < NUM_NODES + 1; ++i) {
-        #pragma HLS LOOP_TRIPCOUNT min=TRIP_TOTAL_ROWS max=TRIP_TOTAL_ROWS
-        #pragma HLS PIPELINE II=1
-        adj_row_buf[i] = adj_row_stream.read();
-    }
-
-    // --- SPMM (Aggregation) ---
-    static hls_dtype aggregated_features[NUM_NODES][IN_FEATURES];
-    #pragma HLS BIND_STORAGE variable=aggregated_features type=ram_2p impl=uram
-    // Removed partitioning to reduce URAM usage - access will be sequential
-
-    
-    // Initialize to 0
-    init_agg: for (int i = 0; i < NUM_NODES; ++i) {
-        #pragma HLS LOOP_TRIPCOUNT min=NUM_NODES max=NUM_NODES
-        #pragma HLS PIPELINE II=1
-        for (int j = 0; j < IN_FEATURES; ++j) {
-            #pragma HLS LOOP_TRIPCOUNT min=IN_FEATURES max=IN_FEATURES
-            aggregated_features[i][j] = 0;
-        }
-    }
-
-    // Process nodes in blocks of NODE_PARALLEL
-    spmm_nodes_tile: for (int i_base = 0; i_base < NUM_NODES; i_base += NODE_PARALLEL) {
-        #pragma HLS LOOP_TRIPCOUNT min=NODE_TILE_COUNT max=NODE_TILE_COUNT
-        #pragma HLS PIPELINE II=1
-        // For each node in the block, get start/end
-        int start_idx[NODE_PARALLEL];
-        int end_idx[NODE_PARALLEL];
-        // Read row pointers for all nodes in block
-        for (int np = 0; np < NODE_PARALLEL; ++np) {
-            #pragma HLS LOOP_TRIPCOUNT min=NODE_PARALLEL max=NODE_PARALLEL
-            #pragma HLS UNROLL
-            int idx = i_base + np;
-            if (idx < NUM_NODES) {
-                start_idx[np] = adj_row_buf[idx];
-                end_idx[np] = adj_row_buf[idx + 1];
-            } else {
-                start_idx[np] = 0;
-                end_idx[np] = 0;
-            }
-        }
-
-        // For each neighbor slot k we must iterate per node separately
-        // We'll process each node's neighbor list independently (replicated logic)
-        // Replicated neighbor loops (one per PE)
-        for (int np = 0; np < NODE_PARALLEL; ++np) {
-            #pragma HLS LOOP_TRIPCOUNT min=NODE_PARALLEL max=NODE_PARALLEL
-            #pragma HLS UNROLL
-            int node_i = i_base + np;
-            int s = start_idx[np];
-            int e = end_idx[np];
-
-            spmm_neighbors_pe: for (int k = s; k < e; ++k) {
-                #pragma HLS LOOP_TRIPCOUNT min=0 max=TRIP_TOTAL_EDGES
-                #pragma HLS PIPELINE II=1
-                int neighbor_idx = adj_col_buf[k];
-                hls_dtype norm_val  = adj_val_buf[k];
-
-                // Feature-parallel update: pipelined loop with minimal unrolling
-                spmm_features_unroll: for (int f = 0; f < IN_FEATURES; ++f) {
-                    #pragma HLS LOOP_TRIPCOUNT min=IN_FEATURES max=IN_FEATURES
-                    #pragma HLS PIPELINE II=1
-                    #pragma HLS RESOURCE variable=norm_val core=Mul_DSP
-                    hls_dtype feat = h_in_buf[neighbor_idx][f];
-                    aggregated_features[node_i][f] += norm_val * feat;
-                }
-            }
-        }
-    }
-
-    // spmm_nodes: for (int i = 0; i < NUM_NODES; ++i) {
-    //     int start_idx = adj_row_buf[i];
-    //     int end_idx = adj_row_buf[i + 1];
-
-    //     spmm_neighbors: for(int k = start_idx; k < end_idx; ++k){
-    //         #pragma HLS PIPELINE II=1
-    //         int neighbor_idx = adj_col_buf[k];
-    //         hls_dtype norm_val = adj_val_buf[k];
-
-    //         // Parallel update of features
-    //         spmm_features: for(int f = 0; f < IN_FEATURES; ++f) {
-    //             #pragma HLS UNROLL factor=UNROLL_FACTOR
-    //             hls_dtype feat = h_in_buf[neighbor_idx][f];
-    //             aggregated_features[i][f] += norm_val * feat;
-    //         }
-    //     }
-    // }
-
-    // --- GEMM (Dense Layer) + ReLU ---
-    // Optimized Loop Order: Input Stationary
-
-    // GEMM: tile input features by GEMM_FIN_UNROLL
-    gemm_nodes_tile: for (int i = 0; i < NUM_NODES; ++i) {
-        #pragma HLS LOOP_TRIPCOUNT min=NUM_NODES max=NUM_NODES
-        #pragma HLS PIPELINE II=1
-        hls_dtype output_acc[OUT_FEATURES];
-        // Use cyclic partitioning instead of complete to reduce resources
-        #pragma HLS ARRAY_PARTITION variable=output_acc cyclic factor=FEATURE_UNROLL
-        // initialize
-        init_acc: for (int fo = 0; fo < OUT_FEATURES; ++fo) {
-            #pragma HLS LOOP_TRIPCOUNT min=OUT_FEATURES max=OUT_FEATURES
-            output_acc[fo] = 0;
-        }
-
-        // Tile over input features
-        for (int f_in_base = 0; f_in_base < IN_FEATURES; f_in_base += GEMM_FIN_UNROLL) {
-            #pragma HLS LOOP_TRIPCOUNT min=GEMM_TILE_COUNT max=GEMM_TILE_COUNT
-            for (int fi = 0; fi < GEMM_FIN_UNROLL; ++fi) {
-                #pragma HLS LOOP_TRIPCOUNT min=GEMM_FIN_UNROLL max=GEMM_FIN_UNROLL
-                #pragma HLS PIPELINE II=1
-                int fidx = f_in_base + fi;
-                if (fidx < IN_FEATURES) {
-                    hls_dtype in_val = aggregated_features[i][fidx];
-                    // Pipelined loop instead of unrolling to reduce DSP usage
-                    gemm_broadcast_unroll: for (int f_out = 0; f_out < OUT_FEATURES; ++f_out) {
-                        #pragma HLS LOOP_TRIPCOUNT min=OUT_FEATURES max=OUT_FEATURES
-                        #pragma HLS PIPELINE II=1
-                        #pragma HLS RESOURCE variable=in_val core=Mul_DSP
-                        output_acc[f_out] += in_val * w_buf[fidx][f_out];
-                    }
-                }
-            }
-        }
-        // ReLU and write out
-        gemm_write: for (int f_out = 0; f_out < OUT_FEATURES; ++f_out) {
-            #pragma HLS LOOP_TRIPCOUNT min=OUT_FEATURES max=OUT_FEATURES
-            hls_dtype val = output_acc[f_out];
-            h_out_stream << (val > 0.0 ? val : (hls_dtype)0.0);
-        }
-    }
-
-    // gemm_nodes: for (int i = 0; i < NUM_NODES; ++i) {
-    //     #pragma HLS PIPELINE II=1
-
-    //     // Temporary accumulator registers for one node's output
-    //     hls_dtype output_acc[OUT_FEATURES];
-    //     #pragma HLS ARRAY_PARTITION variable=output_acc complete
-
-    //     // Reset Accumulators
-    //     init_acc: for(int fo = 0; fo < OUT_FEATURES; ++fo) output_acc[fo] = 0;
-
-    //     // Loop over Input Features
-    //     gemm_mult: for (int f_in = 0; f_in < IN_FEATURES; ++f_in) {
-    //         hls_dtype in_val = aggregated_features[i][f_in];
-            
-    //         // Broadcast input feature to all output weights in parallel
-    //         gemm_broadcast: for (int f_out = 0; f_out < OUT_FEATURES; ++f_out) {
-    //             #pragma HLS UNROLL
-    //             output_acc[f_out] += in_val * w_buf[f_in][f_out];
-    //         }
-    //     }
-
-    //     // ReLU and Stream Out
-    //     gemm_write: for (int f_out = 0; f_out < OUT_FEATURES; ++f_out) {
-    //         hls_dtype val = output_acc[f_out];
-    //         h_out_stream << (val > 0.0 ? val : (hls_dtype)0.0);
-    //     }
-    // }
-}
-
-// Stage 3: store_result
-static void store_result(
-    hls::stream<hls_dtype>& h_out_stream,
+    const int* adj_col_indices,
+    const hls_dtype* adj_values,
+    const hls_dtype w_local[IN_FEATURES][OUT_FEATURES],
     hls_dtype* h_out
 ) {
-    for (int i = 0; i < NUM_NODES; ++i) {
-        #pragma HLS LOOP_TRIPCOUNT min=NUM_NODES max=NUM_NODES
-        for (int j = 0; j < OUT_FEATURES; ++j) {
-            #pragma HLS LOOP_TRIPCOUNT min=OUT_FEATURES max=OUT_FEATURES
+    // -------------------------------------------------------------
+    // URAM OUTPUT BUFFER (Maximizing URAM Usage)
+    // -------------------------------------------------------------
+    // Each PE buffers a large chunk of results before writing to HBM.
+    // This improves write efficiency significantly.
+    static hls_dtype out_buf[URAM_BUFFER_SIZE][OUT_FEATURES];
+    #pragma HLS BIND_STORAGE variable=out_buf type=ram_2p impl=uram
+    #pragma HLS ARRAY_PARTITION variable=out_buf cyclic factor=16 dim=2
+
+    // Loop over nodes assigned to this PE
+    // We stride by NUM_PE (e.g., Node 0, 8, 16...)
+    int buf_ptr = 0;
+    int write_offset = 0; // Tracks where the current URAM buffer starts in global memory
+
+    // Force loop flattening off to keep hierarchy clean for reporting
+    // #pragma HLS LOOP_FLATTEN off
+
+    node_loop_pe: for(int i = pe_id; i < NUM_NODES; i += NUM_PE) {
+        #pragma HLS LOOP_TRIPCOUNT min=300000 max=300000
+        
+        // 1. Fetch Neighbor Range
+        int start_idx = adj_row_ptr[i];
+        int end_idx   = adj_row_ptr[i + 1];
+
+        // 2. Local Accumulator (Register/LUTRAM)
+        // Partitioned to allow SIMD math
+        hls_dtype agg_features[IN_FEATURES];
+        #pragma HLS ARRAY_PARTITION variable=agg_features complete
+
+        init_agg: for(int f=0; f<IN_FEATURES; ++f) {
+            #pragma HLS UNROLL
+            agg_features[f] = 0;
+        }
+
+        // 3. SpMM: Process Neighbors
+        neighbors_loop: for (int k = start_idx; k < end_idx; ++k) {
+            #pragma HLS LOOP_TRIPCOUNT min=1 max=100 avg=25
+            
+            int neighbor_idx = adj_col_indices[k];
+            hls_dtype edge_val = adj_values[k];
+
+            // Manual Burst Read Hint
+            const hls_dtype* neighbor_vec_ptr = h_in + (neighbor_idx * IN_FEATURES);
+            
+            // VECTORIZED MAC LOOP (Maximizing DSP Usage)
+            // We unroll by VECTOR_SIZE (50). Since IN_FEATURES=100, this loops twice.
+            // This consumes ~50 DSPs per PE * 8 PEs = 400 DSPs active.
+            features_loop: for (int f = 0; f < IN_FEATURES; ++f) {
+                #pragma HLS PIPELINE II=1
+                #pragma HLS UNROLL factor=VECTOR_SIZE
+                hls_dtype feat_val = neighbor_vec_ptr[f];
+                agg_features[f] += edge_val * feat_val;
+            }
+        }
+
+        // 4. GEMM: Dense Layer
+        hls_dtype res_acc[OUT_FEATURES];
+        #pragma HLS ARRAY_PARTITION variable=res_acc complete
+
+        gemm_outer: for (int fo = 0; fo < OUT_FEATURES; ++fo) {
             #pragma HLS PIPELINE II=1
-            h_out[i * OUT_FEATURES + j] = h_out_stream.read();
+            hls_dtype sum = 0;
+            // Fully unrolled dot product
+            gemm_inner: for (int fi = 0; fi < IN_FEATURES; ++fi) {
+                #pragma HLS UNROLL
+                sum += agg_features[fi] * w_local[fi][fo];
+            }
+            res_acc[fo] = (sum > 0) ? sum : (hls_dtype)0;
+        }
+
+        // 5. Buffer Result in URAM
+        store_uram: for(int fo = 0; fo < OUT_FEATURES; ++fo) {
+            #pragma HLS UNROLL
+            out_buf[buf_ptr][fo] = res_acc[fo];
+        }
+        buf_ptr++;
+
+        // 6. Flush URAM to Global Memory if Full
+        if (buf_ptr == URAM_BUFFER_SIZE) {
+            // Burst write logic
+            int global_start_node = i - (URAM_BUFFER_SIZE - 1) * NUM_PE;
+            
+            // We need to calculate exact address, tricky with stride.
+            // Simplified: Write individually or bulk if reordered.
+            // With stride, we can't do one giant burst for all, 
+            // but we can burst per-node logic efficiently here.
+            
+            flush_loop: for(int b=0; b<URAM_BUFFER_SIZE; ++b) {
+                int curr_node = global_start_node + (b * NUM_PE);
+                // Burst write one node's output (OUT_FEATURES size)
+                for(int fo = 0; fo < OUT_FEATURES; ++fo) {
+                    #pragma HLS PIPELINE II=1
+                    h_out[curr_node * OUT_FEATURES + fo] = out_buf[b][fo];
+                }
+            }
+            buf_ptr = 0;
+        }
+    }
+
+    // Flush remaining
+    if (buf_ptr > 0) {
+        int global_start_node = NUM_NODES - ((NUM_NODES % NUM_PE) > pe_id ? (NUM_NODES/NUM_PE) + 1 : (NUM_NODES/NUM_PE)) * NUM_PE + (NUM_PE * (NUM_NODES/NUM_PE - buf_ptr)); // Simplified approximate flushing
+        // Note: Exact flush index logic for strided access is complex. 
+        // For HLS, simple loop is safer:
+        
+        // Re-calculate the specific nodes we buffered
+        int processed_count = (NUM_NODES - pe_id + NUM_PE - 1) / NUM_PE;
+        int remaining_start_idx = (processed_count - buf_ptr) * NUM_PE + pe_id;
+        
+        flush_rem: for(int b=0; b<buf_ptr; ++b) {
+            int curr_node = remaining_start_idx + (b * NUM_PE);
+            for(int fo = 0; fo < OUT_FEATURES; ++fo) {
+                #pragma HLS PIPELINE II=1
+                h_out[curr_node * OUT_FEATURES + fo] = out_buf[b][fo];
+            }
         }
     }
 }
@@ -284,12 +141,14 @@ void gnn(
     const int* adj_row_ptr,
     hls_dtype* h_out
 ) {
-    #pragma HLS INTERFACE m_axi port = h_in offset = slave bundle = gmem0  depth=DEPTH_H_IN
-    #pragma HLS INTERFACE m_axi port = w offset = slave bundle = gmem1 depth=DEPTH_W
-    #pragma HLS INTERFACE m_axi port = adj_values offset = slave bundle = gmem2 depth=DEPTH_ADJ_VAL
-    #pragma HLS INTERFACE m_axi port = adj_col_indices offset = slave bundle = gmem3 depth=DEPTH_ADJ_COL
-    #pragma HLS INTERFACE m_axi port = adj_row_ptr offset = slave bundle = gmem3 depth=DEPTH_ADJ_ROW
-    #pragma HLS INTERFACE m_axi port = h_out offset = slave bundle = gmem0 depth=DEPTH_H_OUT
+    // Interface Definitions
+    // We utilize max_read_burst_length to optimize the HBM random access
+    #pragma HLS INTERFACE m_axi port = h_in            offset = slave bundle = gmem0 depth = DEPTH_H_IN max_read_burst_length=256 num_read_outstanding=32
+    #pragma HLS INTERFACE m_axi port = w               offset = slave bundle = gmem1 depth = DEPTH_W
+    #pragma HLS INTERFACE m_axi port = adj_values      offset = slave bundle = gmem2 depth = DEPTH_ADJ_VAL num_read_outstanding=32
+    #pragma HLS INTERFACE m_axi port = adj_col_indices offset = slave bundle = gmem3 depth = DEPTH_ADJ_COL num_read_outstanding=32
+    #pragma HLS INTERFACE m_axi port = adj_row_ptr     offset = slave bundle = gmem3 depth = DEPTH_ADJ_ROW
+    #pragma HLS INTERFACE m_axi port = h_out           offset = slave bundle = gmem0 depth = DEPTH_H_OUT
 
     #pragma HLS INTERFACE s_axilite port = h_in bundle = control
     #pragma HLS INTERFACE s_axilite port = w bundle = control
@@ -299,33 +158,37 @@ void gnn(
     #pragma HLS INTERFACE s_axilite port = h_out bundle = control
     #pragma HLS INTERFACE s_axilite port = return bundle = control
 
-    // FIX: Explicit Stream Depths to prevent deadlocks
-    static hls::stream<hls_dtype> h_in_stream("h_in_stream");
-    static hls::stream<hls_dtype> w_stream("w_stream");
-    static hls::stream<hls_dtype> adj_val_stream("adj_val_stream");
-    static hls::stream<int> adj_col_stream("adj_col_stream");
-    static hls::stream<int> adj_row_stream("adj_row_stream");
-    static hls::stream<hls_dtype> h_out_stream("h_out_stream");
+    // -------------------------------------------------------------
+    // WEIGHT REPLICATION (Maximizing BRAM Usage)
+    // -------------------------------------------------------------
+    // We create a local copy of weights for EVERY PE.
+    // 8 PEs * (100*47*2B) = ~75KB (Small, but uses BRAM ports efficiently)
+    static hls_dtype w_local[NUM_PE][IN_FEATURES][OUT_FEATURES];
+    #pragma HLS ARRAY_PARTITION variable=w_local complete dim=1 // Separate BRAM for each PE
+    #pragma HLS ARRAY_PARTITION variable=w_local complete dim=3 // Allow parallel read of output cols
 
-    #pragma HLS STREAM variable=h_in_stream depth=64
-    #pragma HLS STREAM variable=w_stream depth=64
-    #pragma HLS STREAM variable=adj_val_stream depth=64
-    #pragma HLS STREAM variable=adj_col_stream depth=64
-    #pragma HLS STREAM variable=adj_row_stream depth=64
-    #pragma HLS STREAM variable=h_out_stream depth=64
+    // Load Weights once
+    load_w_i: for(int i=0; i<IN_FEATURES; ++i) {
+        load_w_j: for(int j=0; j<OUT_FEATURES; ++j) {
+            #pragma HLS PIPELINE II=1
+            hls_dtype val = w[i * OUT_FEATURES + j];
+            // Broadcast to all PEs
+            for(int p=0; p<NUM_PE; ++p) {
+                #pragma HLS UNROLL
+                w_local[p][i][j] = val;
+            }
+        }
+    }
 
-    #pragma HLS dataflow
-
-    load_inputs(
-        h_in, w, adj_values, adj_col_indices, adj_row_ptr,
-        h_in_stream, w_stream, adj_val_stream, adj_col_stream, adj_row_stream
-    );
-    compute_gcn(
-        h_in_stream, w_stream, adj_val_stream, adj_col_stream, adj_row_stream,
-        h_out_stream
-    );
-    store_result(
-        h_out_stream, h_out
-    );
+    // -------------------------------------------------------------
+    // LAUNCH PARALLEL ENGINES
+    // -------------------------------------------------------------
+    // The 'unroll' here creates 8 physical copies of the compute_engine logic.
+    // They run concurrently.
+    
+    pe_loop: for(int p=0; p<NUM_PE; ++p) {
+        #pragma HLS UNROLL
+        compute_engine(p, h_in, adj_row_ptr, adj_col_indices, adj_values, w_local[p], h_out);
+    }
 }
 }
